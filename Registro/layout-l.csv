@@ -1,0 +1,44 @@
+001 a 001|Registro|Identificação do Registro |9
+002 a 006|Agencia|Agência do Beneficiário na UNICRED|9
+007 a 007|DigitoAgencia|Dígito da Agência|X
+008 a 019|Conta|Conta Corrente|9
+020 a 020|ContaDigito|Dígito da Conta Corrente|X
+021 a 021|Zero1|Zero|9
+022 a 024|Carteira|Código da Carteira|9
+025 a 037|Contrato|Número do Contrato|9
+038 a 062|Controle|Nº Controle do Participante (Uso da empresa)|X
+063 a 065|Banco|Código do Banco na Câmara de Compensação|9
+066 a 067|Zeros2|Zeros|9
+068 a 082|NossoNumero|Identificação do Título no Banco (Nosso número no correspondente)|9
+083 a 092|Desconto|Desconto Bonificação por dia|V
+093 a 093|Filler1|Filler|9
+094 a 105|Filler2|Brancos|X
+106 a 106|Filler3|Zeros|9
+107 a 108|Branco1|Branco|X
+109 a 110|Ocorrencia|Identificação ocorrência|9
+111 a 120|Documento|Nº do Documento (Seu número)|9
+121 a 126|Vencimento|Data do Vencimento do Título|D
+127 a 139|ValorDocumento|Valor do Título|V
+140 a 142|Filler4|Filler|9
+143 a 147|AgenciaDep|Agência Depositária|9
+148 a 149|Filler5|Filler|9
+150 a 150|Filler6|Filler|X
+151 a 156|DataDocumento|Data da emissão do Título|D
+157 a 158|Instrucao1|1ª instrução|9
+159 a 160|Instrucao2|2ª instrução|9
+161 a 173|ValorMora|Valor a ser cobrado por dia de atraso|9
+174 a 179|DataDesconto|Data Limite P/Concessão de Desconto|D
+180 a 192|ValorDesconto|Valor do Desconto|V
+193 a 203|NossoNumero2|Nosso Número na UNICRED|9
+204 a 205|Zeros4|Zeros|9
+206 a 218|ValorAbatimento|Valor do Abatimento a ser concedido|V
+219 a 220|SacadoDocumentoTipo|Identificação do Tipo de Inscrição do Pagador|9
+221 a 234|SacadoDocumento|Nº Inscrição do Pagador|9
+235 a 274|Nome|Nome do Pagador|X
+275 a 314|Endereco|Endereço Completo|X
+315 a 326|Bairro|Bairro do Pagador|X
+327 a 334|CEP|CEP do Pagador|9
+335 a 354|Cidade|Cidade do Pagador|X
+355 a 356|UF|Estado do Pagador|X
+357 a 394|Avalista|Pagador/Avalista|X
+395 a 400|Sequencial|Nº Sequencial do Registro 006 Nº Sequencial do Registro|9

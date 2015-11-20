@@ -1,0 +1,219 @@
+﻿Controle
+Banco Código do Banco na Compensação *G001
+1 3 
+Num 
+&#145;104&#146; 
+Lote 
+Lote de Serviço *G002
+4 7 
+Num 
+
+Registro 
+Tipo de Registro *G003
+8 8 
+Num 
+1
+Serviço
+Operação Tipo de Operação *G028
+9 9 
+Alfa 
+
+Serviço 
+Tipo de Serviço *G025
+10 11 
+Num 
+
+CNAB 
+Uso Exclusivo FEBRABAN/CNAB *&#146;G004
+12 13 
+Num &#145;
+
+Cód. Mov. 
+Código de Movimento Remessa *C004
+16 17 
+Num 
+
+Agência
+Código Agência Mantenedora da Conta *G008
+18 22 
+Num 
+
+DV 
+Dígito Verificador da Agência *G009
+23 23 
+Alfa 
+
+Código Cedente 
+Código do Convênio no Banco *G007
+24 29 
+Num
+
+Uso Exclusivo 
+Uso Exclusivo da CAIXA 
+30 37 
+Num 
+
+Uso Exclusivo 
+Uso Exclusivo da CAIXA 
+38 40 
+Num 
+
+Carteira
+Modalidade da Carteira *G069
+41 42 
+Num 
+
+NossoNumero
+Identificação do Título no Banco *G069
+43 57 
+Num 
+
+Carteira
+Código da Carteira *C006
+58 58 
+Num 
+
+Forma
+Título no Banco *C007
+59 59 
+Num 
+
+TipoDocumento 
+Tipo de Documento *C008
+60 60 
+Alfa 
+
+Emissão Bloqueto 
+Identificação da Emissão do Bloqueto *C009
+61 61 
+Num 
+
+Distribuição Bloqueto
+Identificação da Entrega do Bloqueto *C010
+62 62 
+Alfa 
+
+NumeroDocumento 
+(Seu Nº) Número do Documento de Cobrança *C011
+63 73 
+Alfa 
+
+Uso Exclusivo 
+Uso Exclusivo CAIXA 
+74 77 
+Alfa 
+
+Vencimento 
+Data de Vencimento do Título *C012
+78 85 
+Data
+
+Valor do Título 
+Valor Nominal do Título *G070
+86 100 
+Valor 
+
+Ag. Cobradora 
+Agência Encarregada da Cobrança *C014
+101 105 
+Num 
+
+DV Dígito 
+Verificador da Agência *C014
+106 106 
+Alfa 
+
+Espécie de Título 
+Espécie do Título *C015
+107 108 
+Num 
+
+Aceite 
+Identific. de Título Aceito/Não Aceito *C016
+109 109 
+Alfa 
+
+Data 
+Emissão do Título Data da Emissão do Título *G071
+110 117 
+Data
+
+Juros
+Cód. Juros Mora Código do Juros de Mora *C018
+118 118 
+Num 
+
+Data 
+Juros Mora Data do Juros de Mora *C019
+119 126 
+Data
+
+Juros 
+Mora Juros de Mora por Dia/Taxa *C020
+127 141 
+Num
+
+Cód. Desc.
+1 Código do Desconto 1 *C021
+142 142 
+Num 
+
+Data Desc. 1 
+Data do Desconto 1 *C022
+143 150 
+Num 
+
+Desconto 1 
+Valor/Percentual a ser Concedido *C023
+151 165 
+Num 
+
+Vlr IOF 
+Valor do IOF a ser Recolhido *C024
+166 180 
+Valor
+
+Vlr Abatimento 
+Valor do Abatimento *G045
+181 195 
+Valor
+
+Uso Empresa Cedente 
+Identificação do Título na Empresa *G072
+196 220 
+Alfa 
+
+Código p/ Protesto 
+Código para Protesto *C026
+221 221 
+Num 
+
+Prazo p/ Protesto 
+Número de Dias para Protesto *C027
+222 223 
+Num 
+
+Código p/ Baixa/Devolução 
+Código para Baixa/Devolução *C028
+224 224 
+Num 
+
+Prazo p/ Baixa/Devolução 
+Número de Dias para Baixa/Devolução *C029
+225 227 
+Alfa 
+
+Código da Moeda 
+Código da Moeda *G065
+228 229 
+Num
+
+Uso Exclusivo 
+Uso Exclusivo CAIXA 
+230 239 
+Num 
+
+CNAB 
+Uso Exclusivo FEBRABAN/CNAB G004
+240 240 
+Alfa
