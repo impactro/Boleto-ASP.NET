@@ -30,10 +30,12 @@ public class BoletoImagem2 : IHttpHandler, System.Web.SessionState.IRequiresSess
 
             // Obtem o numero do boleto
             string cID = context.Request["id"];
-            
+            if (cID == null)
+                context.Response.Redirect("GeraVariosImagem2.aspx"); // veja neste exemplo como gerar vários boletos em imagem de uma só vez
+
             // Obtem o objeto do boleto da sessão ou do cache
             // Para usar sessão é necessário que na classe tenha a chamada a interface 'System.Web.SessionState.IRequiresSessionState'
-            BoletoInfo Boleto = (BoletoInfo)context.Session[cID]; 
+            BoletoInfo Boleto = (BoletoInfo)context.Session[cID];
             //BoletoInfo Boleto = (BoletoInfo)context.Cache[cID];
 
             // Calcula os dados do boleto
