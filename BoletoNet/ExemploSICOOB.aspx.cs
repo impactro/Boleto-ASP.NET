@@ -14,15 +14,20 @@ public partial class ExemploSICOOB : System.Web.UI.Page
         CedenteInfo Cedente = new CedenteInfo();
         Cedente.Cedente = "Impactro Informática (teste)";
         Cedente.Banco = "756-0";
-        Cedente.Agencia = "1234";
-        Cedente.Conta = "56789";
+        // A "agência" e "conta" não são usado para nada no boleto, o que vale é o "Convenio", "Modalidade", e "Carteira"
+        // Cedente.Agencia = "1234";           
+        // Cedente.Conta = "56789";
         // ATENÇÃO: Geralmebte o banco informa a Carteira da segunte forma: 16/019
-        // Para o gerador isso sognifica sempre CARTEIRA/MODALIDADE, e ambas com apenas 2 digitos
-        // E estes devem ser configurados separadamente com oindicado abaixo neste exemplo
+        // Para o gerador isso significa sempre CARTEIRA/MODALIDADE, e ambas com apenas 2 digitos
+        // E estes devem ser configurados separadamente como indicado abaixo neste exemplo
         Cedente.Carteira = "1";
-        Cedente.Convenio = "4071";      // Código da Cooperativa
-        Cedente.CodCedente = "217018";   //Código do Cliente
-        Cedente.Modalidade = "02";
+        Cedente.Modalidade = "02"; 
+        Cedente.Convenio = "4071";          // Código da Cooperativa (será exibido como valor para a "agência"
+        Cedente.CodCedente = "217018";      // Código do Cliente
+
+        // Para saber quais são os campos fundamentais para a geração do boleto, 
+        // veja a assinatura da função estatica que calcula o campo livre do banco em questão
+        // Neste caso: Banco_SICOOB.CampoLivre(...);
 
         // Definição dos dados do sacado
         SacadoInfo Sacado = new SacadoInfo();
