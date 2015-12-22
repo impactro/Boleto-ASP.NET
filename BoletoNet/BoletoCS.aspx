@@ -8,7 +8,7 @@
 		.BolCell { font-size: 7pt; font-family: Verdana; }
 	    .BolField { font-weight: bold; font-size: 12px; font-family: arial; }
         /* alguns banos estão exigindo o boleto em tamanhos mais específicos, por hora a unica solução é aplicar um zoom proporcional */
-        .BoletoWeb { zoom: 0.9; margin-bottom: 15px; margin-top: 15px; }
+        /* .BoletoWeb { zoom: 0.9; margin-bottom: 15px; margin-top: 15px; } */
 	</style>
 </head>
 <body>
