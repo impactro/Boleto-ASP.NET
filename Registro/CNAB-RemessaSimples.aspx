@@ -6,7 +6,7 @@
 <head runat="server">
     <title>Remessa</title>
     <style type="text/css">
-	    .BolCell { FONT-SIZE: 7pt; FONT-FAMILY: Verdana }
+	    .BolCell { font-size: 7pt; FONT-FAMILY: Verdana }
 	    .BolField { FONT-WEIGHT: bold; FONT-SIZE: 8pt; FONT-FAMILY: Verdana }
 	    .BoletoWeb { page-break-after: always; margin-bottom: 100px; }
         @media print {

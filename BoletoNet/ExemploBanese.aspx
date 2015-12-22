@@ -5,7 +5,7 @@
 <head id="Head1" runat="server">
     <title>Boleto</title>
     <style type="text/css">
-		.BolCell { FONT-SIZE: 7pt; FONT-FAMILY: Verdana }
+		.BolCell { font-size: 7pt; FONT-FAMILY: Verdana }
 	    .BolField { FONT-WEIGHT: bold; FONT-SIZE: 8pt; FONT-FAMILY: Verdana }
 	</style>
 </head>
