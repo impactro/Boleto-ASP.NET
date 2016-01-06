@@ -21,9 +21,9 @@ public partial class ExemploSICOOB : System.Web.UI.Page
         // Para o gerador isso significa sempre CARTEIRA/MODALIDADE, e ambas com apenas 2 digitos
         // E estes devem ser configurados separadamente como indicado abaixo neste exemplo
         Cedente.Carteira = "1";
-        Cedente.Modalidade = "02"; 
-        Cedente.Convenio = "4071";          // Código da Cooperativa (será exibido como valor para a "agência"
-        Cedente.CodCedente = "217018";      // Código do Cliente
+        Cedente.Modalidade = "01";          // ATENÇÃO a especificação: Carteira/Modalidade: 1/01-Simples Com Registro
+        Cedente.Convenio = "3010";          // Código da Cooperativa (será exibido como valor para a "agência")
+        Cedente.CodCedente = "982296";      // Código do Cliente
 
         // Para saber quais são os campos fundamentais para a geração do boleto, 
         // veja a assinatura da função estatica que calcula o campo livre do banco em questão
