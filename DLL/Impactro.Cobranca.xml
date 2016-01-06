@@ -131,7 +131,7 @@
             Digito do Código do Banco
             </summary>
         </member>
-        <member name="M:Impactro.Cobranca.Banco_Caixa.CampoLivre(Impactro.Cobranca.Boleto,System.String,System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:Impactro.Cobranca.Banco_Caixa.CampoLivre(Impactro.Cobranca.Boleto,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Rotina de Geração do Campo livre usado no Código de Barras para formar o IPTE
             </summary>
@@ -315,7 +315,7 @@
             Digito do Código do Banco
             </summary>
         </member>
-        <member name="M:Impactro.Cobranca.Banco_SICOOB.CampoLivre(Impactro.Cobranca.Boleto,System.String,System.String,System.String,System.String,System.String)">
+        <member name="M:Impactro.Cobranca.Banco_SICOOB.CampoLivre(Impactro.Cobranca.Boleto,System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Rotina de Geração do Campo livre usado no Código de Barras para formar o IPTE
             </summary>
@@ -1758,6 +1758,13 @@
             <param name="cCodBarras">Código de barras a ser formatado</param>
             <param name="TamanhosCampoLivre">Tamanho dos pedaçoes do campo livre</param>
         </member>
+        <member name="M:Impactro.Cobranca.CobUtil.CampoLivreFormatado(System.String,System.Int32[])">
+            <summary>
+            Retorna o Código de barras com os campos separados por ponto e espeço
+            </summary>
+            <param name="cCampoLivre">Código de barras a ser formatado</param>
+            <param name="TamanhosCampoLivre">Tamanho dos pedaçoes do campo livre</param>
+        </member>
         <member name="M:Impactro.Cobranca.CobUtil.Modulo11Total(System.String,System.Int32)">
             <summary>
             Calcula apenas a SOMA dos digitos retornados pela multiplicação dos pesos de acordo com a base selecionada
@@ -2166,33 +2173,12 @@
         </member>
         <member name="T:Impactro.Layout.CNAB240Caixa">
             <summary>
-            Layout para SICREDI no padrão CNAB240
-            Validado pelo site: www.sicredi.com.br -> Produtos e Serviços -> Validador de Arquivos
-            </summary>
-        </member>
-        <member name="F:Impactro.Layout.CNAB240Caixa.Producao">
-            <summary>
-            Define se é para gerar aqruivos como teste ou produção
-            </summary>
-        </member>
-        <member name="F:Impactro.Layout.CNAB240Caixa.VersaoAplicativo">
-            <summary>
-             Versão Aplicativo CAIXA C077
-            </summary>
-        </member>
-        <member name="F:Impactro.Layout.CNAB240Caixa.SequencialLote">
-            <summary>
-            Numero sequencial no lote
-            </summary>
-        </member>
-        <member name="F:Impactro.Layout.CNAB240Caixa.SequencialRegistro">
-            <summary>
-            Numero Sequencial do Registro
+            Layout no padrão CNAB240
             </summary>
         </member>
         <member name="M:Impactro.Layout.CNAB240Caixa.#ctor">
             <summary>
-            Contrutora: Informe o Cedente
+            Layout Caixa
             </summary>
         </member>
         <member name="M:Impactro.Layout.CNAB240Caixa.Remessa">
@@ -3029,6 +3015,834 @@
             </summary>
         </member>
         <member name="F:Impactro.Layout.CNAB240SegmentoUCaixa.CodMov">
+            <summary>
+            Código de Movimento Remessa
+            </summary>
+        </member>
+        <member name="T:Impactro.Layout.CNAB240Sicoob">
+            <summary>
+            Layout para SICOOB no padrão CNAB240
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.CNAB240Sicoob.Remessa">
+            <summary>
+            Retorna no layout CNAB240
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.CNAB240Sicoob.Retorno(System.String)">
+            <summary>
+            Processa o Retorno
+            </summary>
+            <param name="cData">TXT de entrada</param>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSicoob.Banco">
+            <summary>
+            Código do Banco na Compensação
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSicoob.Lote">
+            <summary>
+            Lote de Serviço
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSicoob.Registro">
+            <summary>
+            Tipo de Registro
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSicoob.CNAB1">
+            <summary>
+            Uso Exclusivo FEBRABAN / CNAB G004 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSicoob.InscricaoTipo">
+            <summary>
+            Tipo de Inscrição da Empresa 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSicoob.InscricaoNumero">
+            <summary>
+            Número de Inscrição da Empresa 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSicoob.Convenio">
+            <summary>
+            Código do Convênio no Sicoob: Brancos
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSicoob.Agencia">
+            <summary>
+            Código Agência Mantenedora da Conta  
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSicoob.AgenciaDAC">
+            <summary>
+            Dígito Verificador da Agência  
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSicoob.Conta">
+            <summary>
+            Conta Corrente: vide e-mail enviado com os dados do processo de homologação
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSicoob.ContaDAC">
+            <summary>
+            Dígito Verificador da Conta: vide e-mail enviado com os dados do processo de homologação
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSicoob.Brancos1">
+            <summary>
+            Dígito Verificador da Ag/Conta: Brancos
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSicoob.EmpresaNome">
+            <summary>
+            Nome da Empresa 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSicoob.BancoNome">
+            <summary>
+            Nome do Banco 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSicoob.CNAB2">
+            <summary>
+            Uso Exclusivo FEBRABAN / CNAB  
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSicoob.ArquivoCodigo">
+            <summary>
+            Código Código Remessa / Retorno G015 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSicoob.Data">
+            <summary>
+            Data e Hora de Geração Data de Geração do Arquivo G016 G017 DDMMAAAAHHMMSS 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSicoob.NumeroLote">
+            <summary>
+            Seqüência (NSA) Número Seqüencial do Arquivo G018 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSicoob.Layout">
+            <summary>
+            N. da Versão do Layout do Arquivo  
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSicoob.Densidade">
+            <summary>
+            Densidade de Gravação do Arquivo  
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSicoob.ReservadoBanco">
+            <summary>
+            Para Uso Reservado do Banco  
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSicoob.ReservadoEmpresa">
+            <summary>
+            Para Uso Reservado da Empresa  
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSicoob.VersaoAplicativo">
+            <summary>
+            Versão Aplicativo CAIXA C077 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSicoob.CNAB3">
+            <summary>
+            Uso Exclusivo FEBRABAN / CNAB 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSicoob.Banco">
+            <summary>
+            Código do Banco na Compensação
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSicoob.Lote">
+            <summary>
+            Lote de Serviço
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSicoob.Registro">
+            <summary>
+            Tipo de Registro
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSicoob.ServicoOperacao">
+            <summary>
+            Tipo de Operação  
+            R = Arquivo Remessa
+            T = Arquivo Retorno
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSicoob.ServicoTipo">
+            <summary>
+            Tipo de Serviço G025 
+            1 = Cobrança Registrada
+            2 = Cobrança Sem Registro / Serviços
+            3 = Desconto de Títulos
+            4 = Caução de Títulos
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSicoob.CNAB1">
+            <summary>
+            Uso Exclusivo FEBRABAN/CNAB 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSicoob.Layout">
+            <summary>
+            Layout do Lote Nº da Versão do Layout do Lote 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSicoob.CNAB2">
+            <summary>
+            Uso Exclusivo FEBRABAN/CNAB G004 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSicoob.InscricaoTipo">
+            <summary>
+            Tipo Tipo de Inscrição da Empresa G005 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSicoob.InscricaoNumero">
+            <summary>
+            Número Nº de Inscrição da Empresa G006 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSicoob.Convenio">
+            <summary>
+            Código do Cedente no Banco G007 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSicoob.Agencia">
+            <summary>
+            Prefixo da Cooperativa: vide e-mail enviado com os dados do processo de homologação
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSicoob.AgenciaDAC">
+            <summary>
+            Dígito Verificador do Prefixo: vide e-mail enviado com os dados do processo de homologação
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSicoob.Conta">
+            <summary>
+            Conta Corrente: vide e-mail enviado com os dados do processo de homologação
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSicoob.ContaDAC">
+            <summary>
+            Dígito Verificador da Conta: vide e-mail enviado com os dados do processo de homologação
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSicoob.Banco1">
+            <summary>
+            Dígito Verificador da Ag/Conta: Brancos
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSicoob.EmpresaNome">
+            <summary>
+            Nome da Empresa G013 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSicoob.Informacao1">
+            <summary>
+            Mensagem 1 C073 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSicoob.Informacao2">
+            <summary>
+            Mensagem 2 C073 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSicoob.NumeroRemessaRetorno">
+            <summary>
+            Nº Rem./Ret. Número Remessa/Retorno G079 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSicoob.Data">
+            <summary>
+            Gravação Data de Gravação Remessa/Retorno G068 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSicoob.DataCredito">
+            <summary>
+            Data do Crédito Data do Crédito C003 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSicoob.CNAB3">
+            <summary>
+            Uso Exclusivo FEBRABAN/CNAB G004 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.Banco">
+            <summary>
+            Código do Banco na Compensação
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.Lote">
+            <summary>
+            Lote de Serviço
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.Registro">
+            <summary>
+            Tipo de Registro
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.Nregistro">
+            <summary>
+            Nº Sequencial do Registro no Lote
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.Segmento">
+            <summary>
+            Cód. Segmento do Registro Detalhe
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.CNAB">
+            <summary>
+            Uso Exclusivo FEBRABAN/CNAB
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.CodMov">
+            <summary>
+            Código de Movimento Remessa
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.Agencia">
+            <summary>
+            Código Agência Mantenedora da Conta
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.AgenciaDAC">
+            <summary>
+            Dígito Verificador da Agência 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.Conta">
+            <summary>
+            numero da conta
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.ContaDAC">
+            <summary>
+            Digito da conta
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.Brancos1">
+            <summary>
+            Branco
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.NossoNumero">
+            <summary>
+            Identificação do Título no Banco *G069 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.Carteira">
+            <summary>
+            Código da Carteira *C006 
+            1 = Cobrança Simples
+            3 = Cobrança Caucionada
+            4 = Cobrança Descontada
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.Forma">
+            <summary>
+            Título no Banco *C007 
+            1 = Com Cadastramento (Cobrança Registrada)
+            2 = Sem Cadastramento (Cobrança sem Registro)
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.TipoDocumento">
+            <summary>
+            Tipo de Documento *C008 
+            Código adotado pela FEBRABAN para identificar a existência material do documento no processo. Informar fixo ‘2’
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.TipoEmissao">
+            <summary>
+            Identificação da Emissão do Bloqueto *C009 
+            1 = Banco Emite
+            2 = Cliente Emite ou para Bloqueto Pré-Impresso Registrado (entrega do bloqueto pelo Cedente)
+            4 = Banco Reemite
+            5 = Banco Não Reemite
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.Distribuicao">
+            <summary>
+            Identificação da Entrega do Bloqueto *C010 
+            0 = Postagem pelo Cedente
+            1 = Sacado via Correios
+            2 = Cedente via Agência CAIXA
+            3 = Sacado via e-mail
+            4 = Sacado via SMS
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.NumeroDocumento">
+            <summary>
+            (Seu Nº) Número do Documento de Cobrança *C011 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.Vencimento">
+            <summary>
+            Data de Vencimento do Título *C012 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.ValorDocumento">
+            <summary>
+            Valor Nominal do Título *G070 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.AgenciaCobradora">
+            <summary>
+            Agência Encarregada da Cobrança *C014 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.AgenciaCobradoraDV">
+            <summary>
+            Verificador da Agência *C014 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.Especie">
+            <summary>
+            Espécie do Título *C015 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.Aceite">
+            <summary>
+            Identific. de Título Aceito/Não Aceito *C016 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.Emissao">
+            <summary>
+            Emissão do Título Data da Emissão do Título *G071 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.Juros">
+            <summary>
+            Cód. Juros Mora Código do Juros de Mora *C018 
+            Código adotado pela FEBRABAN para identificação do tipo de pagamento de juros de mora.
+            1 = Valor por Dia
+            2 = Taxa Mensal
+            3 = Isento
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.JurosData">
+            <summary>
+            Juros Mora Data do Juros de Mora *C019 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.JurosMora">
+            <summary>
+            Mora Juros de Mora por Dia/Taxa *C020 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.DescontoCodigo1">
+            <summary>
+            Código do Desconto 1 *C021 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.DescontoData1">
+            <summary>
+            Data do Desconto 1 *C022 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.DescontoValor1">
+            <summary>
+            Valor/Percentual a ser Concedido *C023 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.ValorIOF">
+            <summary>
+            Valor do IOF a ser Recolhido *C024 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.ValorAbatimento">
+            <summary>
+            Valor do Abatimento *G045 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.UsoEmpresaCedente">
+            <summary>
+            Identificação do Título na Empresa *G072 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.ProtestoCodigo">
+            <summary>
+            Código para Protesto *C026 
+            1 = Protestar
+            3 = Não Protestar
+            9 = Cancelamento Protesto Automático
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.ProtestoPrazo">
+            <summary>
+            Número de Dias para Protesto *C027 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.BaixaDevolucaoCodigo">
+            <summary>
+            Código para Baixa/Devolução *C028 
+             1 - Baixar
+             2 - Devolver
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.BaixaDevolucaoPrazo">
+            <summary>
+            Número de Dias para Baixa/Devolução *C029 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.Moeda">
+            <summary>
+            Código da Moeda *G065 
+            Código adotado pela FEBRABAN para identificar a moeda referenciada no Título. 
+            Informar fixo: ‘09’ = REAL
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.UsoExclusivo4">
+            <summary>
+            Uso Exclusivo CAIXA 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.CNAB2">
+            <summary>
+            Uso Exclusivo FEBRABAN/CNAB G004 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSicoob.Banco">
+            <summary>
+            Código do Banco na Compensação
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSicoob.Lote">
+            <summary>
+            Lote de Serviço
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSicoob.Registro">
+            <summary>
+            Tipo de Registro
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSicoob.Nregistro">
+            <summary>
+            Nº Sequencial do Registro no Lote
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSicoob.Segmento">
+            <summary>
+            Cód. Segmento do Registro Detalhe
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSicoob.CNAB">
+            <summary>
+            Uso Exclusivo FEBRABAN/CNAB
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSicoob.CodMov">
+            <summary>
+            Código de Movimento Remessa
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSicoob.Sacado_Tipo">
+            <summary>
+            Tipo de inscrição
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSicoob.Sacado_Numero">
+            <summary>
+            CPF/CNPJ
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSicoob.Nome">
+            <summary>
+            Nome
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSicoob.Endereco">
+            <summary>
+            Endereço
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSicoob.Bairro">
+            <summary>
+            Bairro
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSicoob.CEP">
+            <summary>
+            CEP
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSicoob.Cidade">
+            <summary>
+            Cidade
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSicoob.UF">
+            <summary>
+            Unidade Federal (estado)
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSicoob.Avalista_Tipo">
+            <summary>
+            Tipo de Avalista
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSicoob.Avalista_Numero">
+            <summary>
+            Numero CPF/CNPJ do avalista
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSicoob.Avalista_Nome">
+            <summary>
+            Nome do sacador
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSicoob.Correspondente_Banco">
+            <summary>
+            20.3Q Banco Correspondente Cód. Bco. Corresp. na Compensação
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240TrailerLoteSicoob.Banco">
+            <summary>
+            Código do Banco na Compensação
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240TrailerLoteSicoob.Lote">
+            <summary>
+            Lote de Serviço
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240TrailerLoteSicoob.Registro">
+            <summary>
+            Tipo de Registro
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240TrailerArquivoSicoob.Banco">
+            <summary>
+            Código do Banco na Compensação
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240TrailerArquivoSicoob.Lote">
+            <summary>
+            Lote de Serviço
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240TrailerArquivoSicoob.Registro">
+            <summary>
+            Tipo de Registro
+            </summary>
+        </member>
+        <member name="T:Impactro.Layout.CNAB240SegmentoTSicoob">
+            <summary>
+            Registro Detalhe - Segmento T (Obrigatório - Retorno)
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.Banco">
+            <summary>
+            Código do Banco na Compensação
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.Lote">
+            <summary>
+            Lote de Serviço
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.Registro">
+            <summary>
+            Tipo de Registro
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.Nregistro">
+            <summary>
+            Nº Sequencial do Registro no Lote
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.Segmento">
+            <summary>
+            Cód. Segmento do Registro Detalhe
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.CNAB">
+            <summary>
+            Uso Exclusivo FEBRABAN/CNAB
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.CodMov">
+            <summary>
+            Código de Movimento Remessa
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.AgenciaCaixa">
+            <summary>
+            08.3T Código Identif. Agência Código Uso Exclusivo CAIXA 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.AgenciaDVCaixa">
+            <summary>
+            09.3T DV Uso Exclusivo CAIXA 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.CodigoCedente">
+            <summary>
+            10.3T- Código Cedente Código do Convênio no Banco - G007 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.Zero1">
+            <summary>
+            11.3T Uso Exclusivo Uso Exclusivo da CAIXA 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.NumeroBanco">
+            <summary>
+            11.3T Número do Banco Número do Banco de Sacados - C079 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.Brancos1">
+            <summary>
+            12.3T Uso Exclusivo Uso Exclusivo da CAIXA 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.Modalidade">
+            <summary>
+            13.3T Nosso Número Modalidade 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.NossoNumero">
+            <summary>
+            13.3T Identificação do Título no Banco 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.Zeros1">
+            <summary>
+            13.3T Uso Exclusivo Uso Exclusivo CAIXA 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.Carteira">
+            <summary>
+            14.3T Carteira Código da Carteira 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.NumeroDocumento">
+            <summary>
+            15.3T Número Documento (Seu Nº) Número do Documento de Cobrança 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.Brancos2">
+            <summary>
+            15.3T Uso Exclusivo Uso Exclusivo CAIXA 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.DataVencimento">
+            <summary>
+            16.3T Vencimento Data de Vencimento do Título  - *C012 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.ValorDocumento">
+            <summary>
+            17.3T Valor do Título Valor Nominal do Título - G070 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.BancoRecebedor">
+            <summary>
+            18.3T Banco Cobrador/Recebedor Código do Banco -C045 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.AgenciaCobradora">
+            <summary>
+            19.3T Agência Cobradora/Recebedora Código da Agência Cobr/Receb - C086 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.AgenciaDVCobradora">
+            <summary>
+            20.3T DV Agência Cobr/Receb Dígito Verificador da Agência Cobr/Rec - G009 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.UsoEmpresaCedente">
+            <summary>
+            21.3T Uso da Empresa Identificação do Título na Empresa - C011 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.Moeda">
+            <summary>
+            22.3T Código da Moeda Código da Moeda - G065 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.Sacador_Tipo">
+            <summary>
+            23.3T Sacado Tipo de Inscrição - G005 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.Sacador_Numero">
+            <summary>
+            24.3T Número Número de Inscrição - G006 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.Sacador_Nome">
+            <summary>
+            25.3T Nome 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.CNAB1">
+            <summary>
+            26.3T CNAB Uso Exclusivo FEBRABAN/CNAB 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.Tarifa">
+            <summary>
+            27.3T Valor da Tar./Custas Valor da Tarifa / Custas - G076 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.Ocorrencia">
+            <summary>
+            28.3T Motivo da Ocorrência Identificação para Rejeições, Tarifas, Custas, Liquidação e Baixas - C047 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSicoob.CNAB2">
+            <summary>
+            29.3T CNAB Uso Exclusivo FEBRABAN/CNAB - G004 
+            </summary>
+        </member>
+        <member name="T:Impactro.Layout.CNAB240SegmentoUSicoob">
+            <summary>
+            Registro Detalhe - Segmento U (Obrigatório - Retorno)
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoUSicoob.Banco">
+            <summary>
+            Código do Banco na Compensação
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoUSicoob.Lote">
+            <summary>
+            Lote de Serviço
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoUSicoob.Registro">
+            <summary>
+            Tipo de Registro
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoUSicoob.Nregistro">
+            <summary>
+            Nº Sequencial do Registro no Lote
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoUSicoob.Segmento">
+            <summary>
+            Cód. Segmento do Registro Detalhe
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoUSicoob.CNAB">
+            <summary>
+            Uso Exclusivo FEBRABAN/CNAB
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoUSicoob.CodMov">
             <summary>
             Código de Movimento Remessa
             </summary>
@@ -4765,6 +5579,12 @@
             Define o tipo de erro em caso de duplicidade
             </summary>
         </member>
+        <!-- Badly formed XML comment ignored for member "P:Impactro.Layout.LayoutBancos.Item(System.Int32)" -->
+        <member name="P:Impactro.Layout.LayoutBancos.DataHoje">
+            <summary>
+            Define a data/hora de geração o arquivo como referencia sempre em substituição do 'DateTime.Now'
+            </summary>
+        </member>
         <member name="P:Impactro.Layout.LayoutBancos.ErroLinhas">
             <summary>
             Retorna as linhas onde houve qualquer erro de processamento
@@ -4780,9 +5600,24 @@
             Obtem um layout estruturado em tabela de acordo com o tipo informado
             </summary>
         </member>
+        <member name="P:Impactro.Layout.LayoutBancos.Lote">
+            <summary>
+            Obtem um numero de lote, se for 0 (zero) no inicio da remessa será gerado automaticamente
+            </summary>
+        </member>
         <member name="T:Impactro.Layout.CNAB240`6">
             <summary>
             Classe generica para processamento de arquivos CNAB240
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240`6.Producao">
+            <summary>
+            Define se é para gerar aqruivos como teste ou produção
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240`6.SequencialLote">
+            <summary>
+            Numero sequencial no lote
             </summary>
         </member>
         <member name="F:Impactro.Layout.CNAB240`6.regHeaderArquivo">
@@ -4823,9 +5658,19 @@
             Essa classe é apenas um facilitador de comum reuso para base de cada banco
             </summary>
         </member>
+        <member name="F:Impactro.Layout.CNAB.DataHoje">
+            <summary>
+            DataHora de geração do arquivos
+            </summary>
+        </member>
         <member name="F:Impactro.Layout.CNAB.NumeroLote">
             <summary>
             Lê ou define o número do lote da remessa
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB.SequencialRegistro">
+            <summary>
+            Sequencial de geração do registro
             </summary>
         </member>
         <member name="P:Impactro.Layout.CNAB.Cedente">
@@ -4899,11 +5744,6 @@
         <member name="F:Impactro.Layout.CNAB400`3.regArqTrailer">
             <summary>
             Informações do Trailer(rodape/linha final) do arquivo
-            </summary>
-        </member>
-        <member name="F:Impactro.Layout.CNAB400`3.Sequencial">
-            <summary>
-            Sequencial de geração do registro
             </summary>
         </member>
         <member name="M:Impactro.Layout.CNAB400`3.#ctor">
