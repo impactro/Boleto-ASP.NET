@@ -21,7 +21,7 @@ Partial Class ExemploCaixa
         Dim Cedente As New CedenteInfo
         Cedente.Cedente = "IMPACTRO Informática (teste)"
         Cedente.CNPJ = "12123123000101"
-        Cedente.Banco = "104"
+        Cedente.Banco = "104-0"
         Cedente.Agencia = "123-4"
         Cedente.Conta = "5678-9"
         Cedente.Carteira = "2"          ' Código da Carteira

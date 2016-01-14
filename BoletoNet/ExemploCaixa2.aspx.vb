@@ -21,7 +21,7 @@ Partial Class ExemploCaixa2
         'Definição dos dados do cedente
         Dim Cedente As New Impactro.Cobranca.CedenteInfo
         Cedente.Cedente = "Impactro (Teste)"
-        Cedente.Banco = "104"
+        Cedente.Banco = "104-0"
         Cedente.Agencia = "9999"
         Cedente.Conta = "608-3"
         Cedente.CodCedente = "059100300000608"
