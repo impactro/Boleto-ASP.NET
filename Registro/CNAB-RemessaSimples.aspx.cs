@@ -129,6 +129,8 @@ public partial class CNAB_RemessaSimples : System.Web.UI.Page
         Boleto2.DataVencimento = DateTime.Now.AddDays(10);
         Boleto2.Ocorrencia = Ocorrencias.AlterarDados; // código 31
         Boleto2.Ocorrencia = (Ocorrencias)31; // código 31
+        Boleto2.SetRegEnumValue(CNAB240SegmentoPCaixa.BaixaDevolucaoCodigo, 1); // apenas para caixa força o campo para 1
+
 
         // Definição dos dados do boleto3
         BoletoInfo Boleto3 = new BoletoInfo();
