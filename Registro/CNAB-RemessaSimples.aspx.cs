@@ -83,7 +83,7 @@ public partial class CNAB_RemessaSimples : System.Web.UI.Page
         r.Init(Cedente); // define o cedente
 
         // É quase que obrigatporio para o sicredi
-        // r.onRegBoleto += r_onRegBoleto; // Para personalizar as linhas com os campos adicionais
+        r.onRegBoleto += r_onRegBoleto; // Para personalizar as linhas com os campos adicionais a todos registros
         // Mas há outra forma usando o 'SetRegKeyValue(key, valor);' em cada boleto info
 
         // É possível configurar o lote, por padrão é gerado AADDDHH (Ano, Dia do ano, Hora) obrigatório para bradesco
@@ -113,10 +113,11 @@ public partial class CNAB_RemessaSimples : System.Web.UI.Page
 
         // As linhas a seguir customiza qualquer valor sem precisar usar o evento 'r.onRegBoleto' o que torna a implementação mais simples
         // A forma mais pratica e segura é sempre usar os enumeradores
-        Boleto1.SetRegEnumValue(CNAB400Remessa1Sicredi.TipoCarteira, "X"); // (posição 3)  
-        Boleto1.SetRegEnumValue(CNAB400Remessa1Sicredi.TipoJuros, "Y");    // (posição 19) // Apenas se atente para a diferença do nome para SetRegEnumValue()
-        Boleto1.SetRegKeyValue("CNAB400Remessa1Sicredi.Alteracao", "C");   // (posição 71) // É possivel adicionar o nome e valor do enumerador, isso é compativel com VB6
-        Boleto1.SetRegKeyValue("Emissao", "A"); // posição 74 // ou simplesmente informar o nome do campo, mas cuidado pois há layouts que usam mais de um tipo de registro e as vezes tem nomes iguais mas as funções podem ser diferentes
+        // Mas é possivel usar as duas opções como neste exemplo, mas os valores personalizados tem sempre prioridade pois são inserridos por ultimo apos todos calculos, e processamento de eventos, portanto use com cuidado!
+        Boleto1.SetRegEnumValue(CNAB400Remessa1Sicredi.TipoJuros, "B");    // (posição 19) // Apenas se atente para a diferença do nome para SetRegEnumValue()
+        Boleto1.SetRegKeyValue("CNAB400Remessa1Sicredi.Alteracao", "E");   // (posição 71) // É possivel adicionar o nome e valor do enumerador, isso é compativel com VB6
+        Boleto1.SetRegKeyValue("Emissao", "B"); // posição 74 // ou simplesmente informar o nome do campo, mas cuidado pois há layouts que usam mais de um tipo de registro e as vezes tem nomes iguais mas as funções podem ser diferentes
+        
 
         // Definição dos dados do boleto2
         BoletoInfo Boleto2 = new BoletoInfo();
@@ -219,41 +220,46 @@ public partial class CNAB_RemessaSimples : System.Web.UI.Page
     // Uso para personalizar os campos do sicred ou de qualquer outro que não seguem os padrão comum
     void r_onRegBoleto(CNAB cnab, IReg reg, BoletoInfo boleto)
     {
-        Reg<CNAB400Remessa1Sicredi> regBoleto = (Reg<CNAB400Remessa1Sicredi>)reg;
-
-        // A rotina padrão define estas variáveis comentadas abaixo:
-        /*
-        regBoleto[CNAB400Remessa1Sicredi.NumeroDocumento] = cnab.Cedente.DocumentoNumeros;
-        regBoleto[CNAB400Remessa1Sicredi.NossoNumero] = boleto.NossoNumero;
-        regBoleto[CNAB400Remessa1Sicredi.NumeroDocumento] = boleto.NumeroDocumento;
-        regBoleto[CNAB400Remessa1Sicredi.DataVencimento] = boleto.DataVencimento;
-        regBoleto[CNAB400Remessa1Sicredi.ValorDocumento] = boleto.ValorDocumento;
-        regBoleto[CNAB400Remessa1Sicredi.Especie] = CNAB400Sicredi.EspecieSicred(boleto.Especie);
-        regBoleto[CNAB400Remessa1Sicredi.Aceite] = boleto.Aceite == "A" ? "S" : "N";
-        regBoleto[CNAB400Remessa1Sicredi.Data] = boleto.DataDocumento;
-        regBoleto[CNAB400Remessa1Sicredi.DataEmissao] = boleto.DataDocumento;
-        if (boleto.ParcelaTotal > 0)
+        // É sempre bom validar o nome do registro, principalmente em CNAB240 que tem 2 tipos de registros para cada boleto, e cada registro deve ser tratado individualmente
+        if (reg.NameType == typeof(CNAB400Remessa1Sicredi))
         {
-            regBoleto[CNAB400Remessa1Sicredi.TipoImpressao] = "B";
-            regBoleto[CNAB400Remessa1Sicredi.ParcelaNumero] = boleto.ParcelaNumero;
-            regBoleto[CNAB400Remessa1Sicredi.ParcelaTotal] = boleto.ParcelaTotal;
-        }
-        regBoleto[CNAB400Remessa1Sicredi.Instrucao] = boleto.Instrucao1;
-        regBoleto[CNAB400Remessa1Sicredi.Protesto] = boleto.DiasProtesto > 6 ? "06" : "00";
-        regBoleto[CNAB400Remessa1Sicredi.DiasProtesto] = boleto.DiasProtesto;
-        regBoleto[CNAB400Remessa1Sicredi.PercentualMora] = boleto.PercentualMora;
-        regBoleto[CNAB400Remessa1Sicredi.DataDesconto] = boleto.DataDesconto;
-        regBoleto[CNAB400Remessa1Sicredi.ValorDesconto] = boleto.ValorDesconto;
-        regBoleto[CNAB400Remessa1Sicredi.SacadoTipo] = boleto.Sacado.Tipo;
-        regBoleto[CNAB400Remessa1Sicredi.SacadoDocumento] = boleto.Sacado.DocumentoNumeros;
-        regBoleto[CNAB400Remessa1Sicredi.Endereco] = boleto.Sacado.Endereco;
-        regBoleto[CNAB400Remessa1Sicredi.CEP] = boleto.Sacado.CepNumeros;
-        */
+            Reg<CNAB400Remessa1Sicredi> regBoleto = (Reg<CNAB400Remessa1Sicredi>)reg;
+            // A rotina padrão define estas variáveis abaixo:
+            /*
+            regBoleto[CNAB400Remessa1Sicredi.NumeroDocumento] = cnab.Cedente.DocumentoNumeros;
+            regBoleto[CNAB400Remessa1Sicredi.NossoNumero] = boleto.NossoNumero;
+            regBoleto[CNAB400Remessa1Sicredi.NumeroDocumento] = boleto.NumeroDocumento;
+            regBoleto[CNAB400Remessa1Sicredi.DataVencimento] = boleto.DataVencimento;
+            regBoleto[CNAB400Remessa1Sicredi.ValorDocumento] = boleto.ValorDocumento;
+            regBoleto[CNAB400Remessa1Sicredi.Especie] = CNAB400Sicredi.EspecieSicred(boleto.Especie);
+            regBoleto[CNAB400Remessa1Sicredi.Aceite] = boleto.Aceite == "A" ? "S" : "N";
+            regBoleto[CNAB400Remessa1Sicredi.Data] = boleto.DataDocumento;
+            regBoleto[CNAB400Remessa1Sicredi.DataEmissao] = boleto.DataDocumento;
+            if (boleto.ParcelaTotal > 0)
+            {
+                regBoleto[CNAB400Remessa1Sicredi.TipoImpressao] = "B";
+                regBoleto[CNAB400Remessa1Sicredi.ParcelaNumero] = boleto.ParcelaNumero;
+                regBoleto[CNAB400Remessa1Sicredi.ParcelaTotal] = boleto.ParcelaTotal;
+            }
+            regBoleto[CNAB400Remessa1Sicredi.Instrucao] = boleto.Instrucao1;
+            regBoleto[CNAB400Remessa1Sicredi.Protesto] = boleto.DiasProtesto > 6 ? "06" : "00";
+            regBoleto[CNAB400Remessa1Sicredi.DiasProtesto] = boleto.DiasProtesto;
+            regBoleto[CNAB400Remessa1Sicredi.PercentualMora] = boleto.PercentualMora;
+            regBoleto[CNAB400Remessa1Sicredi.DataDesconto] = boleto.DataDesconto;
+            regBoleto[CNAB400Remessa1Sicredi.ValorDesconto] = boleto.ValorDesconto;
+            regBoleto[CNAB400Remessa1Sicredi.SacadoTipo] = boleto.Sacado.Tipo;
+            regBoleto[CNAB400Remessa1Sicredi.SacadoDocumento] = boleto.Sacado.DocumentoNumeros;
+            regBoleto[CNAB400Remessa1Sicredi.Endereco] = boleto.Sacado.Endereco;
+            regBoleto[CNAB400Remessa1Sicredi.CEP] = boleto.Sacado.CepNumeros;
+            */
 
-        // Campos com certa particulariade no sicred
-        regBoleto[CNAB400Remessa1Sicredi.TipoCarteira] = "X"; // posição 3
-        regBoleto[CNAB400Remessa1Sicredi.TipoJuros] = "Y";    // posição 19
-        regBoleto[CNAB400Remessa1Sicredi.Alteracao] = "C";    // posição 71 // Desconto por dia de antecipação; 
-        regBoleto[CNAB400Remessa1Sicredi.Emissao] = "A";      // posição 74 // O padrão é que a emissão seja feito no cliente ("B")
+            // Campos com certa particulariade no sicred
+            regBoleto[CNAB400Remessa1Sicredi.TipoCarteira] = "X"; // posição 3
+            regBoleto[CNAB400Remessa1Sicredi.TipoJuros] = "Y";    // posição 19
+            regBoleto[CNAB400Remessa1Sicredi.Alteracao] = "C";    // posição 71 // Desconto por dia de antecipação; 
+            regBoleto[CNAB400Remessa1Sicredi.Emissao] = "A";      // posição 74 // O padrão é que a emissão seja feito no cliente ("B")
+
+            // Os valores definidos em 'SetRegEnumValue' ou 'SetRegKeyValue' são obtidos apos este evento, portanto tem sempre prioridade
+        }
     }
 }
