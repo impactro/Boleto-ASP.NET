@@ -83,7 +83,8 @@ public partial class CNAB_RemessaSimples : System.Web.UI.Page
         r.Init(Cedente); // define o cedente
 
         // É quase que obrigatporio para o sicredi
-        r.onRegBoleto += r_onRegBoleto; // Para personalizar as linhas com os campos adicionais
+        // r.onRegBoleto += r_onRegBoleto; // Para personalizar as linhas com os campos adicionais
+        // Mas há outra forma usando o 'SetRegKeyValue(key, valor);' em cada boleto info
 
         // É possível configurar o lote, por padrão é gerado AADDDHH (Ano, Dia do ano, Hora) obrigatório para bradesco
         // r.Lote += 2000000; // Ou é possivel usar a logica que quiser, por exemplo, inicia com 3 o numero do lote! (soma 20 anos)
@@ -109,6 +110,13 @@ public partial class CNAB_RemessaSimples : System.Web.UI.Page
         Boleto1.DataDocumento = DateTime.Now;
         Boleto1.DataVencimento = DateTime.Now.AddDays(5);
         Boleto1.Ocorrencia = Ocorrencias.Remessa; // código 1
+
+        // As linhas a seguir customiza qualquer valor sem precisar usar o evento 'r.onRegBoleto' o que torna a implementação mais simples
+        // A forma mais pratica e segura é sempre usar os enumeradores
+        Boleto1.SetRegEnumValue(CNAB400Remessa1Sicredi.TipoCarteira, "X"); // (posição 3)  
+        Boleto1.SetRegEnumValue(CNAB400Remessa1Sicredi.TipoJuros, "Y");    // (posição 19) // Apenas se atente para a diferença do nome para SetRegEnumValue()
+        Boleto1.SetRegKeyValue("CNAB400Remessa1Sicredi.Alteracao", "C");   // (posição 71) // É possivel adicionar o nome e valor do enumerador, isso é compativel com VB6
+        Boleto1.SetRegKeyValue("Emissao", "A"); // posição 74 // ou simplesmente informar o nome do campo, mas cuidado pois há layouts que usam mais de um tipo de registro e as vezes tem nomes iguais mas as funções podem ser diferentes
 
         // Definição dos dados do boleto2
         BoletoInfo Boleto2 = new BoletoInfo();
@@ -243,11 +251,9 @@ public partial class CNAB_RemessaSimples : System.Web.UI.Page
         */
 
         // Campos com certa particulariade no sicred
-        regBoleto[CNAB400Remessa1Sicredi.Emissao] = "A"; // O padrão é que a emissão seja feito no cliente ("B")
-        regBoleto[CNAB400Remessa1Sicredi.Alteracao] = "C"; // Desconto por dia de antecipação; 
-        
-        regBoleto[CNAB400Remessa1Sicredi.TipoCarteira] = "X";
-        regBoleto[CNAB400Remessa1Sicredi.TipoJuros] = "Y"; 
-
+        regBoleto[CNAB400Remessa1Sicredi.TipoCarteira] = "X"; // posição 3
+        regBoleto[CNAB400Remessa1Sicredi.TipoJuros] = "Y";    // posição 19
+        regBoleto[CNAB400Remessa1Sicredi.Alteracao] = "C";    // posição 71 // Desconto por dia de antecipação; 
+        regBoleto[CNAB400Remessa1Sicredi.Emissao] = "A";      // posição 74 // O padrão é que a emissão seja feito no cliente ("B")
     }
 }
