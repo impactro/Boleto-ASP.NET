@@ -1551,6 +1551,22 @@
             Código da Ocorrencia
             </summary>
         </member>
+        <member name="M:Impactro.Cobranca.BoletoInfo.Clone">
+            <summary>
+            Clona os valores e propriedades das informações de um boleto. 
+            Fundamental para obter também as informações de registro complementares
+            </summary>
+        </member>
+        <member name="M:Impactro.Cobranca.BoletoInfo.SetRegEnumValue(System.Enum,System.Object)">
+            <summary>
+            Devine o valor de um registro e seu valor
+            </summary>
+        </member>
+        <member name="M:Impactro.Cobranca.BoletoInfo.SetRegKeyValue(System.String,System.Object)">
+            <summary>
+            Define o valor de um campo de registro caso este campo exista e seja suportado pelo layout
+            </summary>
+        </member>
         <member name="M:Impactro.Cobranca.BoletoInfo.GeraInstrucoes">
             <summary>
             Cria o Texto de Instruções Baseado nos parametros
@@ -5605,6 +5621,41 @@
             Obtem um numero de lote, se for 0 (zero) no inicio da remessa será gerado automaticamente
             </summary>
         </member>
+        <member name="M:Impactro.Layout.LayoutBancos.Add(Impactro.Cobranca.BoletoInfo,Impactro.Cobranca.SacadoInfo)">
+            <summary>
+            Adiciona um boleto e seu respectivo sacado (será armazenado uma cópia (cole) destas instancias
+            </summary>
+        </member>
+        <member name="P:Impactro.Layout.LayoutBancos.ShowDumpLine">
+            <summary>
+            Exibe informações de dump das linhas
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.LayoutBancos.Remove(System.String)">
+            <summary>
+            Remove um boleto pelo nossonumero
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.LayoutBancos.Remessa">
+            <summary>
+            Gera o arquivo de remessa retornando o conteudo em uma string
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.LayoutBancos.RemessaTo(System.String)">
+            <summary>
+            Gera o arquivo de remessa no local especificado
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.LayoutBancos.Retorno(System.String)">
+            <summary>
+            Processa o conteudo arquivo de retorno contido na string de entrada
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.LayoutBancos.RetornoFrom(System.String)">
+            <summary>
+            Le o arquivo de retorno de um arquivo
+            </summary>
+        </member>
         <member name="T:Impactro.Layout.CNAB240`6">
             <summary>
             Classe generica para processamento de arquivos CNAB240
@@ -7359,6 +7410,16 @@
         <member name="P:Impactro.Layout.Reg`1.NameType">
             <summary>
             Obtem o tipo 'T' do Regitro
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.Reg`1.Set(System.String,System.Object)">
+            <summary>
+            Define um valor de campo, se este for permitido
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.Reg`1.Get(System.String)">
+            <summary>
+            Obtem um valor baseado no nome, ou nulo se não existir
             </summary>
         </member>
         <member name="P:Impactro.Layout.Reg`1.Item(`0)">
