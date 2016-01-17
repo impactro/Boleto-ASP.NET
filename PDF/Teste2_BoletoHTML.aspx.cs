@@ -62,6 +62,10 @@ public partial class PDF_Teste2 : System.Web.UI.Page
         // O Calculo acontece no RENDER, que neste caso é chamado internamente ao converter para PDF
         // Comente/descomente a linha abaixo para ver em HTML ou em PDF!
         ConverteAspx2Pdf();
+
+        // O problema desta solução é que o boleto sai muito grande, na página toda, ou seja fora da escala padrão
+        // Mas tudo é valido, inclusive o código de barras, só não serve para homologação
+        // O problema desta solução é que ela não é otimizada, e apenas uma conversão de HTML/CSS para um PDF dentro das possibilidades do proprio componente 'HTMLWorker' que já é obsoleto!
     }
 
     // Versão Original em: https://social.msdn.microsoft.com/Forums/pt-BR/049133ce-2ce0-4b6e-9194-53b62e12ddbe/como-gerar-um-arquivo-pdf-a-partir-de-uma-pagina-aspx?forum=aspnetpt
@@ -83,11 +87,11 @@ public partial class PDF_Teste2 : System.Web.UI.Page
         this.RenderControl(htextw);
 
         // Cria um novo documento PDF em branco
-        Document document = new Document(PageSize.A4, 10f, 10f, 10f, 10f);
+        Document doc = new Document(PageSize.A4, 10f, 10f, 10f, 10f);
 
         // Define o local de saida (gravação) do PDF como o dispositivo de transmissão do ASP.Net que vai para o navegador
-        PdfWriter.GetInstance(document, Response.OutputStream);
-        document.Open();
+        PdfWriter.GetInstance(doc, Response.OutputStream);
+        doc.Open();
 
         // Os estilos do boleto devem ser definidos desta forma
         // http://stackoverflow.com/questions/8414637/itextsharp-htmlworker-parsehtml-tablestyle-and-pdfstamper
@@ -111,15 +115,17 @@ public partial class PDF_Teste2 : System.Web.UI.Page
         StringReader str = new StringReader(stw.ToString());
 
         // Chama um conversor interno de HTML para PDF
-        HTMLWorker htmlworker = new HTMLWorker(document);
+        HTMLWorker htmlworker = new HTMLWorker(doc);
+
         // Transforma o HTML em PDF
         htmlworker.SetStyleSheet(styles);
-
         htmlworker.Parse(str);
-        document.Close();
+
+        // fim do PDF
+        doc.Close();
 
         // Transmite o HTML para o browser
-        Response.Write(document);
+        Response.Write(doc);
 
         // Finaliza tudo! 
         Response.End();

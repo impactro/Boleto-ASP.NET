@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Teste2.aspx.cs" Inherits="PDF_Teste2" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="Teste2_BoletoHTML.aspx.cs" Inherits="PDF_Teste2" %>
 <%@ Register Assembly="Impactro.Cobranca" Namespace="Impactro.WebControls" TagPrefix="cob" %>
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
