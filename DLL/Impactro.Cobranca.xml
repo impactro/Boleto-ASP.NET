@@ -3355,6 +3355,16 @@
         <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.NossoNumero">
             <summary>
             Identificação do Título no Banco *G069 
+            - Se emissão a cargo do Beneficiário (vide e-mail enviado com os dados do processo de homologação):
+            NumTitulo - 10 posições (1 a 10): Vide planilha "02.Especificações do Boleto" deste arquivo item 3.13
+            Parcela - 02 posições (11 a 12) - "01" se parcela única
+            Modalidade - 02 posições (13 a 14) - vide e-mail enviado com os dados do processo de homologação
+            Tipo Formulário - 01 posição  (15 a 15):
+              "1"-auto-copiativo
+              "3"-auto-envelopável
+              "4"-A4 sem envelopamento
+              "6"-A4 sem envelopamento 3 vias
+            Em branco - 05 posições (16 a 20)
             </summary>
         </member>
         <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.Carteira">
@@ -7217,7 +7227,7 @@
             <summary>
             Adiciona um item
             </summary>
-            <param name="o">Objeto Reg[T]</param>
+            <param name="oReg">Objeto Reg[T]</param>
         </member>
         <member name="P:Impactro.Layout.Layout.Current">
             <summary>
