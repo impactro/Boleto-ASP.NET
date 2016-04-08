@@ -9,6 +9,19 @@ public partial class ExemploSicredi : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+        
+
+        // Definição dos dados do cedente (do exemplo página 36 sem registro)
+        // Linha digitável: 74891.11422 00001.039544 02000.921078 9 61870000010000
+        // Código de Barras: 748.9.9.6187.0000010000-1.1.142000010.3954.02.00092.1.0.7
+        CedenteInfo Cedente = new CedenteInfo();
+        Cedente.Cedente = "Exemplo de empresa cedente";
+        Cedente.Banco = "748-X";
+        Cedente.Agencia = "0911";
+        Cedente.Conta = Cedente.CodCedente = "10943";
+        Cedente.Modalidade = "04"; // posto
+        Cedente.Carteira = "1"; // 1-Com Registro, 3-Sem registro
+
         // Definição dos dados do sacado
         SacadoInfo Sacado = new SacadoInfo();
         Sacado.Sacado = "(Teste para homologação)";
@@ -19,27 +32,11 @@ public partial class ExemploSicredi : System.Web.UI.Page
         Sacado.Cep = "12345-123";
         Sacado.UF = "SP";
 
-        // Definição dos dados do cedente (do exemplo página 36 sem registro)
-        // Linha digitável: 74891.11422 00001.039544 02000.921078 9 61870000010000
-        // Código de Barras: 748.9.9.6187.0000010000-1.1.142000010.3954.02.00092.1.0.7
-        CedenteInfo Cedente = new CedenteInfo();
-        Cedente.Cedente = "Exemplo de empresa cedente";
-        Cedente.Banco = "748-2";
-        //Cedente.Agencia = "3954";
-        //Cedente.Conta = Cedente.CodCedente = "92"; 
-        //Cedente.Modalidade = "02"; // posto
-        Cedente.Agencia = "0911";
-        Cedente.Conta = Cedente.CodCedente = "10943";
-        Cedente.Modalidade = "04"; // posto
-
         // Definição dos dados do boleto
         BoletoInfo Boleto = new BoletoInfo();
         Boleto.DataDocumento = DateTime.Now;
         Boleto.Instrucoes = "Todas as as informações deste bloqueto são de exclusiva responsabilidade do cedente";
 
-        //Boleto.NossoNumero = Boleto.NumeroDocumento = "3";
-        //Boleto.ValorDocumento = 100;
-        //Boleto.DataVencimento = new DateTime(2014, 10, 15);
         Boleto.NossoNumero = Boleto.NumeroDocumento = "01802";
         Boleto.ValorDocumento = 315.2;
         Boleto.DataVencimento = new DateTime(2015, 5, 21);
