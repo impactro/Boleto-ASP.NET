@@ -412,7 +412,7 @@
             Digito do Código do Banco
             </summary>
         </member>
-        <member name="M:Impactro.Cobranca.Banco_Sicredi.CampoLivre(Impactro.Cobranca.Boleto,System.String,System.String,System.String,System.String)">
+        <member name="M:Impactro.Cobranca.Banco_Sicredi.CampoLivre(Impactro.Cobranca.Boleto,System.String,System.String,System.String,System.String,System.String)">
             <summary>
             Rotina de Geração do Campo livre usado no Código de Barras para formar o IPTE
             </summary>
