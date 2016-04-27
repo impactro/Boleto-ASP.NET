@@ -3873,6 +3873,502 @@
             Código de Movimento Remessa
             </summary>
         </member>
+        <member name="T:Impactro.Layout.CNAB400Banestes">
+            <summary>
+            Gera o CNAB400 de Remessa de acordo com os padrões do Bradesco
+            Para facilitar o suporte e padronizar recursos e funcionalidades cada banco tera sua proprie classe e rotinas de geração
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.CNAB400Banestes.Remessa">
+            <summary>
+            Gera o aquivo baseado nas coleção de todas informações passada até o momento
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Impactro.Layout.CNAB400Banestes.Retorno(System.String)">
+            <summary>
+            Processa as informações baseado no conteudo de um arquivo CNAB
+            </summary>
+            <param name="cData">Conteudo do arquivo</param>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Header1Banestes.Tipo">
+            <summary>
+            IDENTIFICAÇÃO DO REGISTRO HEADER 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Header1Banestes.Operacao">
+            <summary>
+            TIPO DE OPERAÇÃO - REMESSA 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Header1Banestes.Remessa">
+            <summary>
+            IDENTIFICAÇÃO POR EXTENSO DO MOVIMENTO 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Header1Banestes.CodServ">
+            <summary>
+            IDENTIFICAÇÃO DO TIPO DE SERVIÇO 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Header1Banestes.Cobranca">
+            <summary>
+            IDENTIFICAÇÃO POR EXTENSO DO TIPO DE SERVIÇO 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Header1Banestes.CodCedente">
+            <summary>
+            Identificação da Empresa no Banestes
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Header1Banestes.BRANCOS1">
+            <summary>
+            COMPLEMENTO DE REGISTRO 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Header1Banestes.Empresa">
+            <summary>
+            NOME POR EXTENSO DA EMPRESA MÃE 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Header1Banestes.CodigoBanco">
+            <summary>
+            Nº DO BANCO NA CÂMARA DE COMPENSAÇÃO 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Header1Banestes.NomeBanco">
+            <summary>
+            NOME POR EXTENSO DO BANCO COBRADOR 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Header1Banestes.Geracao">
+            <summary>
+            DATA DE GERAÇÃO DO ARQUIVO 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Header1Banestes.BRANCOS2">
+            <summary>
+            COMPLEMENTO DO REGISTRO 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Header1Banestes.Sequencia">
+            <summary>
+            NÚMERO SEQÜENCIAL DO REGISTRO NO ARQUIVO 
+            </summary>
+        </member>
+        <member name="T:Impactro.Layout.CNAB400Remessa1Banestes">
+            <summary>
+            Estrutura de Remessa Bradesco
+            Página 11
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Tipo">
+            <summary>
+            IDENTIFICAÇÃO DO REGISTRO TRANSAÇÃO 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.TipoDOC">
+            <summary>
+            TIPO DE INSCRIÇÃO DA EMPRESA 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.DOC">
+            <summary>
+            Nº DE INSCRIÇÃO DA EMPRESA (CPF/CNPJ) 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.CodCedente">
+            <summary>
+            AGÊNCIA MANTENEDORA DA CONTA 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Brancos1">
+            <summary>
+            COMPLEMENTO DE REGISTRO 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.UsoEmpresa">
+            <summary>
+            IDENTIFICAÇÃO DO TÍTULO NA EMPRESA 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.NossoNumero">
+            <summary>
+            IDENTIFICAÇÃO DO TÍTULO NO BANCO 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.CodigoMulta">
+            <summary>
+            Se for =1 siguinifica que o valor da multa foi especificado
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.ValorMulta">
+            <summary>
+            Valor da Multa
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Carne">
+            <summary>
+            Tipo de carne
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.CarneNumParcela">
+            <summary>
+            Número da parcela atual
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.CarneQtdParcela">
+            <summary>
+            Número total de parcelas
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Avalista_Tipo">
+            <summary>
+            Tipo do Avalista: 1-CPF, 2-CNPJ
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Avalista_Inscricao">
+            <summary>
+            Documento Avalista
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Carteira">
+            <summary>
+            1: Cobrança Simles, 2: Cobrança Calcionada
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Ocorrencia">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.NumeroFatura">
+            <summary>
+            Duplicada, Fatura
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Vencimento">
+            <summary>
+            Vencimento
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.ValorDocumento">
+            <summary>
+            VALOR NOMINAL DO TÍTULO 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Banco">
+            <summary>
+            Nº DO BANCO NA CÂMARA DE COMPENSAÇÃO 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.AgenciaCob">
+            <summary>
+            AGÊNCIA ONDE O TÍTULO SERÁ COBRADO 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Especie">
+            <summary>
+            ESPÉCIE DO TÍTULO 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Aceite">
+            <summary>
+            IDENTIFICAÇÃO DE TÍTULO ACEITO OU NÃO ACEITO 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Emissao">
+            <summary>
+            DATA DA EMISSÃO DO TÍTULO 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Instrucao1">
+            <summary>
+            1ª INSTRUÇÃO DE COBRANÇA 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Instrucao2">
+            <summary>
+            2ª INSTRUÇÃO DE COBRANÇA 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.CodigoMora">
+            <summary>
+            VALOR DE MORA POR DIA DE ATRASO 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.ValorMora">
+            <summary>
+            VALOR DE MORA POR DIA DE ATRASO 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.DescontoData">
+            <summary>
+            DATA LIMITE PARA CONCESSÃO DE DESCONTO 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.DescontoValor">
+            <summary>
+            VALOR DO DESCONTO A SER CONCEDIDO 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.IOF">
+            <summary>
+            VALOR DO I.O.F. RECOLHIDO P/ NOTAS SEGURO 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Abatimento">
+            <summary>
+            VALOR DO ABATIMENTO A SER CONCEDIDO 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Sacado_Tipo">
+            <summary>
+            IDENTIFICAÇÃO DO TIPO DE INSCRIÇÃO/PAGADOR 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Sacado_Inscricao">
+            <summary>
+            Nº DE INSCRIÇÃO DO PAGADOR (CPF/CNPJ) 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Nome">
+            <summary>
+            NOME DO PAGADOR 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Endereco">
+            <summary>
+            NÚMERO E COMPLEMENTO DO PAGADOR 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Bairro">
+            <summary>
+            BAIRRO DO PAGADOR 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.CEP">
+            <summary>
+            CEP DO PAGADOR 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Cidade">
+            <summary>
+            CIDADE DO PAGADOR 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Estado">
+            <summary>
+            UF DO PAGADOR 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Mensagem">
+            <summary>
+            Mensagem a ser impressa no campo instrução
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Filler">
+            <summary>
+            COMPLEMENTO DO REGISTRO 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Moeda">
+            <summary>
+            COMPLEMENTO DO REGISTRO 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Remessa1Banestes.Sequencia">
+            <summary>
+            Nº SEQÜENCIAL DO REGISTRO NO ARQUIVO 
+            </summary>
+        </member>
+        <member name="T:Impactro.Layout.CNAB400Retorno1Banestes">
+            <summary>
+            Estrutura de Retorno Bradesco
+            Página 42
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.Controle_Registro">
+            <summary>
+            Tipo de Registro
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.Inscricao_Tipo">
+            <summary>
+            Tipo de Inscrição Empresa: 01-CPF, 02-CNPJ, 03-PIS/PASEP, 98-Não tem, 99-Outros
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.Inscricao_Numero">
+            <summary>
+            Nº Inscrição da Empresa: CNPJ/CPF Número Filial Controle
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.Agencia">
+            <summary>
+            AGÊNCIA MANTENEDORA DA CONTA
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.Conta">
+            <summary>
+            NÚMERO DA CONTA CORRENTE DA EMPRESA
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.DAC">
+            <summary>
+            DÍGITO DE AUTO CONFERÊNCIA AG/CONTA EMPRESA
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.Identificacao">
+            <summary>
+            IDENTIFICAÇÃO DO TÍTULO NA EMPRESA
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.NossoNumero1">
+            <summary>
+            Identificação do Título no Banco
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.Carteira1">
+            <summary>
+            NUMERO DA CARTEIRA
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.NossoNumero2">
+            <summary>
+            IDENTIFICAÇÃO DO TÍTULO NO BANCO
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.DACNossoNumero">
+            <summary>
+            Identificação do Título no Banco
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "F:Impactro.Layout.CNAB400Retorno1Banestes.Carteira2" -->
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.Ocorrencia">
+            <summary>
+            Identificação de Ocorrência
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.OcorrenciaData">
+            <summary>
+            Data Ocorrência no Banco
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.NumeroDocumento">
+            <summary>
+            Identificação do Título no Banco 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.NossoNumero">
+            <summary>
+            Identificação do Título no Banco
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.Vencimento">
+            <summary>
+            Data Vencimento do Título
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.ValorDocumento">
+            <summary>
+            Valor do Título
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.CobradorBanco">
+            <summary>
+            Banco Cobrador
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.CobradorAgencia">
+            <summary>
+            Código da Agência do Banco Cobrador
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.AgenciaDAC">
+            <summary>
+            DAC Agencia cobradora
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.Especie">
+            <summary>
+            Espécie do Título
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.ValorDespesas">
+            <summary>
+            Valor Despesa
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.Brancos5">
+            <summary>
+            Valor outras despesas
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.IOF">
+            <summary>
+            IOF Devido
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.Abatimento">
+            <summary>
+            Abatimento Concedido sobre o Título
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.Descontos">
+            <summary>
+            Desconto Concedido
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.ValorPago">
+            <summary>
+            Valor Pago
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.JurosMora">
+            <summary>
+            Juros de Mora
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.CreditoOutros">
+            <summary>
+            Outros Créditos
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.DDA">
+            <summary>
+            INDICADOR DE BOLETO DDA
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.DataPagamento">
+            <summary>
+            Data do Crédito
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.InstrucaoCancelada">
+            <summary>
+            CÓDIGO DA INSTRUÇÃO CANCELADA
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.NomePagador">
+            <summary>
+            Nome do pagador
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.Erro">
+            <summary>
+            REGISTROS REJEITADOS OU ALEGAÇÃO DO PAGADOR OU REGISTRO DE MENSAGEM INFORMATIVA
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.CodigoLiquidacao">
+            <summary>
+            MEIO PELO QUAL O TÍTULO FOI LIQUIDADO
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.Sequencia">
+            <summary>
+            Número seqüencial do registro no arquivo
+            </summary>
+        </member>
         <member name="M:Impactro.Layout.CNAB400Sicredi.Retorno(System.String)">
             <summary>
             Processa as informações baseado no conteudo de um arquivo CNAB
@@ -5616,9 +6112,9 @@
             Retorna as linhas onde houve qualquer erro de processamento
             </summary>
         </member>
-        <member name="M:Impactro.Layout.LayoutBancos.Init(Impactro.Cobranca.CedenteInfo)">
+        <member name="M:Impactro.Layout.LayoutBancos.Init(Impactro.Cobranca.CedenteInfo,Impactro.Layout.LayoutTipo)">
             <summary>
-            Inicializa a gerador baseado no cedente, e instancia o gerador de cada banco
+            Inicializa o gerador de layouts de acordo com o cedente, usando a instancia apropriada para cada banco
             </summary>
         </member>
         <member name="M:Impactro.Layout.LayoutBancos.Table(System.Type)">
@@ -5710,6 +6206,21 @@
         <member name="T:Impactro.Layout.LayoutBoletoReg">
             <summary>
             A cada novo boleto processado esse evento será cahado ao final da definições padrão
+            </summary>
+        </member>
+        <member name="T:Impactro.Layout.LayoutTipo">
+            <summary>
+            Tipo de de layout a ser gerado
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.LayoutTipo.CNAB240">
+            <summary>
+            Layout de 240 posições
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.LayoutTipo.CNAB400">
+            <summary>
+            Layout de 400 posições
             </summary>
         </member>
         <member name="T:Impactro.Layout.CNAB">
