@@ -4457,7 +4457,7 @@
         </member>
         <member name="T:Impactro.Layout.CNAB400Remessa1Sicredi">
             <summary>
-            Estrutura de Remessa Bradesco
+            Estrutura de Remessa Sicredi
             Página 11
             </summary>
         </member>
@@ -4714,6 +4714,117 @@
             </summary>
         </member>
         <member name="F:Impactro.Layout.CNAB400Trailer1Sicredi.Sequencia">
+            <summary>
+            Número seqüencial do registro no arquivo
+            </summary>
+        </member>
+        <member name="T:Impactro.Layout.CNAB400Retorno1Sicredi">
+            <summary>
+            Estrutura de Retorno Sicredi
+            Página 42
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Sicredi.Controle_Registro">
+            <summary>
+            Tipo de Registro
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Sicredi.Pagador_cooperativa">
+            <summary>
+            Código do pagador na cooperativa do beneficiário
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Sicredi.Pagador_Associado">
+            <summary>
+            Código do pagador junto ao associado
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Sicredi.DDA">
+            <summary>
+            DDA: 1 – Boleto enviado a CIP/DDA, 2 – Boleto normal
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Sicredi.NossoNumero">
+            <summary>
+            Identificação do Título no Banco
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Sicredi.Ocorrencia">
+            <summary>
+            Identificação de Ocorrência
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Sicredi.OcorrenciaData">
+            <summary>
+            Data Ocorrência no Banco
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Sicredi.NumeroDocumento">
+            <summary>
+            Identificação do Título no Banco 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Sicredi.Vencimento">
+            <summary>
+            Data Vencimento do Título
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Sicredi.ValorDocumento">
+            <summary>
+            Valor do Título
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Sicredi.Especie">
+            <summary>
+            Espécie do Título
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Sicredi.ValorDespesas">
+            <summary>
+            Valor Despesa
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Sicredi.CustasProtesto">
+            <summary>
+            Valor outras despesas
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Sicredi.Abatimento">
+            <summary>
+            Abatimento Concedido sobre o Título
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Sicredi.Descontos">
+            <summary>
+            Desconto Concedido
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Sicredi.ValorPago">
+            <summary>
+            Valor Pago
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Sicredi.JurosMora">
+            <summary>
+            Juros de Mora
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Sicredi.CreditoOutros">
+            <summary>
+            Outros Créditos
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Sicredi.MotivoOcorrencia">
+            <summary>
+            Motivo da ocorrencia
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Sicredi.DataCredito">
+            <summary>
+            MEIO PELO QUAL O TÍTULO FOI LIQUIDADO
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400Retorno1Sicredi.Sequencia">
             <summary>
             Número seqüencial do registro no arquivo
             </summary>
@@ -5255,7 +5366,7 @@
         </member>
         <member name="T:Impactro.Layout.CNAB400Itau">
             <summary>
-            Gera o CNAB400 de Remessa de acordo com os padrões do Bradesco
+            Gera o CNAB400 de Remessa de acordo com os padrões do Itaú
             Para facilitar o suporte e padronizar recursos e funcionalidades cada banco tera sua proprie classe e rotinas de geração
             </summary>
         </member>
@@ -5353,7 +5464,7 @@
         </member>
         <member name="T:Impactro.Layout.CNAB400Remessa1Itau">
             <summary>
-            Estrutura de Remessa Bradesco
+            Estrutura de Remessa Itaú
             Página 11
             </summary>
         </member>
@@ -5589,7 +5700,7 @@
         </member>
         <member name="T:Impactro.Layout.CNAB400Retorno1Itau">
             <summary>
-            Estrutura de Retorno Bradesco
+            Estrutura de Retorno Itau
             Página 42
             </summary>
         </member>
@@ -7719,7 +7830,7 @@
             <param name="t">Tipo para ser procurado no array</param>
             <returns>True caso exista e False caso nao encontre</returns>
         </member>
-        <member name="M:Impactro.Layout.Layout.ForEach(System.Type,System.Action{Impactro.Layout.IReg})">
+        <member name="M:Impactro.Layout.Layout.ForEach``1(System.Action{Impactro.Layout.Reg{``0}})">
             <summary>
             Efetua uma ação para um tipo de objeto
             </summary>
