@@ -54,6 +54,7 @@ public partial class ExemploBancoDoBrasil : System.Web.UI.Page
         bltPag.ImagePath = "imagens/";
         bltPag.ImageType = Impactro.WebControls.BoletoImageType.gif;
         bltPag.ImageLogo = "Impactro-Logo.gif"; //Define a imagem do logotipo da sua empresa
+        bltPag.ExibeEnderecoReciboSacado = true;
 
         // monta o boleto com os dados específicos nas classes
         bltPag.MakeBoleto(Cedente, Sacado, Boleto);
