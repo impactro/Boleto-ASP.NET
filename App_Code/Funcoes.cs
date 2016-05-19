@@ -104,8 +104,16 @@ public class Funcoes
 
         DateTime dtBase = new DateTime(1997, 10, 7);
         TimeSpan Result = DataVencimento.Subtract(dtBase);
+
+        if (Result.Days > 9999)
+        {
+            DateTime dtBaseNew = new DateTime(2022, 5, 29);
+            Result = DataVencimento.Subtract(dtBaseNew);
+        }
+
         if (Result.Days < 0 && Result.Days > 9999)
             throw new Exception("Data de vencimento inválida");
+
         return Result.Days;
     }
 
