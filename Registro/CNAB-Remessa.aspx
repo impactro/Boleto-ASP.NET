@@ -49,16 +49,22 @@
         <asp:Button runat="server" ID="btnCedenteTeste" Text="Gerar Boleto de teste" OnClick="btnCedenteTeste_Click"/> &nbsp; 
         <asp:Button runat="server" ID="btnOcultar" Text="Ocultar Boleto" Visible="false" EnableViewState="false"/><br/>
         <br/>
-        <asp:Label runat="server" ID="lblInfo"/>
+        <asp:Label runat="server" ID="lblInfoCedente"/>
         <br/>
         <br/>
         <cob:BoletoWeb id="bltPag" runat="server" CssCell="BolCell" CssField="BolField" Visible="false" EnableViewState="false"></cob:BoletoWeb>
         
         <h2>Etapa 2 - Banco de Dados</h2>
         <p>
-        Tipo de Banco de dados: <asp:DropDownList runat="server" ID="ddlBanco"></asp:DropDownList>
+        Tipo de Banco de dados: <asp:DropDownList runat="server" ID="ddlProvider">
+       <%--     <asp:ListItem Value="System.Data.OleDb" Selected="True">MDB local</asp:ListItem>
+            <asp:ListItem Value="System.Data.SqlClient">MS-SQL</asp:ListItem>
+            <asp:ListItem Value="System.Data.MySqlClient">MySQL</asp:ListItem>--%>
+        </asp:DropDownList><br/>
         String de Conexão: <br/>
-        Query(select) de obtenção dos boletos<br/>
+            <asp:TextBox runat="server" ID="txtConnectionString" Text="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|eCommerce.mdb;" Width="90%" /> <br/>
+            <!-- "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=W:\Boleto\Boleto.NET\App_Data\eCommerce.mdb" -->
+        Query(select) de obtenção dos boletos: <br/><asp:TextBox runat="server" ID="txtSelect" TextMode="MultiLine" Width="80%" Height="40" Text="SELECT boletoID as NossoNumero, Data as Vencimento, Valor, Nome as Pagador, '123' as Documento, 'Endereco' as Endereco FROM Boletos"/><br/>
         O nome dos campos retornados devem ser estes obrigatóriamente, os primeiros campos em <b>negritos</b> abaixo são obrigatórios!<br/>
         </p>
         <ul>
@@ -73,10 +79,17 @@
         </ul>
         <p>
         As regras de juros, multa, e desconto variam muito de banco para banco, e na finalidade desse exemplo não serão implementadas, assim como outras informações mais específicas.<br/>
-        Testar conexão com o banco e visualizar dados
+        <asp:Button runat="server" ID="btnSelect" Text="Testar conexão e executar a query" OnClick="btnSelect_Click" />
         </p>
-        <h3>Visualização dos Boletos e arquivo</h3>
-        <p>Clique sobre o número do boleto para visualiza-lo</p>
+        <br/>
+        <asp:Label runat="server" ID="lblInfoSQL"/>
+        <br/>
+        <br/>
+        <asp:GridView runat="server" ID="gvBanco" EnableViewState="false"/>
+        <h3>Visualização do Arquivo e Boleto</h3>
+        <asp:TextBox runat="server" ID="txtRemessa" TextMode="MultiLine" Width="90%" Height="100" Wrap="false" EnableViewState="false" />
+        <br/>
+        <asp:Panel runat="server" ID="pnlBoletos" EnableViewState="false"/>
     </div>
     </form>
 </body>
