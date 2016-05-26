@@ -1,5 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeFile="ExemploCaixaSIGCB.aspx.cs" Inherits="ExemploCaixaSIGCB" %>
-<%@ Register Assembly="Impactro.Cobranca" Namespace="Impactro.WebControls" TagPrefix="cob" %>
+﻿<%@ Page Language="VB" AutoEventWireup="true" CodeFile="HomologaCaixaVB.aspx.vb" Inherits="BoletoNet_HomologaCaixaVB" %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
@@ -9,12 +8,11 @@
     <style type="text/css">
 		.BolCell { font-size: 7pt; font-family: Verdana; }
 	    .BolField { font-weight: bold; font-size: 8pt; font-family: Verdana; }
+        .BoletoWeb { zoom: 0.9; margin-bottom: 15px; margin-top: 15px; }
 	</style>
 </head>
 <body>
     <form id="form1" runat="server">
-        Código de Barras: <asp:Label runat="server" ID="CodBar"/>
-        <cob:BoletoWeb id="bltPag" runat="server" CssCell="BolCell" CssField="BolField" ></cob:BoletoWeb>
     </form>
 </body>
 </html>
