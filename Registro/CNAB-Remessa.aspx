@@ -26,28 +26,39 @@
         </p>
         
         <h2>Etapa 1 - Emitente (Antigo Cedente)</h2>
-        Nome do Cedente: <asp:TextBox runat="server" ID="txtCedente" Text="Impactro Informática"/><br/>
-        CNPJ: <asp:TextBox runat="server" ID="txtCNPJ" Text="12.345.678/0001-12"/><br/>
-        Endereço: <asp:TextBox runat="server" ID="txtEndereco" Text="www.boletoasp.com.br"/><br/>
-        Banco: <asp:DropDownList runat="server" ID="ddlBancos">
-            <asp:ListItem Value="001">Banco do Brasil</asp:ListItem>
-            <asp:ListItem Value="104">Caixa Econômica Federal</asp:ListItem>
-            <asp:ListItem Value="237" Selected="True">Bradesco</asp:ListItem>
-            <asp:ListItem Value="341">Itaú Unibanco</asp:ListItem>
-            <asp:ListItem Value="353">Santander Banespa</asp:ListItem>
-            <asp:ListItem Value="748">Sicredi</asp:ListItem>
-            <asp:ListItem Value="756">Sicoob</asp:ListItem>
-        </asp:DropDownList> <a href="https://github.com/impactro/Boleto-Test/wiki/Bancos-Suportados" target="_blank">Veja os bancos suportados</a><br/>
-        Agencia: <asp:TextBox runat="server" ID="txtAgencia" Text="1234-5" MaxLength="6"/><br/>
-        Conta Corrente: <asp:TextBox runat="server" ID="txtConta" Text="67890-1" MaxLength="12"/><br/>
-        Carteira: <asp:TextBox runat="server" ID="txtCarteira" Text="9" MaxLength="4"/><br/>
-        Modalidade: <asp:TextBox runat="server" ID="txtModalidade" Text="1" MaxLength="4"/><br/>
-        Codigo do Cedente: <asp:TextBox runat="server" ID="txtCodCedente" Text="123" MaxLength="20"/><br/>
-        Código de Convênio: <asp:TextBox runat="server" ID="txtConvenio" Text="456" MaxLength="20"/><br/>
-        Cedente Codigo: <asp:TextBox runat="server" ID="txtCedenteCod" Text="789" MaxLength="20"/><br/>
-        <br/>
-        <asp:Button runat="server" ID="btnCedenteTeste" Text="Gerar Boleto de teste" OnClick="btnCedenteTeste_Click"/> &nbsp; 
-        <asp:Button runat="server" ID="btnOcultar" Text="Ocultar Boleto" Visible="false" EnableViewState="false"/><br/>
+        <div style="float: left">
+            Nome do Cedente: <asp:TextBox runat="server" ID="txtCedente" Text="Impactro Informática"/><br/>
+            CNPJ: <asp:TextBox runat="server" ID="txtCNPJ" Text="12.345.678/0001-12"/><br/>
+            Endereço: <asp:TextBox runat="server" ID="txtEndereco" Text="www.boletoasp.com.br"/><br/>
+            Banco: <asp:DropDownList runat="server" ID="ddlBancos">
+                <asp:ListItem Value="001">Banco do Brasil</asp:ListItem>
+                <asp:ListItem Value="104">Caixa Econômica Federal</asp:ListItem>
+                <asp:ListItem Value="237" Selected="True">Bradesco</asp:ListItem>
+                <asp:ListItem Value="341">Itaú Unibanco</asp:ListItem>
+                <asp:ListItem Value="353">Santander Banespa</asp:ListItem>
+                <asp:ListItem Value="748">Sicredi</asp:ListItem>
+                <asp:ListItem Value="756">Sicoob</asp:ListItem>
+            </asp:DropDownList> <a href="https://github.com/impactro/Boleto-Test/wiki/Bancos-Suportados" target="_blank">Veja os bancos suportados</a><br/>
+            Agencia: <asp:TextBox runat="server" ID="txtAgencia" Text="1234-5" MaxLength="6"/><br/>
+            Conta Corrente: <asp:TextBox runat="server" ID="txtConta" Text="67890-1" MaxLength="12"/><br/>
+            Carteira: <asp:TextBox runat="server" ID="txtCarteira" Text="9" MaxLength="4"/><br/>
+            Modalidade: <asp:TextBox runat="server" ID="txtModalidade" Text="1" MaxLength="4"/><br/>
+            Codigo do Cedente: <asp:TextBox runat="server" ID="txtCodCedente" Text="123" MaxLength="30"/><br/>
+            Código de Convênio: <asp:TextBox runat="server" ID="txtConvenio" Text="456" MaxLength="30"/><br/>
+            Cedente Codigo: <asp:TextBox runat="server" ID="txtCedenteCod" Text="789" MaxLength="30"/><br/>
+            <br/>
+            <asp:Button runat="server" ID="btnCedenteTeste" Text="Gerar Boleto de teste" OnClick="btnCedenteTeste_Click"/> &nbsp; 
+            <asp:Button runat="server" ID="btnOcultar" Text="Ocultar Boleto" Visible="false" EnableViewState="false"/><br/>
+        </div>
+        <div style="float: left">
+            Nosso Numero: <asp:TextBox runat="server" ID="txtNossoNumero" Text="334455" /><br/>
+            Valor: <asp:TextBox runat="server" ID="txtValor" Text="123,45" /><br/>
+            Vencimento: <asp:TextBox runat="server" ID="txtVencimento" Text="10/06/2016" /><br/>
+            Nº Documento: <asp:TextBox runat="server" ID="txtNDocumento" Text="4455" /><br/>
+            <br/>
+
+        </div>
+        <div style="clear:both"></div>
         <br/>
         <asp:Label runat="server" ID="lblInfoCedente"/>
         <br/>
@@ -71,10 +82,14 @@
             <li><b>NossoNumero</b>: Identificação única do boleto no banco</li>
             <li><b>Vencimento</b>: Data de vencimento do boleto</li>
             <li><b>Valor</b>: Identificação única do boleto no banco</li>
+            <li>NumeroDocumento: Nº do documento</li>
+            <li>Emissao: Data de Emissão/Geração do boleto</li>
             <li><b>Pagador</b>: Nome de quem deve pagar o boleto</li>
-            <li><b>Documento</b>: CPF/CNPJ do pagador</li>
             <li><b>Endereco</b>: Endereço do pagador</li>
-            <li>Documento: Seu número de documento para controle interno</li>
+            <li>Documento: CPF ou CNPJ do pagador</li>
+            <li>Bairro: Bairro do pagador</li>
+            <li>Cidade: Cidade do Pagador</li>
+            <li>UF: Estado (UF) do pagador</li>
             <li>Baixa: Indica que é um registro de baixa (cancelamento)</li>
         </ul>
         <p>

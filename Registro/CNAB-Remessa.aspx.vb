@@ -11,14 +11,59 @@ Partial Class Registro_CNAB_Remessa
     Inherits System.Web.UI.Page
 
     Protected Sub Page_Load(sender As Object, e As EventArgs) Handles Me.Load
+        'Apenas no primeiro GET da página
         If Not IsPostBack Then
+
+            'Lista os possíveis Factory isntalados na máquina
             Dim factorys As DataTable = DbProviderFactories.GetFactoryClasses()
-            'ddlProvider.DataValueField = "InvariantName"
-            'ddlProvider.DataTextField = "Name" 'Description, AssemblyQualifiedName
-            'ddlProvider.DataSource = factorys
-            'ddlProvider.DataBind()
+            ddlProvider.DataValueField = "InvariantName"
+            ddlProvider.DataTextField = "Name" 'Description, AssemblyQualifiedName
+            ddlProvider.DataSource = factorys
+            ddlProvider.DataBind()
+
+            'Lê os dados padrão de querystring se o banco for definido (por POST ou GET)
+            If Not Request("banco") Is Nothing Then
+                txtCedente.Text = Request("Cedente")
+                txtCNPJ.Text = Request("CNPJ")
+                txtEndereco.Text = Request("Endereco")
+                ddlBancos.SelectedValue = Request("Banco")
+                txtAgencia.Text = Request("Agencia")
+                txtConta.Text = Request("Conta")
+                txtCarteira.Text = Request("Carteira")
+                txtModalidade.Text = Request("Modalidade")
+                txtCodCedente.Text = Request("CodCedente")
+                txtConvenio.Text = Request("Convenio")
+                txtCedenteCod.Text = Request("CedenteCOD")
+
+                Dim db = Request("db")
+                If String.IsNullOrEmpty(db) Then
+                    Dim item = ddlProvider.Items.FindByValue(db)
+                    If Not item IsNot Nothing Then
+                        item.Selected = True
+                    End If
+                    If Not String.IsNullOrEmpty(Request("cn")) Then txtConnectionString.Text = Request("cn")
+                    If Not String.IsNullOrEmpty(Request("qry")) Then txtSelect.Text = Request("qry")
+                End If
+            End If
         End If
     End Sub
+
+    Protected Function GetCedente() As CedenteInfo
+        'Obtenho os dados do formulario e defino o cedente
+        Dim cedente As New CedenteInfo ' em c# seria: var cedente = new CedenteInfo();
+        cedente.Cedente = txtCedente.Text
+        cedente.CNPJ = txtCNPJ.Text
+        cedente.Endereco = txtEndereco.Text
+        cedente.Banco = ddlBancos.SelectedValue
+        cedente.Agencia = txtAgencia.Text
+        cedente.Conta = txtConta.Text
+        cedente.Carteira = txtCarteira.Text
+        cedente.Modalidade = txtModalidade.Text
+        cedente.CodCedente = txtCodCedente.Text
+        cedente.Convenio = txtConvenio.Text
+        cedente.CedenteCOD = txtCedenteCod.Text
+        Return cedente
+    End Function
 
     'Quando o botão de teste for clicado esta rotina será executada
     Protected Sub btnCedenteTeste_Click(sender As Object, e As EventArgs)
@@ -26,18 +71,7 @@ Partial Class Registro_CNAB_Remessa
             lblInfoCedente.Text = ""
 
             'Obtenho os dados do formulario e defino o cedente
-            Dim cedente As New CedenteInfo ' em c# seria: var cedente = new CedenteInfo();
-            cedente.Cedente = txtCedente.Text
-            cedente.CNPJ = txtCNPJ.Text
-            cedente.Endereco = txtEndereco.Text
-            cedente.Banco = ddlBancos.SelectedValue
-            cedente.Agencia = txtAgencia.Text
-            cedente.Conta = txtConta.Text
-            cedente.Carteira = txtCarteira.Text
-            cedente.Modalidade = txtModalidade.Text
-            cedente.CodCedente = txtCodCedente.Text
-            cedente.Convenio = txtConvenio.Text
-            cedente.CedenteCOD = txtCedenteCod.Text
+            Dim cedente = GetCedente()
 
             Dim sacado As New SacadoInfo
             sacado.Sacado = "Nome de quem vai pagar"
@@ -48,17 +82,36 @@ Partial Class Registro_CNAB_Remessa
             sacado.UF = "SP"
             sacado.Cep = "12345-678"
 
+            'Dados do boleto convertidos diretamente, sem testes de conversão!
+            'Verifique também os padrões de idioma para conversão correta dos valores
             Dim boleto As New BoletoInfo
-            boleto.DataVencimento = DateTime.Now
-            boleto.ValorDocumento = 123.45
-            boleto.NossoNumero = 4567
-            boleto.NumeroDocumento = 123
+            boleto.DataVencimento = DateTime.Parse(txtVencimento.Text)
+            boleto.ValorDocumento = Double.Parse(txtValor.Text)
+            boleto.NossoNumero = txtNossoNumero.Text
+            boleto.NumeroDocumento = txtNDocumento.Text
 
             'Junta tudo e calcula o boleto
             bltPag.MakeBoleto(cedente, sacado, boleto)
             bltPag.Visible = True 'Algo interessante em .Net é que algo pode estar na página, mas que só será gerado o HTML pelo servidor se estiver de fato visivel
             btnOcultar.Visible = True
             lblInfoCedente.Text = "Número no Código de Barras: <b>" + bltPag.Boleto.CodigoBarras + "</b>"
+
+            'Monta uma querystring 'simples' para ser enviada como exemplo via GET
+            lblInfoCedente.Text += " <a href='http://exemplos.boletoasp.com.br/Registro/CNAB-Remessa.aspx?Cedente=" + txtCedente.Text + _
+                "&CNPJ=" + txtCNPJ.Text + _
+                "&Endereco=" + txtEndereco.Text + _
+                "&Banco=" + ddlBancos.SelectedValue + _
+                "&Agencia=" + txtAgencia.Text + _
+                "&Conta=" + txtConta.Text + _
+                "&Carteira=" + txtCarteira.Text + _
+                "&Modalidade=" + txtModalidade.Text + _
+                "&CodCedente=" + txtCodCedente.Text + _
+                "&Convenio=" + txtConvenio.Text + _
+                "&CedenteCOD=" + txtCedenteCod.Text + _
+                "&db=" + ddlProvider.SelectedValue + _
+                "&cn=" + txtConnectionString.Text + _
+                "&qry=" + txtSelect.Text + _
+                "' target=_blank>(SALVE OS PARAMETROS PELO LINK GET)</a>"
 
         Catch ex As Exception
             lblInfoCedente.Text = "<b>Erro nos parametros fornecidos para gerar o boleto!</b><br/>" + ex.Message + "<pre>" + ex.StackTrace + "</pre>"
@@ -79,19 +132,24 @@ Partial Class Registro_CNAB_Remessa
 
             lblInfoSQL.Text = ""
             'Cria o driver de coenxão específico de acordo com o tipo de banco de dados
-            'Dim dbfc As DbProviderFactory = DbProviderFactories.GetFactory(ddlProvider.SelectedValue)
+            Dim dbfc As DbProviderFactory
+            If ddlProvider.SelectedValue = "System.Data.OleDb" Then 'Para evitar problemas é melhor fazer dessa forma
+                dbfc = OleDbFactory.Instance
+            Else
+                dbfc = DbProviderFactories.GetFactory(ddlProvider.SelectedValue)
+            End If
 
             'Cria a instancia da conexão
-            Dim dbcn As New OleDbConnection() 'DbConnection = dbfc.CreateConnection()
+            Dim dbcn = dbfc.CreateConnection()
             dbcn.ConnectionString = txtConnectionString.Text
             dbcn.Open()
 
             'Se chegou aqui é porque o driver o banco existe e está conectado, então cou criar o comando de execução e ler os dados
-            Dim dbcmd As New OleDbCommand '= dbfc.CreateCommand()
+            Dim dbcmd = dbfc.CreateCommand()
             dbcmd.Connection = dbcn 'conecão relacionada ao comando
             dbcmd.CommandText = txtSelect.Text 'comando a ser executado
             Dim tb As New DataTable
-            Dim adpt As New OleDbDataAdapter  '= dbfc.CreateDataAdapter() 'classe que lê os dados e prenenche a tabela 
+            Dim adpt = dbfc.CreateDataAdapter() 'classe que lê os dados e prenenche a tabela 
             adpt.SelectCommand = dbcmd
             adpt.Fill(tb) ' Os dados lidos estarão em tb!
 
@@ -100,24 +158,15 @@ Partial Class Registro_CNAB_Remessa
             gvBanco.DataBind()
 
             'Da mesma forma que no teste, obtenho os dados do formulário
-            Dim cedente As New CedenteInfo
-            cedente.Cedente = txtCedente.Text
-            cedente.CNPJ = txtCNPJ.Text
-            cedente.Endereco = txtEndereco.Text
-            cedente.Banco = ddlBancos.SelectedValue
-            cedente.Agencia = txtAgencia.Text
-            cedente.Conta = txtConta.Text
-            cedente.Carteira = txtCarteira.Text
-            cedente.Modalidade = txtModalidade.Text
-            cedente.CodCedente = txtCodCedente.Text
-            cedente.Convenio = txtConvenio.Text
-            cedente.CedenteCOD = txtCedenteCod.Text
+            Dim cedente = GetCedente()
+            cedente.CarteiraTipo = 1 'Específico para o Santander
 
             'Tenta gerar a remessa baseado nos dado do cedente e lidos pelo banco de dados
             Dim arq As New LayoutBancos
             arq.Init(cedente, LayoutTipo.CNAB400)
 
             Dim n As Integer = 0
+            Dim Baixa As Boolean
             'Adiciona no arquivo os respectivos boletos e sacados
             For Each row As DataRow In tb.Rows
 
@@ -125,11 +174,23 @@ Partial Class Registro_CNAB_Remessa
                 boleto.NossoNumero = row("NossoNumero")
                 boleto.DataVencimento = row("Vencimento")
                 boleto.ValorDocumento = row("Valor")
+                'Campos opcionais do boleto
+                If tb.Columns.Contains("NumeroDocumento") Then boleto.NumeroDocumento = row("NumeroDocumento")
+                If tb.Columns.Contains("Emissao") Then boleto.DataDocumento = row("Emissao")
 
                 Dim sacado As New SacadoInfo
                 sacado.Sacado = row("Pagador")
-                sacado.Documento = row("Documento")
                 sacado.Endereco = row("Endereco")
+                'Campos opcionais do sacado
+                If tb.Columns.Contains("Documento") Then sacado.Documento = row("Documento")
+                If tb.Columns.Contains("Bairro") Then sacado.Bairro = row("Bairro")
+                If tb.Columns.Contains("Cidade") Then sacado.Cidade = row("Cidade")
+                If tb.Columns.Contains("UF") Then sacado.Cidade = row("UF")
+
+                'controle de geração (baixa ou criação) => Padrão criação!
+                If tb.Columns.Contains("Baixa") Then Baixa = row("baixa") Else Baixa = False
+
+                If Baixa Then boleto.Instrucao1 = 2 'Nos bancos: BB, Sicredi, Santander o codigo '2' é a instrução de baixa
 
                 arq.Add(boleto, sacado)
 
