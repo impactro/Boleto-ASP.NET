@@ -85,6 +85,8 @@ Provider=Microsoft.Jet.OLEDB.4.0; Data Source=W:\Boleto\Boleto.NET\App_Data\eCom
         Query(select) de obtenção dos boletos: <br/>
             <asp:TextBox runat="server" ID="txtSelect" TextMode="MultiLine" Width="80%" Height="60" Text="SELECT boletoID as NossoNumero, Data as Vencimento, Valor, Nome as Pagador, '123' as Documento, 'Endereco' as Endereco FROM Boletos"/><br/>
             <!--
+                use o arquivo: Cliente_Cobranca.sql para criar um simples banco de dados de exemplo
+
 SELECT cob.id_Cobranca NossoNumero, cob.Emissao, cob.Documento NumeroDocumento, cob.Valor, cob.vencimento,
 cli.Nome Pagador, cli.Endereco, cli.Bairro, cli.Cidade, cli.UF
 FROM cobrancas cob

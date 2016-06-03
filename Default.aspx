@@ -25,9 +25,11 @@
     <div>
         <h1>Demostração BoletoASP.Net (Impactro.Cobranca.DLL)</h1>
         <p>Esta única DLL é bem completa, com diversas rotinas e utlitários inclusos, e está sendo consantemente melhorada.</p>
+        <p><a href="https://github.com/impactro/Boleto-Test/wiki">Acesse nossa WIKI para mais informações, e baixe os fontes do GITHUB</a></p>
         <ul>
             <li><a href="BoletoNet">Boleto ASP.Net</a> - Conheça os diversos exemplos inclusos no produto</li>
             <li><a href="Registro/CNAB-Form.aspx">Arquivo de Remessa, e Tratamento de Retorno</a> - Layout para ITAU-CNB400 e BRADESCO-CNAB240</li>
+            <li><a href="Registro/CNAB-Remessa.aspx">Exemplo de geração de Remessa CNAB240/400</a> - Crie boletos registrados facilmente</li>
             <li><a href="NFe/RPS-NFe1.aspx">Geração de Lote de RPS para NF-e SP</a> - Versão 1.0 da nota Fiscal de Serviços para São Paulo/SP</li>
             <li><a href="Cielo/Cielo-Direto.aspx">Gateway Cielo WebServices</a> - Encapsulamento XML das chamadas</li>
             <li><a href="BoletoASP">Boleto ASP3 Clássico</a> - Antigo, mas muito poderoso gerador de boleto em ASP</li>
