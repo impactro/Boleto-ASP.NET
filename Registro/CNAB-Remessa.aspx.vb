@@ -20,9 +20,12 @@ Partial Class Registro_CNAB_Remessa
             ddlProvider.DataTextField = "Name" 'Description, AssemblyQualifiedName
             ddlProvider.DataSource = factorys
             ddlProvider.DataBind()
+            ddlProvider.SelectedIndex = 1
 
             'Lê os dados padrão de querystring se o banco for definido (por POST ou GET)
             If Not Request("banco") Is Nothing Then
+
+                'Cedente
                 txtCedente.Text = Request("Cedente")
                 txtCNPJ.Text = Request("CNPJ")
                 txtEndereco.Text = Request("Endereco")
@@ -34,6 +37,12 @@ Partial Class Registro_CNAB_Remessa
                 txtCodCedente.Text = Request("CodCedente")
                 txtConvenio.Text = Request("Convenio")
                 txtCedenteCod.Text = Request("CedenteCOD")
+
+                'Boleto
+                txtValor.Text = Request("Valor")
+                txtNossoNumero.Text = Request("NossoNumero")
+                txtVencimento.Text = Request("Vencimento")
+                txtNDocumento.Text = Request("NDocumento")
 
                 Dim db = Request("db")
                 If String.IsNullOrEmpty(db) Then
@@ -62,6 +71,8 @@ Partial Class Registro_CNAB_Remessa
         cedente.CodCedente = txtCodCedente.Text
         cedente.Convenio = txtConvenio.Text
         cedente.CedenteCOD = txtCedenteCod.Text
+        'Util apenas para Banespa gerar boletos no formato do Santander
+        cedente.useSantander = True
         Return cedente
     End Function
 
@@ -108,6 +119,10 @@ Partial Class Registro_CNAB_Remessa
                 "&CodCedente=" + txtCodCedente.Text + _
                 "&Convenio=" + txtConvenio.Text + _
                 "&CedenteCOD=" + txtCedenteCod.Text + _
+                "&Valor=" + txtValor.Text + _
+                "&NossoNumero=" + txtNossoNumero.Text + _
+                "&Vencimento=" + txtVencimento.Text + _
+                "&NDocumento=" + txtNDocumento.Text + _
                 "&db=" + ddlProvider.SelectedValue + _
                 "&cn=" + txtConnectionString.Text + _
                 "&qry=" + txtSelect.Text + _

@@ -17,6 +17,7 @@
         <h1>Geração de Arquivo de Remessa CNAB240/CNAB400 para Boletos/DDA</h1>
         <p>
             O código fonte deste programa está disponivel no <a href="https://github.com/impactro/Boleto-ASP.NET/tree/master/Registro" target="_blank">GITHUB.com/IMPACTRO</a>.<br/>
+            <a href="https://github.com/impactro/Boleto-Test/wiki/Exemplo-de-Remessa-CNAB">Acesse a WIKI para mais informações</a><br/>
             Siga os passos abaixo para gerar arquivos de remessa válidos.<br/>
             Esta página é um exemplo de uso e não um serviço gratuito, por isso se limita em gerar apenas os 10 primeiros registros, você pode baixar o repositório e o fontes deste programa e alterar para usar como quiser, desde que compre os fontes do componente de geração de boletos.<br/>
             A Federação Brasileira do Bancos, em Junho/2015 descontinuou as carteira sem registros para novos contratos, assim em 2016 todas carteiras sem registros deverão ser migradas para carteiras com registros, <a href="http://www.febraban.org.br/Acervo1.asp?id_texto=2660&id_pagina=85" target="_blank">veja aqui a publicação oficial</a>.
@@ -32,6 +33,7 @@
             Endereço: <asp:TextBox runat="server" ID="txtEndereco" Text="www.boletoasp.com.br"/><br/>
             Banco: <asp:DropDownList runat="server" ID="ddlBancos">
                 <asp:ListItem Value="001">Banco do Brasil</asp:ListItem>
+                <asp:ListItem Value="033">Banespa Santander</asp:ListItem>
                 <asp:ListItem Value="104">Caixa Econômica Federal</asp:ListItem>
                 <asp:ListItem Value="237" Selected="True">Bradesco</asp:ListItem>
                 <asp:ListItem Value="341">Itaú Unibanco</asp:ListItem>
@@ -68,14 +70,26 @@
         <h2>Etapa 2 - Banco de Dados</h2>
         <p>
         Tipo de Banco de dados: <asp:DropDownList runat="server" ID="ddlProvider">
-       <%--     <asp:ListItem Value="System.Data.OleDb" Selected="True">MDB local</asp:ListItem>
+        <%--     
+            <asp:ListItem Value="System.Data.OleDb" Selected="True">MDB local</asp:ListItem>
             <asp:ListItem Value="System.Data.SqlClient">MS-SQL</asp:ListItem>
-            <asp:ListItem Value="System.Data.MySqlClient">MySQL</asp:ListItem>--%>
+            <asp:ListItem Value="System.Data.MySqlClient">MySQL</asp:ListItem>
+        --%>
         </asp:DropDownList><br/>
         String de Conexão: <br/>
             <asp:TextBox runat="server" ID="txtConnectionString" Text="Provider=Microsoft.Jet.OLEDB.4.0;Data Source=|DataDirectory|eCommerce.mdb;" Width="90%" /> <br/>
-            <!-- "Provider=Microsoft.Jet.OLEDB.4.0; Data Source=W:\Boleto\Boleto.NET\App_Data\eCommerce.mdb" -->
-        Query(select) de obtenção dos boletos: <br/><asp:TextBox runat="server" ID="txtSelect" TextMode="MultiLine" Width="80%" Height="40" Text="SELECT boletoID as NossoNumero, Data as Vencimento, Valor, Nome as Pagador, '123' as Documento, 'Endereco' as Endereco FROM Boletos"/><br/>
+            <!-- Outros exemplos de conexão:
+Data Source=localhost;Initial Catalog=teste;User ID=root;Password=123456
+Provider=Microsoft.Jet.OLEDB.4.0; Data Source=W:\Boleto\Boleto.NET\App_Data\eCommerce.mdb 
+            -->
+        Query(select) de obtenção dos boletos: <br/>
+            <asp:TextBox runat="server" ID="txtSelect" TextMode="MultiLine" Width="80%" Height="60" Text="SELECT boletoID as NossoNumero, Data as Vencimento, Valor, Nome as Pagador, '123' as Documento, 'Endereco' as Endereco FROM Boletos"/><br/>
+            <!--
+SELECT cob.id_Cobranca NossoNumero, cob.Emissao, cob.Documento NumeroDocumento, cob.Valor, cob.vencimento,
+cli.Nome Pagador, cli.Endereco, cli.Bairro, cli.Cidade, cli.UF
+FROM cobrancas cob
+INNER JOIN clientes cli using(id_cliente)
+            -->
         O nome dos campos retornados devem ser estes obrigatóriamente, os primeiros campos em <b>negritos</b> abaixo são obrigatórios!<br/>
         </p>
         <ul>
