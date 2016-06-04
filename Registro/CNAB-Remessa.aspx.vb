@@ -156,15 +156,18 @@ Partial Class Registro_CNAB_Remessa
 
             'Cria a instancia da conexão
             Dim dbcn = dbfc.CreateConnection()
+            'Dim dbcn As New OleDbConnection
             dbcn.ConnectionString = txtConnectionString.Text
             dbcn.Open()
 
             'Se chegou aqui é porque o driver o banco existe e está conectado, então cou criar o comando de execução e ler os dados
             Dim dbcmd = dbfc.CreateCommand()
+            'Dim dbcmd As New OleDbCommand
             dbcmd.Connection = dbcn 'conecão relacionada ao comando
             dbcmd.CommandText = txtSelect.Text 'comando a ser executado
             Dim tb As New DataTable
             Dim adpt = dbfc.CreateDataAdapter() 'classe que lê os dados e prenenche a tabela 
+            'Dim adpt As New OleDbDataAdapter
             adpt.SelectCommand = dbcmd
             adpt.Fill(tb) ' Os dados lidos estarão em tb!
 
