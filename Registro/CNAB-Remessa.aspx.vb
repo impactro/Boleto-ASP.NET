@@ -204,7 +204,7 @@ Partial Class Registro_CNAB_Remessa
                 If tb.Columns.Contains("Bairro") Then sacado.Bairro = row("Bairro")
                 If tb.Columns.Contains("Cidade") Then sacado.Cidade = row("Cidade")
                 If tb.Columns.Contains("UF") Then sacado.Cidade = row("UF")
-                If tb.Columns.Contains("CEP") Then sacado.Cep = row("UF")
+                If tb.Columns.Contains("CEP") Then sacado.Cep = row("CEP")
 
                 'controle de geração (baixa ou criação) => Padrão criação!
                 If tb.Columns.Contains("Baixa") Then Baixa = row("baixa") Else Baixa = False
