@@ -44,6 +44,7 @@
             Agencia: <asp:TextBox runat="server" ID="txtAgencia" Text="1234-5" MaxLength="6"/><br/>
             Conta Corrente: <asp:TextBox runat="server" ID="txtConta" Text="67890-1" MaxLength="12"/><br/>
             Carteira: <asp:TextBox runat="server" ID="txtCarteira" Text="9" MaxLength="4"/><br/>
+            Tipo Carteira: <asp:TextBox runat="server" ID="txtCarteiraTipo" Text="5" MaxLength="5"/><br/>
             Modalidade: <asp:TextBox runat="server" ID="txtModalidade" Text="1" MaxLength="4"/><br/>
             Codigo do Cedente: <asp:TextBox runat="server" ID="txtCodCedente" Text="123" MaxLength="30"/><br/>
             Código de Convênio: <asp:TextBox runat="server" ID="txtConvenio" Text="456" MaxLength="30"/><br/>

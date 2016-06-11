@@ -33,6 +33,7 @@ Partial Class Registro_CNAB_Remessa
                 txtAgencia.Text = Request("Agencia")
                 txtConta.Text = Request("Conta")
                 txtCarteira.Text = Request("Carteira")
+                txtCarteiraTipo.Text = Request("CarteiraTipo")
                 txtModalidade.Text = Request("Modalidade")
                 txtCodCedente.Text = Request("CodCedente")
                 txtConvenio.Text = Request("Convenio")
@@ -67,6 +68,7 @@ Partial Class Registro_CNAB_Remessa
         cedente.Agencia = txtAgencia.Text
         cedente.Conta = txtConta.Text
         cedente.Carteira = txtCarteira.Text
+        cedente.CarteiraTipo = txtCarteiraTipo.Text
         cedente.Modalidade = txtModalidade.Text
         cedente.CodCedente = txtCodCedente.Text
         cedente.Convenio = txtConvenio.Text
@@ -108,24 +110,25 @@ Partial Class Registro_CNAB_Remessa
             lblInfoCedente.Text = "Número no Código de Barras: <b>" + bltPag.Boleto.CodigoBarras + "</b>"
 
             'Monta uma querystring 'simples' para ser enviada como exemplo via GET
-            lblInfoCedente.Text += " <a href='http://exemplos.boletoasp.com.br/Registro/CNAB-Remessa.aspx?Cedente=" + txtCedente.Text + _
-                "&CNPJ=" + txtCNPJ.Text + _
-                "&Endereco=" + txtEndereco.Text + _
-                "&Banco=" + ddlBancos.SelectedValue + _
-                "&Agencia=" + txtAgencia.Text + _
-                "&Conta=" + txtConta.Text + _
-                "&Carteira=" + txtCarteira.Text + _
-                "&Modalidade=" + txtModalidade.Text + _
-                "&CodCedente=" + txtCodCedente.Text + _
-                "&Convenio=" + txtConvenio.Text + _
-                "&CedenteCOD=" + txtCedenteCod.Text + _
-                "&Valor=" + txtValor.Text + _
-                "&NossoNumero=" + txtNossoNumero.Text + _
-                "&Vencimento=" + txtVencimento.Text + _
-                "&NDocumento=" + txtNDocumento.Text + _
-                "&db=" + ddlProvider.SelectedValue + _
-                "&cn=" + txtConnectionString.Text + _
-                "&qry=" + txtSelect.Text + _
+            lblInfoCedente.Text += " <a href='http://exemplos.boletoasp.com.br/Registro/CNAB-Remessa.aspx?Cedente=" + txtCedente.Text +
+                "&CNPJ=" + txtCNPJ.Text +
+                "&Endereco=" + txtEndereco.Text +
+                "&Banco=" + ddlBancos.SelectedValue +
+                "&Agencia=" + txtAgencia.Text +
+                "&Conta=" + txtConta.Text +
+                "&CarteiraTipo=" + txtCarteiraTipo.Text +
+                "&Carteira=" + txtCarteira.Text +
+                "&Modalidade=" + txtModalidade.Text +
+                "&CodCedente=" + txtCodCedente.Text +
+                "&Convenio=" + txtConvenio.Text +
+                "&CedenteCOD=" + txtCedenteCod.Text +
+                "&Valor=" + txtValor.Text +
+                "&NossoNumero=" + txtNossoNumero.Text +
+                "&Vencimento=" + txtVencimento.Text +
+                "&NDocumento=" + txtNDocumento.Text +
+                "&db=" + ddlProvider.SelectedValue +
+                "&cn=" + txtConnectionString.Text +
+                "&qry=" + txtSelect.Text +
                 "' target=_blank>(SALVE OS PARAMETROS PELO LINK GET)</a>"
 
         Catch ex As Exception

@@ -20,6 +20,7 @@ Partial Class Registro_CNAB_Remessa2
         cedente.Agencia = "1234"
         cedente.Conta = "000067890-1"
         cedente.Carteira = "101"
+        cedente.CarteiraTipo = "5"
         cedente.Modalidade = "0"
         cedente.CodCedente = "7882866"
         cedente.Convenio = "0000000000000000002222220"
