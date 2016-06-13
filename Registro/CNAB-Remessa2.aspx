@@ -18,7 +18,7 @@
         <p>
             O código fonte deste programa está disponivel no <a href="https://github.com/impactro/Boleto-ASP.NET/tree/master/Registro" target="_blank">GITHUB.com/IMPACTRO</a>.<br/>
             <a href="https://github.com/impactro/Boleto-Test/wiki/Exemplo-de-Remessa-CNAB">Acesse a WIKI para mais informações</a><br/>
-            <small>Essa é a versão resumida onde todas váriáveis estão fixas no código, <a href="CNAB-Remessa.aspx">veja o exemplo completo aqui</a></small>
+            <small>Essa é a versão resumida onde todas váriáveis estão fixas no código, <a href="CNAB-Remessa.aspx">veja o exemplo completo aqui<></small>
         </p>
         <asp:Button runat="server" ID="btnCedenteTeste" Text="Gerar Boleto de teste" OnClick="btnCedenteTeste_Click"/> &nbsp; 
         <br/>

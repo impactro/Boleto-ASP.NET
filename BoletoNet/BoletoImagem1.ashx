@@ -6,7 +6,7 @@ Imports Impactro.Cobranca
 Imports System.Drawing
 
 Public Class BoletoImagem1 : Implements IHttpHandler
-    
+
     Public Sub ProcessRequest(ByVal context As HttpContext) Implements IHttpHandler.ProcessRequest
 
         'Definição dos dados do cedente
@@ -19,7 +19,7 @@ Public Class BoletoImagem1 : Implements IHttpHandler
         ' Novas Exigencias da FREBABAN: Exibir endereço e CNPJ no campo de emitente!
         Cedente.CNPJ = "12.345.678/0001-12"
         Cedente.Endereco = "Rua Sei lá aonde, 123 - Brás, São Paulo/SP"
-        
+
         'Definição dos dados do sacado
         Dim Sacado As New SacadoInfo
         Sacado.Sacado = "Fabio Ferreira (Teste para homologação)"
@@ -41,16 +41,16 @@ Public Class BoletoImagem1 : Implements IHttpHandler
 
         Dim bol As New Boleto
         bol.MakeBoleto(Cedente, Sacado, Boleto)
-        
+
         'Os paranetros abaixo são opcional, mas podem ser customizados
-        
-        'bol.Carne = True 'Exibe em formato de carne
+
+        bol.Carne = True 'Exibe em formato de carne
         'bol.ExibeReciboSacado = False 'Exibe o recibo do sacado
         'bol.ExibeReciboLinhaDigitavel = False 'Exibe a linha digitável também no Recibo do sacado
-        
+
         'É possivel personalizar a escala, mas tem que também redefinir o tamanho das fontes
         'bol.Escala = 4.5
-        
+
         ' Tamanho dos titulos dos campos
         'FieldDraw.FontCampoName = "Verdana"
         'FieldDraw.FontCampoSize = 5 * bol.Escala / 3
@@ -68,14 +68,14 @@ Public Class BoletoImagem1 : Implements IHttpHandler
 
         ' Recria as instancias dos fontes
         'FieldDraw.Reset()
-        
+
         Dim img As Image = bol.ImageBoleto()
         img.Save(context.Response.OutputStream, Imaging.ImageFormat.Png)
-        
+
         context.Response.ContentType = "image/png"
 
     End Sub
- 
+
     Public ReadOnly Property IsReusable() As Boolean Implements IHttpHandler.IsReusable
         Get
             Return False

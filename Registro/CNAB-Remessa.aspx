@@ -103,7 +103,7 @@ INNER JOIN clientes cli using(id_cliente)
             <li>Emissao: Data de Emissão/Geração do boleto</li>
             <li><b>Pagador</b>: Nome de quem deve pagar o boleto</li>
             <li><b>Endereco</b>: Endereço do pagador</li>
-            <li>Documento: CPF ou CNPJ do pagador</li>
+            <li><b>Documento</b>: CPF ou CNPJ do pagador</li>
             <li>Bairro: Bairro do pagador</li>
             <li>Cidade: Cidade do Pagador</li>
             <li>UF: Estado (UF) do pagador</li>
