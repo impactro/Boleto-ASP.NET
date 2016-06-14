@@ -395,13 +395,6 @@
             <param name="blt">Intancia da Classe de Boleto</param>
             <returns>String de 25 caractere que representa 'Campo Livre'</returns>
         </member>
-        <member name="M:Impactro.Cobranca.Banco_BRB.DVNossaCaixa(System.String)">
-            <summary>
-            Rotina para Calculo do digito do Nosso numero da Nossa Caixa
-            </summary>
-            <param name="cValor">Valor a ser calculado</param>
-            <returns>digito resultado do calculo</returns>
-        </member>
         <member name="T:Impactro.Cobranca.Banco_Sicredi">
             <summary>
             Rotinas para o Banco Sicredi
@@ -1466,7 +1459,7 @@
         <member name="F:Impactro.Cobranca.BoletoInfo.NumeroDocumento">
             <summary>
             Numero do documento é um numero qualquer apenas de exibição, no boleto para identificação visual
-            Este numero pode ou não ser o mesmo do NossoNumero
+            Este numero pode ou não ser o mesmo do NossoNumero, ou BoletoID
             </summary>
         </member>
         <member name="F:Impactro.Cobranca.BoletoInfo.NossoNumero">
@@ -4367,6 +4360,227 @@
         <member name="F:Impactro.Layout.CNAB400Retorno1Banestes.Sequencia">
             <summary>
             Número seqüencial do registro no arquivo
+            </summary>
+        </member>
+        <member name="T:Impactro.Layout.CNAB400BRB">
+            <summary>
+            Trata os arquivos CNAB400 do BRB 
+            (baseado nos fontes do BRB)
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.CNAB400BRB.Remessa">
+            <summary>
+            Gera o aquivo baseado nas coleção de todas informações passada até o momento
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Impactro.Layout.CNAB400BRB.Retorno(System.String)">
+            <summary>
+            Processa as informações baseado no conteudo de um arquivo CNAB
+            </summary>
+            <param name="cData">Conteudo do arquivo</param>
+        </member>
+        <member name="T:Impactro.Layout.CNAB400BRBHeader">
+            <summary>
+            Header Geral do Arquivo 
+            </summary>
+        </member>
+        <member name="T:Impactro.Layout.CNAB400BRBRemessa1">
+            <summary>
+            Estrutura de Remessa Bradesco
+            Página 11
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRemessa1.Categoria_Cobranca">
+            <summary>
+            1 - Sem Registro;
+            2 - Com registro, impresso pelo cliente
+            3 - Com registro impresso pelo BRB
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRemessa1.Moeda">
+            <summary>
+            02 - Real
+            </summary>
+        </member>
+        <member name="T:Impactro.Layout.CNAB400BRBRetorno1">
+            <summary>
+            Estrutura de Retorno BRB
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.Controle_Registro">
+            <summary>
+            Tipo de Registro
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.Inscricao_Tipo">
+            <summary>
+            Tipo de Inscrição Empresa: 01-CPF, 02-CNPJ, 03-PIS/PASEP, 98-Não tem, 99-Outros
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.Inscricao_Numero">
+            <summary>
+            Nº Inscrição da Empresa: CNPJ/CPF Número Filial Controle
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.Identificacao">
+            <summary>
+            Identificação da Empresa Cedente no Banco: Zero + Carteira Agência + Conta Corrente
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.Documento">
+            <summary>
+            Nº Controle do Participante - Uso da Empresa
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.NossoNumeroGerado">
+            <summary>
+            Identificação do Título no Banco - Número Bancário para Cobrança Com e Sem Registro - Geração
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.Rateio">
+            <summary>
+            Indicador de Rateio Crédito - “R”
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.CarteiraTipo">
+            <summary>
+            Carteira
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.Ocorrencia">
+            <summary>
+            Identificação de Ocorrência
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.OcorrenciaData">
+            <summary>
+            Data Ocorrência no Banco
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.NumeroDocumento">
+            <summary>
+            Identificação do Título no Banco 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.NossoNumero">
+            <summary>
+            Identificação do Título no Banco
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.Vencimento">
+            <summary>
+            Data Vencimento do Título
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.ValorDocumento">
+            <summary>
+            Valor do Título
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.CobradorBanco">
+            <summary>
+            Banco Cobrador
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.CobradorAgencia">
+            <summary>
+            Código da Agência do Banco Cobrador
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.Especie">
+            <summary>
+            Espécie do Título
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.ValorDespesas">
+            <summary>
+            Valor Despesa
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.ValorOutros">
+            <summary>
+            Valor outras despesas
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.Juros">
+            <summary>
+            Juros Operação em Atraso
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.IOF">
+            <summary>
+            IOF Devido
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.Abatimento">
+            <summary>
+            Abatimento Concedido sobre o Título
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.Descontos">
+            <summary>
+            Desconto Concedido
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.ValorPago">
+            <summary>
+            Valor Pago
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.JurosMora">
+            <summary>
+            Juros de Mora
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.CreditoOutros">
+            <summary>
+            Outros Créditos
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.Motivo">
+            <summary>
+            Motivo do Código de Ocorrência 25 (Confirmação de Instrução de Protesto Falimentar e do Código de Ocorrência 19 Confirmação de Instrução de Protesto)
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.DataPagamento">
+            <summary>
+            Data do Crédito
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.OrigemPagamento">
+            <summary>
+            Origem Pagamento
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.Cheque">
+            <summary>
+            Quando cheque Bradesco informe 0237
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.MotivoRegeicao">
+            <summary>
+            Motivos das Rejeições para os Códigos de Ocorrência da Posição 109 a 110
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.Cartorio">
+            <summary>
+            Número do Cartório
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.Protocolo">
+            <summary>
+            Número do Protocolo
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400BRBRetorno1.Sequencia">
+            <summary>
+            Número seqüencial do registro no arquivo
+            </summary>
+        </member>
+        <member name="T:Impactro.Layout.CNAB400BRBTrailer">
+            <summary>
+            Trailer Geral do Arquivo CNAB400 (Tipo=9)
             </summary>
         </member>
         <member name="M:Impactro.Layout.CNAB400Sicredi.Retorno(System.String)">
