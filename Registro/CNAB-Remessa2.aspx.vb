@@ -113,6 +113,7 @@ Partial Class Registro_CNAB_Remessa2
                 boleto.ValorDocumento = row("Valor")
                 'Campos opcionais do boleto
                 If tb.Columns.Contains("NumeroDocumento") Then boleto.NumeroDocumento = row("NumeroDocumento")
+                If tb.Columns.Contains("BoletoID") Then boleto.BoletoID = row("BoletoID")
                 If tb.Columns.Contains("Emissao") Then boleto.DataDocumento = row("Emissao")
 
                 Dim sacado As New SacadoInfo
@@ -150,6 +151,11 @@ Partial Class Registro_CNAB_Remessa2
 
             'Tenta transformar tudo no arquivo de remessa
             txtRemessa.Text = arq.Remessa
+
+            'Visualiza de forma mais clara o valor dos campos de acordo como tipo de registro
+            'gvCampos.DataSource = arq.Table(GetType(CNAB400SantanderRemessa1)) ' compativel com versões anteriores
+            gvCampos.DataSource = arq.Table(1) ' em geral é o tipo dos detalhe
+            gvCampos.DataBind()
 
             lblInfoSQL.Text = "OK deu tudo certo!"
 

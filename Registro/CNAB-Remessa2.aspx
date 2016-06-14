@@ -18,7 +18,7 @@
         <p>
             O código fonte deste programa está disponivel no <a href="https://github.com/impactro/Boleto-ASP.NET/tree/master/Registro" target="_blank">GITHUB.com/IMPACTRO</a>.<br/>
             <a href="https://github.com/impactro/Boleto-Test/wiki/Exemplo-de-Remessa-CNAB">Acesse a WIKI para mais informações</a><br/>
-            <small>Essa é a versão resumida onde todas váriáveis estão fixas no código, <a href="CNAB-Remessa.aspx">veja o exemplo completo aqui<></small>
+            <small>Essa é a versão resumida onde todas váriáveis estão fixas no código, <a href="CNAB-Remessa.aspx">veja o exemplo completo aqui</a></small>
         </p>
         <asp:Button runat="server" ID="btnCedenteTeste" Text="Gerar Boleto de teste" OnClick="btnCedenteTeste_Click"/> &nbsp; 
         <br/>
@@ -35,6 +35,9 @@
         <asp:GridView runat="server" ID="gvBanco" EnableViewState="false"/>
         <h3>Visualização do Arquivo e Boleto</h3>
         <asp:TextBox runat="server" ID="txtRemessa" TextMode="MultiLine" Width="90%" Height="100" Wrap="false" EnableViewState="false" />
+        <br/>
+        Nome e Valores dos campos internos:<br />
+        <asp:GridView runat="server" ID="gvCampos" EnableViewState="false"/>
         <br/>
         <asp:Panel runat="server" ID="pnlBoletos" EnableViewState="false"/>
     </div>

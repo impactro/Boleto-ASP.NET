@@ -100,6 +100,7 @@ INNER JOIN clientes cli using(id_cliente)
             <li><b>Vencimento</b>: Data de vencimento do boleto</li>
             <li><b>Valor</b>: Identificação única do boleto no banco</li>
             <li>NumeroDocumento: Nº do documento</li>
+            <li>BoletoID: Nº interno do documento (Seu número)</li>
             <li>Emissao: Data de Emissão/Geração do boleto</li>
             <li><b>Pagador</b>: Nome de quem deve pagar o boleto</li>
             <li><b>Endereco</b>: Endereço do pagador</li>
@@ -120,6 +121,9 @@ INNER JOIN clientes cli using(id_cliente)
         <asp:GridView runat="server" ID="gvBanco" EnableViewState="false"/>
         <h3>Visualização do Arquivo e Boleto</h3>
         <asp:TextBox runat="server" ID="txtRemessa" TextMode="MultiLine" Width="90%" Height="100" Wrap="false" EnableViewState="false" />
+        <br/>
+        Nome e Valores dos campos internos:<br />
+        <asp:GridView runat="server" ID="gvCampos" EnableViewState="false"/>
         <br/>
         <asp:Panel runat="server" ID="pnlBoletos" EnableViewState="false"/>
     </div>
