@@ -77,10 +77,11 @@ public partial class CNAB_RemessaSimples : System.Web.UI.Page
         Cedente.Conta = "98765-1";
         Cedente.CodCedente = "12345";
         Cedente.Modalidade = "04";
+        Cedente.Layout = LayoutTipo.Auto;
 
         // Cria uma instancia do gerador de arquivo que abstrai as classes individuais de geração
         LayoutBancos r = new LayoutBancos(); // classe genérica para qualquer banco, compatível até com ActiveX
-        r.Init(Cedente, LayoutTipo.CNAB400); // define o cedente e o tipo de arquivo
+        r.Init(Cedente); // define o cedente e o tipo de arquivo
         r.Lote = 1234; // Define o numero do lote!
 
         // É quase que obrigatporio para o sicredi

@@ -40,7 +40,7 @@ public partial class CNAB_RetornoSimples : System.Web.UI.Page
             //r.Init(new CedenteInfo { Banco = "237" }); // Brtadesco
             //r.Init(new CedenteInfo { Banco = "341" }); // Itau
             //r.Init(new CedenteInfo { Banco = "353" }); // Santander
-            r.Init(new CedenteInfo { Banco = "756" }, LayoutTipo.CNAB240); // Sicoob
+            r.Init(new CedenteInfo { Banco = "756", Layout=LayoutTipo.Auto }); // Sicoob
 
             // Processar e identificar os registros
             Layout ret = r.Retorno(txtIn.Text);

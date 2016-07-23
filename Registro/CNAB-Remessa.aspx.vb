@@ -181,10 +181,11 @@ Partial Class Registro_CNAB_Remessa
             'Da mesma forma que no teste, obtenho os dados do formulário
             Dim cedente = GetCedente()
             cedente.CarteiraTipo = 1 'Específico para o Santander
+            cedente.Layout = LayoutTipo.Auto
 
             'Tenta gerar a remessa baseado nos dado do cedente e lidos pelo banco de dados
             Dim arq As New LayoutBancos
-            arq.Init(cedente, LayoutTipo.CNAB400)
+            arq.Init(cedente)
 
             Dim n As Integer = 0
             Dim Baixa As Boolean
