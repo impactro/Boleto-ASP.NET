@@ -5227,7 +5227,7 @@
             Prefixo do Título: Brancos 
             </summary>
         </member>
-        <member name="F:Impactro.Layout.CNAB400Remessa1BB.MOdalidade">
+        <member name="F:Impactro.Layout.CNAB400Remessa1BB.Modalidade">
             <summary>
             Variação da Carteira #obs:02 
             </summary>
@@ -6437,7 +6437,7 @@
             Retorna as linhas onde houve qualquer erro de processamento
             </summary>
         </member>
-        <member name="M:Impactro.Layout.LayoutBancos.Init(Impactro.Cobranca.CedenteInfo,Impactro.Layout.LayoutTipo)">
+        <member name="M:Impactro.Layout.LayoutBancos.Init(Impactro.Cobranca.CedenteInfo)">
             <summary>
             Inicializa o gerador de layouts de acordo com o cedente, usando a instancia apropriada para cada banco
             </summary>
@@ -6546,6 +6546,11 @@
         <member name="F:Impactro.Layout.LayoutTipo.CNAB400">
             <summary>
             Layout de 400 posições
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.LayoutTipo.Auto">
+            <summary>
+            Para os banco que só tem um unico modelo de layout, este será usado
             </summary>
         </member>
         <member name="T:Impactro.Layout.CNAB">
@@ -8284,6 +8289,377 @@
             <summary>
             Esta propriedade exibe as informações de geração com os nomes das variáveis, valores e tipos.
             (É preciso usar a propriedade Line primeiro)
+            </summary>
+        </member>
+        <member name="P:Impactro.Layout.RPSLote.Cabecalho">
+            <summary>
+            Define o cabeçalho, ou obtem calculando o perido baseado nos itens
+            </summary>
+        </member>
+        <member name="P:Impactro.Layout.RPSLote.Itens">
+            <summary>
+            Retorna uma coleção de RPS para a geração do lote
+            </summary>
+        </member>
+        <member name="P:Impactro.Layout.RPSLote.Rodape">
+            <summary>
+            Retorna a estrutura do rodapé
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.RPSLote.ToString">
+            <summary>
+            Retorna o texto de saida do lote
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Impactro.Layout.RPSLote.Write(System.String)">
+            <summary>
+            Gera o arquivo de Lote RPS, já no formato correto, gravado em texto "ISO-8859-1"
+            </summary>
+            <param name="cFile">Arquivo a ser gerado</param>
+        </member>
+        <member name="T:Impactro.Layout.RPSLoteItens">
+            <summary>
+            Lista de RPS
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.RPSLoteItens.#ctor">
+            <summary>
+            Lista e gerencia um grupo de itens de RPS para gerar o rodapé
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.RPSLoteItens.Add(Impactro.Layout.Reg{Impactro.Layout.RPS2Detalhe})">
+            <summary>
+            Adiciona um item completo já predefinido
+            </summary>
+            <param name="rItem"></param>
+        </member>
+        <member name="P:Impactro.Layout.RPSLoteItens.Item(System.Int32)">
+            <summary>
+            Retorna uma RPS definida pelo seu numero
+            </summary>
+            <param name="nNumero"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Impactro.Layout.RPSLoteItens.Add(System.Int32,System.String,System.String,System.Int32,System.Double,System.String,System.Double,System.Double,System.Boolean,System.DateTime)">
+            <summary>
+            Adiciona as informações basicas da notafiscal, apos esta etapa é necessário definir o endereço
+            </summary>
+            <param name="nNumero">Número da RPS</param>
+            <param name="cCPFCNPJ">CPF ou CNPJ do tomador do serviço</param>
+            <param name="cNomeRazao">Nome ou Razão Social</param>
+            <param name="nCodigo">Código do Serviço</param>
+            <param name="nAliquota">Aliquota</param>
+            <param name="cDiscriminacao">Disciminação dos serviços (as quebras de linha serão convertidas no formato exigido pela RPS/NF-e)</param>
+            <param name="nValor">Valor</param>
+            <param name="nDeducoes">Deduções</param>
+            <param name="ISSretido">Reter ISS</param>
+            <param name="dData">Data de emissão</param>
+        </member>
+        <member name="M:Impactro.Layout.RPSLoteItens.SetEndereco(System.Int32,System.String,System.String,System.String)">
+            <summary>
+            Define o endereço de uma RPS
+            </summary>
+            <param name="nNumero">Numero da RPS</param>
+            <param name="cEndereco">Endereço com o Logradouro, exemplo: rua Nome</param>
+            <param name="cNumero">Numero do endereço, ou deixe NULL, para extrair do endereço, exemplo: rua Nome, Numero</param>
+            <param name="cComplemento">Complemento do endereço, ou deixe NULL para extrair do endereço: Rua Nome, Numero Complemento</param>
+        </member>
+        <member name="M:Impactro.Layout.RPSLoteItens.Remove(System.Int32)">
+            <summary>
+            Remove uma RPS da lista
+            </summary>
+            <param name="nItem">Numero da RPS</param>
+        </member>
+        <member name="P:Impactro.Layout.RPSLoteItens.Count">
+            <summary>
+            Conta o numero de RPS atuais
+            </summary>
+        </member>
+        <member name="P:Impactro.Layout.RPSLoteItens.Numeros">
+            <summary>
+            Retorna o registro de uma RPS
+            </summary>
+        </member>
+        <member name="T:Impactro.Layout.RPS1Cabecalho">
+            <summary>
+            Cabeçalho da RPS para gerar NFe
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS1Cabecalho.Tipo">
+            <summary>
+            1) Tipo de registro (fixo "1")
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS1Cabecalho.Versao">
+            <summary>
+            2) Versão do Arquivo (fixo "1")
+            Indica a versão do lay-out a ser utilizada. Deve ser preenchido com o número da versão atual. A versão atual é a 001.
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS1Cabecalho.Inscricao">
+            <summary>
+            3) Inscrição Municipal do Prestador a que se refere o arquivo.
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS1Cabecalho.DataInicio">
+            <summary>
+            4) Data de Início do Período Transferido no Arquivo (AAAAMMDD)
+            O arquivo de transferência deverá conter todos os RPS referentes a um período. Informe neste campo a Data INICIAL desse período no formato AAAAMMDD.
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS1Cabecalho.DataFim">
+            <summary>
+            5) Data de Fim do Período Transferido no Arquivo (AAAAMMDD)
+            O arquivo de transferência deverá conter todos os RPS referentes a um período. Informe neste campo a Data FINAL desse período no formato AAAAMMDD.
+            </summary>
+        </member>
+        <member name="T:Impactro.Layout.RPS2Detalhe">
+            <summary>
+            Detalhe de cada RPS que irá gerar a NFe
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.Tipo">
+            <summary>
+            1) Tipo de registro (fixo "2")
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.RPS">
+            <summary>
+            2) Tipo do RPS (fixo "RPS")
+            Informe o Tipo do RPS emitido com 05 posições.
+            Tipos Válidos: Apenas RPS – Recibo Provisório de Serviços
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.Serie">
+            <summary>
+            3) Série do RPS
+            Informe a Série do RPS com 05 posições.
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.Numero">
+            <summary>
+            4) Número do RPS
+            Informe o Número do RPS com 12 posições.
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.Data">
+            <summary>
+            5) Data de Emissão do RPS
+            Informe a Data de emissão do RPS no formato AAAAMMDD.
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.Situacao">
+            <summary>
+            6) Situação do RPS
+            Informe a Situação do RPS com 01 posição, de acordo com o tipo do RPS.
+            T - Operação normal (tributação conforme documento emitido)
+            I - Operação isenta ou não tributável, executadas no Município de São Paulo
+            F – Operação isenta ou não tributável pelo Município de São Paulo, executada em outro Município
+            C - Cancelado
+            E – Extraviado
+            J – ISS Suspenso por Decisão Judicial (neste caso, informar no campo Discriminação dos Serviços, o número do processo judicial na 1a. instância).
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.Valor">
+            <summary>
+            7) Valor dos Serviços
+            Informe o Valor dos Serviços com 15 posições. Campo obrigatório caso a situação do RPS seja diferente de “C” (Cancelado) e “E” (Extraviado).
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.Deducoes">
+            <summary>
+            8) Valor das Deduções
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.Codigo">
+            <summary>
+            9) Código do Serviço Prestado
+            Informe o Código do Serviço do RPS com 05 posições. Este código deve pertencer à lista de serviços.
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.Aliquota">
+            <summary>
+            10) Alíquota
+            Obs.: O conteúdo deste campo será ignorado caso a tributação ocorra no município (Situação do RPS = T)
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.ISS">
+            <summary>
+            11) ISS Retido
+            1 para ISS Retido.
+            2 para Nota Fiscal sem ISS Retido.
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.Indicador">
+            <summary>
+            12) Indicador de CPF/CNPJ do Tomador
+            Este campo indica o tipo de dados que será fornecido no campo CPF/CNPJ do Tomador
+            1 para CPF.
+            2 para CNPJ.
+            3 para CPF não-informado.
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.Tomador">
+            <summary>
+            13) CPF ou CNPJ do Tomador
+            Informe o CNPJ do tomador com 14 posições ou CPF do tomador com 11 posições.
+            O conteúdo deste campo será ignorado caso o campo 14 esteja preenchido.
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.Inscricao">
+            <summary>
+            14) Inscrição Municipal do Tomador
+            Informe a Inscrição Municipal do Tomador, com 8 posições.
+            ATENÇÃO!!! Este campo só deverá ser preenchido para tomadores estabelecidos no município de São Paulo (CCM).
+            Quando este campo for preenchido, seu conteúdo será considerado como prioritário com relação ao campo de CPF/CNPJ do Tomador, sendo utilizado para identificar o Tomador e recuperar seus dados da base de dados da Prefeitura.
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.IE">
+            <summary>
+            15) Inscrição Estadual do Tomador
+            Este campo será ignorado caso seja fornecido um CPF/CNPJ ou a Inscrição Municipal do tomador pertença ao município de São Paulo.
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.RazaoSocial">
+            <summary>
+            16) Nome / Razão Social do Tomador
+            Este campo é obrigatório apenas para tomadores Pessoa Jurídica (CNPJ)
+            Este campo será ignorado caso seja fornecido um CPF/CNPJ ou a Inscrição Municipal do tomador pertença ao município de São Paulo.
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.EnderecoTipo">
+            <summary>
+            17) Tipo do Endereço do Tomador (Rua, Av, ...)
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.EnderecoNome">
+            <summary>
+            18) Endereço do Tomador
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.EnderecoNumero">
+            <summary>
+            19) Número do Endereço do Tomador
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.EnderecoComplemento">
+            <summary>
+            20) Complemento do Endereço do Tomador
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.Bairro">
+            <summary>
+            21) Bairro do Tomador
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.Cidade">
+            <summary>
+            22) Cidade do Tomador
+            Se a Cidade/UF forem preenchidos e não forem encontrados na base de dados da Prefeitura, o sistema irá pesquisar a cidade correspondente ao CEP (se este for informado).
+            Note que apenas tomadores cuja Cidade / UF seja igual a SÃO PAULO / SP, irão receber créditos.
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.UF">
+            <summary>
+            23) UF do Tomador
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.CEP">
+            <summary>
+            24) CEP do Tomador
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.eMail">
+            <summary>
+            25) Email do Tomador
+            Campo contendo o e-mail do tomador
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS2Detalhe.Discriminacao">
+            <summary>
+            26) Discriminação dos Serviços
+            Texto contínuo descritivo dos serviços. O conjunto de caracteres correspondentes ao código ASCII 13 e ASCII 10 deverá ser substituído pelo caracter | (pipe ou barra vertical. ASCII 124).
+            Exemplo: “Lavagem de carro|com lavagem de motor”
+            Não devem ser colocados espaços neste campo para completar seu tamanho máximo, devendo o campo ser preenchido apenas com conteúdo a ser processado / armazenado.
+            (*) Este campo é impresso num retângulo com 95 caracteres (largura) e 24 linhas (altura). É permitido (não recomendável), o uso de mais de 1000 caracteres. Caso seja ultrapassado o limite de 24 linhas, o conteúdo será truncado durante a impressão da Nota.
+            </summary>
+        </member>
+        <member name="T:Impactro.Layout.RPS9Rodape">
+            <summary>
+            Cabeçalho da RPS
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS9Rodape.Tipo">
+            <summary>
+            Tipo de registro (opcional: fixo "9")
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS9Rodape.Linhas">
+            <summary>
+            Número de linhas de detalhe do arquivo
+            Número de linhas de detalhe (Tipo 2 +Tipo 3) contidas no arquivo.
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS9Rodape.Total">
+            <summary>
+            Valor total dos serviços contido no arquivo
+            Informe a soma dos valores dos serviços das linhas de detalhe (Tipo 2 + Tipo 3) contidas no arquivo.
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.RPS9Rodape.Deducoes">
+            <summary>
+            Valor total das deduções contidas no arquivo
+            Informe a soma dos valores das deduções das linhas de detalhe (Tipo 2 + Tipo 3) contidas no arquivo.
+            </summary>
+        </member>
+        <member name="T:Impactro.Layout.NFeV2detalhe">
+            <summary>
+            Estrutura basica de leitura do retorno de uma NFEe
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.NFeV2detalhe.Tipo">
+            <summary>
+            Tipo de registro
+            Será preenchido com valor “2”, indicando linha de detalhe
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.NFeV2detalhe.NFe">
+            <summary>
+            Número da NF-e
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.NFeV2detalhe.DataHora">
+            <summary>
+            Data/hora de emissão da NF-e no formato AAAAMMDDHHmmSS.
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.NFeV2detalhe.Verificacao">
+            <summary>
+            Código de verificação da NF-e
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.NFeV2detalhe.RPS_Tipo">
+            <summary>
+            Tipo de RPS
+            RPS – Recibo Provisório de Serviços (equivalente às extintas NFS, NFFS e NFSS).
+            RPS-M – Recibo Provisório de Serviços provenientes de Nota Fiscal Conjugada (Mista).
+            RPS-C – Recibo Provisório de Serviços provenientes de Cupom Fiscal.
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.NFeV2detalhe.RPS_Serie">
+            <summary>
+            Série do RPS com 05 posições
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.NFeV2detalhe.RPS_Numero">
+            <summary>
+            Numero da RPS
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.NFeV2detalhe.RPS_Data">
+            <summary>
+            Data de emissão do RPS no formato AAAAMMDD.
             </summary>
         </member>
     </members>
