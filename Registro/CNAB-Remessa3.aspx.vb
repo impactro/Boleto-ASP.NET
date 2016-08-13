@@ -171,6 +171,7 @@ Partial Class Registro_CNAB_Remessa3
             Dim cRemessa As String = arq.Remessa()
             If chkDownload.Checked Then
                 Response.ContentType = "text/plain"
+                Response.AddHeader("Content-Disposition", String.Format("attachment; filename=""remessa-{0:yyyyMMdd}.txt""", Now))
                 Response.Write(cRemessa)
                 Response.End() 'finaliza tudo
             End If
