@@ -30,8 +30,8 @@ CREATE TABLE `cobrancas` (
 );
 
 INSERT INTO `cobrancas` (`id_Cobranca`,`id_Cliente`,`Emissao`,`Documento`,`Descricao`,`Valor`,`Vencimento`,`Pago`,`Cancelada`,`Remessa`) VALUES (1,1,'2016-06-01 10:12:13',1122,'Meu produto online',123.45,'2016-06-01',false,false,false);
-INSERT INTO `cobrancas` (`id_Cobranca`,`id_Cliente`,`Emissao`,`Documento`,`Descricao`,`Valor`,`Vencimento`,`Pago`,`Cancelada`,`Remessa`) VALUES (2,1,'2016-06-01 10:12:13',1123,'incrição online no curso de XYZ',342112.34,'2016-06-01',false,false,false);
-INSERT INTO `cobrancas` (`id_Cobranca`,`id_Cliente`,`Emissao`,`Documento`,`Descricao`,`Valor`,`Vencimento`,`Pago`,`Cancelada`,`Remessa`) VALUES (3,2,'2016-06-01 10:12:13',23,'Bateria mental  (renegociado)',21,'2016-06-01',false,false,false);
+INSERT INTO `cobrancas` (`id_Cobranca`,`id_Cliente`,`Emissao`,`Documento`,`Descricao`,`Valor`,`Vencimento`,`Pago`,`Cancelada`,`Remessa`) VALUES (2,1,'2016-06-10 10:12:13',1123,'incrição online no curso de XYZ',342112.34,'2016-06-01',false,false,false);
+INSERT INTO `cobrancas` (`id_Cobranca`,`id_Cliente`,`Emissao`,`Documento`,`Descricao`,`Valor`,`Vencimento`,`Pago`,`Cancelada`,`Remessa`) VALUES (3,2,'2016-06-15 10:12:13',23,'Bateria mental  (renegociado)',21,'2016-06-01',false,false,false);
 
 select cob.id_Cobranca NossoNumero, cob.Emissao, cob.Documento NumeroDocumento, cob.Valor, cob.vencimento,
 cli.Nome Pagador, cli.Endereco, cli.Bairro, cli.Cidade, cli.UF
