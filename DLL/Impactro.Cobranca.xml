@@ -424,6 +424,26 @@
             <param name="blt"></param>
             <returns></returns>
         </member>
+        <member name="P:Impactro.Cobranca.BoletoLayout.Height">
+            <summary>
+            Altura da imagem
+            </summary>
+        </member>
+        <member name="P:Impactro.Cobranca.BoletoLayout.Width">
+            <summary>
+            Largura da imagem
+            </summary>
+        </member>
+        <member name="P:Impactro.Cobranca.BoletoLayout.Fields">
+            <summary>
+            Array com as posições dos textos
+            </summary>
+        </member>
+        <member name="P:Impactro.Cobranca.BoletoLayout.Count">
+            <summary>
+            Indica o numero de campos do array com as posições dos textos, ou -1 se ainda não foi inicializado
+            </summary>
+        </member>
         <member name="M:Impactro.Cobranca.BoletoLayout.Get(System.Int32)">
             <summary>
             Retorna um campo em dada posição
@@ -445,26 +465,6 @@
             </summary>
             <param name="g">Instancia do ponteiro grafico</param>
             <param name="fat">Fator de tamanho</param>
-        </member>
-        <member name="P:Impactro.Cobranca.BoletoLayout.Height">
-            <summary>
-            Altura da imagem
-            </summary>
-        </member>
-        <member name="P:Impactro.Cobranca.BoletoLayout.Width">
-            <summary>
-            Largura da imagem
-            </summary>
-        </member>
-        <member name="P:Impactro.Cobranca.BoletoLayout.Fields">
-            <summary>
-            Array com as posições dos textos
-            </summary>
-        </member>
-        <member name="P:Impactro.Cobranca.BoletoLayout.Count">
-            <summary>
-            Indica o numero de campos do array com as posições dos textos, ou -1 se ainda não foi inicializado
-            </summary>
         </member>
         <member name="T:Impactro.Cobranca.BoletoNormal">
             <summary>
@@ -539,9 +539,39 @@
             Tipo de imagem a ser gravada
             </summary>
         </member>
+        <member name="E:Impactro.Cobranca.Boleto.onMontaCampoLivre">
+            <summary>
+            Define um evento para montar o campo livre personalizado
+            </summary>
+        </member>
+        <member name="P:Impactro.Cobranca.Boleto.ImageBanco">
+            <summary>
+            Obtem a imagem do banco
+            </summary>
+        </member>
+        <member name="P:Impactro.Cobranca.Boleto.RenderBoleto">
+            <summary>
+            Define a classe que implementa a renderização dos campos do boleto
+            </summary>
+        </member>
+        <member name="P:Impactro.Cobranca.Boleto.Carne">
+            <summary>
+             Define se deve usar o layout no formato carne
+            </summary>
+        </member>
         <member name="F:Impactro.Cobranca.Boleto.ValorCobrado">
             <summary>
             Se este valor não for definido será usado como o valor do documento
+            </summary>
+        </member>
+        <member name="P:Impactro.Cobranca.Boleto.CodigoBarras">
+            <summary>
+            Retorna o código de barras
+            </summary>
+        </member>
+        <member name="P:Impactro.Cobranca.Boleto.LinhaDigitavel">
+            <summary>
+            Retorna a linha digitável (IPTE)
             </summary>
         </member>
         <member name="M:Impactro.Cobranca.Boleto.CodigoBarrasFormatado(System.Int32[])">
@@ -603,203 +633,6 @@
         <member name="M:Impactro.Cobranca.Boleto.SetCodBar(System.String)">
             <summary>
             Defino o Código de Barras
-            </summary>
-        </member>
-        <member name="E:Impactro.Cobranca.Boleto.onMontaCampoLivre">
-            <summary>
-            Define um evento para montar o campo livre personalizado
-            </summary>
-        </member>
-        <member name="P:Impactro.Cobranca.Boleto.ImageBanco">
-            <summary>
-            Obtem a imagem do banco
-            </summary>
-        </member>
-        <member name="P:Impactro.Cobranca.Boleto.RenderBoleto">
-            <summary>
-            Define a classe que implementa a renderização dos campos do boleto
-            </summary>
-        </member>
-        <member name="P:Impactro.Cobranca.Boleto.Carne">
-            <summary>
-             Define se deve usar o layout no formato carne
-            </summary>
-        </member>
-        <member name="P:Impactro.Cobranca.Boleto.CodigoBarras">
-            <summary>
-            Retorna o código de barras
-            </summary>
-        </member>
-        <member name="P:Impactro.Cobranca.Boleto.LinhaDigitavel">
-            <summary>
-            Retorna a linha digitável (IPTE)
-            </summary>
-        </member>
-        <member name="T:Impactro.WindowsControls.BoletoForm">
-            <summary>
-            Componente de Boleto para Windows Form.
-            </summary>
-        </member>
-        <member name="F:Impactro.WindowsControls.BoletoForm.PrintType">
-            <summary>
-            Informa o Tipo de impressão, para ajuste de resolução
-            </summary>
-        </member>
-        <member name="M:Impactro.WindowsControls.BoletoForm.#ctor">
-            <summary>
-            Componente de Renderização do Boleto para Windows Control
-            </summary>
-        </member>
-        <member name="M:Impactro.WindowsControls.BoletoForm.#ctor(Impactro.Cobranca.Boleto)">
-            <summary>
-            Construtor já com a instancia do boleto
-            </summary>
-        </member>
-        <member name="M:Impactro.WindowsControls.BoletoForm.MakeBoleto(Impactro.Cobranca.CedenteInfo,Impactro.Cobranca.SacadoInfo,Impactro.Cobranca.BoletoInfo)">
-            <summary>
-            Configura o boleto, passando os 3 objetos que contem os dados para a geração do boleto para variáveis internas, mas não calcula: veja: Calculaboleto()
-            </summary>
-            <param name="oCedente">Dados do Cedente</param>
-            <param name="oSacado">Dados do Sacado</param>
-            <param name="oBoleto">Dados do Boleto</param>
-        </member>
-        <member name="M:Impactro.WindowsControls.BoletoForm.CalculaBoleto">
-            <summary>
-            Calcula os dados do boleto previamente foncigurado
-            </summary>
-        </member>
-        <member name="M:Impactro.WindowsControls.BoletoForm.Dispose(System.Boolean)">
-            <summary>
-            Elimina o objeto da memória
-            </summary>
-            <param name="disposing">Informa se sera eliminado da memória os componentes internos</param>
-        </member>
-        <member name="M:Impactro.WindowsControls.BoletoForm.OnPaint(System.Windows.Forms.PaintEventArgs)">
-            <summary>
-            Metodo de Renderização padrão
-            </summary>
-            <param name="e"></param>
-        </member>
-        <member name="M:Impactro.WindowsControls.BoletoForm.Print(System.Drawing.Graphics)">
-            <summary>
-            Imprime o boleto em uma dispositivo grafico (imagem ou impressora)
-            </summary>
-        </member>
-        <member name="P:Impactro.WindowsControls.BoletoForm.Boleto">
-            <summary>
-            Retorna a instancia da classe Boleto
-            </summary>
-        </member>
-        <member name="T:Impactro.WebControls.BoletoWeb">
-            <summary>
-            Compronente de Boleto para ASP.Net.
-            </summary>
-        </member>
-        <member name="F:Impactro.WebControls.BoletoWeb.blt">
-            <summary>
-            Define se deve aparecer a área de recibo do Sacado
-            (por padrão é VERDADEIRO), mude para "False" para criar um "Topo" customizado
-            </summary>
-        </member>
-        <member name="M:Impactro.WebControls.BoletoWeb.#ctor">
-            <summary>
-            Cria uma nova instancia do WebControl do Boleto
-            </summary>
-        </member>
-        <member name="M:Impactro.WebControls.BoletoWeb.SetBoletoMontaCampoLivre(Impactro.Cobranca.BoletoMontaCampoLivre)">
-            <summary>
-            Permite configurar uma função para o evento de geração de código de barras personalizado.
-            Util para a geração de boletos para bancos ou carteiras originalmente não implementados.
-            </summary>
-            <param name="func"></param>
-        </member>
-        <member name="M:Impactro.WebControls.BoletoWeb.MakeBoleto(Impactro.Cobranca.CedenteInfo,Impactro.Cobranca.SacadoInfo,Impactro.Cobranca.BoletoInfo)">
-            <summary>
-            Configura o boleto e calcula o código de barras e linha digitavel com base nas informações passadas
-            </summary>
-            <param name="Cedente">São as dados de que Emite o Boleto (Quem irá receber)</param>
-            <param name="Sacado">São os dados do pagador do Boleto (Quem irá pagar)</param>
-            <param name="Boleto">São os dados da caobrança em si: Valores, Datas, Descrições e Informações</param>
-        </member>
-        <member name="E:Impactro.WebControls.BoletoWeb.MontaCampoLivre">
-            <summary>
-            Use este vento quando desejar customizar a geração do campo livre
-            </summary>
-        </member>
-        <member name="E:Impactro.WebControls.BoletoWeb.ConfigureTable">
-            <summary>
-            Define o metodo para a configuração da Table HTML onde serão inserido as celulas(campos)
-            </summary>
-        </member>
-        <member name="P:Impactro.WebControls.BoletoWeb.ImagePath">
-            <summary>
-            Contem o caminho do diretório de imagens
-            </summary>
-        </member>
-        <member name="P:Impactro.WebControls.BoletoWeb.ImageType">
-            <summary>
-            Define o tipo de imagem a ser usado
-            </summary>
-        </member>
-        <member name="P:Impactro.WebControls.BoletoWeb.EspecialColor">
-            <summary>
-            configura a cor ara as celulas especiais (Especie, Vencimento e Vvalor)
-            </summary>
-        </member>
-        <member name="P:Impactro.WebControls.BoletoWeb.TextoDataProcessamento">
-            <summary>
-            configura o texto do campo data de processamento, pois em algumas casos o texto padrão não cabe
-            </summary>
-        </member>
-        <member name="P:Impactro.WebControls.BoletoWeb.ImageCorte">
-            <summary>
-            Define o caminho da imagem que será usada para separar as vias do boletos
-            </summary>
-        </member>
-        <member name="P:Impactro.WebControls.BoletoWeb.CssCell">
-            <summary>
-            Define a classe CSS 'class' dos titulos dos campos do boleto
-            </summary>
-        </member>
-        <member name="P:Impactro.WebControls.BoletoWeb.CssField">
-            <summary>
-            Define a classe CSS 'class' dos valores dos campos do boleto
-            </summary>
-        </member>
-        <member name="P:Impactro.WebControls.BoletoWeb.RenderCountImage">
-            <summary>
-            Define se o boleto deve ser renderizado como imagem em vez de HTML
-            </summary>
-        </member>
-        <member name="P:Impactro.WebControls.BoletoWeb.Boleto">
-            <summary>
-            Instancia da classe BOLETO que processa as informações
-            A classe BoletoWeb apenas deseha o boleto previamente processado em HTML
-            </summary>
-        </member>
-        <member name="T:Impactro.WebControls.BoletoImageType">
-            <summary>
-            Tipo de obtenção da imagem do Boleto
-            </summary>
-        </member>
-        <member name="F:Impactro.WebControls.BoletoImageType.embebed">
-            <summary>
-            Obtem as imagens dos Logo de Bancos, Código de barras e corte de dentro da DLL (Padrão)
-            </summary>
-        </member>
-        <member name="F:Impactro.WebControls.BoletoImageType.gif">
-            <summary>
-            Arquivos .GIF externos
-            </summary>
-        </member>
-        <member name="F:Impactro.WebControls.BoletoImageType.jpg">
-            <summary>
-            Arquivos .JPG externos
-            </summary>
-        </member>
-        <member name="F:Impactro.WebControls.BoletoImageType.png">
-            <summary>
-            Arquivos .PNG externos
             </summary>
         </member>
         <member name="T:Impactro.Cobranca.BoletoTextos">
@@ -1515,6 +1348,754 @@
             Desenha um campo em Tela de acordo com o Fator de Conversçao atual
             </summary>
         </member>
+        <member name="T:Impactro.Cobranca.SacadoInfo">
+            <summary>
+            Classe responsável pelas informações do Sacado de um Boleto
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.SacadoInfo.SacadoCodigo">
+            <summary>
+            Código do Interno do Sacado, caso exista, em geral é um código de cliente existente.
+            Só é usado em alguns arquivos de remessa
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.SacadoInfo.Sacado">
+            <summary>
+            Nome do Sacado, pessoa Física ou Juridica que será cobrada pelo boleto.
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.SacadoInfo.Documento">
+            <summary>
+            Um Número de documento, que identifique o Sacado, ex: CPF, CNPJ, RG, IE, Numero de Contrato, Codigo de Cliente.
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.SacadoInfo.Endereco">
+            <summary>
+            Endereço do Sacado (Rua/Avenida, Numero, Complemento)
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.SacadoInfo.Bairro">
+            <summary>
+            Bairro do Sacado
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.SacadoInfo.Cidade">
+            <summary>
+            Cidade do Sacado
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.SacadoInfo.Cep">
+            <summary>
+            CEP do Sacado
+            </summary>
+        </member>
+        <member name="P:Impactro.Cobranca.SacadoInfo.CepNumeros">
+            <summary>
+            Retorna somente os digitos do numero do CNPJ
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.SacadoInfo.UF">
+            <summary>
+            Estado do Sacado
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.SacadoInfo.Avalista">
+            <summary>
+            Campo para informar o nome do Avalista da Operação
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.SacadoInfo.AvalistaDocumento">
+            <summary>
+            Numero do CPF/CNPJ do avalista
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.SacadoInfo.Email">
+            <summary>
+            e-mail para envio (opcional)
+            </summary>
+        </member>
+        <member name="M:Impactro.Cobranca.SacadoInfo.#ctor">
+            <summary>
+            Cria uma instancia da Classe de informações do sacado, com todas as variáveis e, branco
+            </summary>
+        </member>
+        <member name="P:Impactro.Cobranca.SacadoInfo.DocumentoNumeros">
+            <summary>
+            retorna somente os digitos numericos do documento do sacado
+            </summary>
+        </member>
+        <member name="P:Impactro.Cobranca.SacadoInfo.AvalistaNumeros">
+            <summary>
+            extrai apenas os digitos numericos da avalista
+            </summary>
+        </member>
+        <member name="P:Impactro.Cobranca.SacadoInfo.Tipo">
+            <summary>
+            Tipo de documento do sacado (1-CPF, 2-CNPJ)
+            </summary>
+        </member>
+        <member name="P:Impactro.Cobranca.SacadoInfo.AvalistaTipo">
+            <summary>
+            Tipo de documento do avalista (1-CPF, 2-CNPJ)
+            </summary>
+        </member>
+        <member name="T:Impactro.Cobranca.BoletoInfo">
+            <summary>
+            Classe que contem os parametros de um boleto, exceto: Sacado e Cedente
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.BoletoInfo.BoletoID">
+            <summary>
+            Código interno do boleto, dentro de um banco de dados, por exemplo um autonumerador.
+            Esta informação não será usada apenas para geraçào de remessa no campo: USO DA EMPRESA - IDENTIFICAÇÃO DO TÍTULO NA EMPRESA
+            </summary>
+        </member>
+        <member name="P:Impactro.Cobranca.BoletoInfo.Sacado">
+            <summary>
+            Código do Sacado (o mesmo que em SacadoInfo) para relacionar o sacado
+            Esta informação não será utilizada em nenhum momento pelo componente.
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.BoletoInfo.NumeroDocumento">
+            <summary>
+            Numero do documento é um numero qualquer apenas de exibição, no boleto para identificação visual
+            Este numero pode ou não ser o mesmo do NossoNumero, ou BoletoID
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.BoletoInfo.NossoNumero">
+            <summary>
+            É uma das principais informações do Boleto, este numero não deve se repetir, pois é o controle numerico que referencia o boleto junto ao banco.
+            Este valor, irá compor o Código de Barras e o IPTE, também é este numero que será exibido no extrato de titulos (Boletos) pagos.
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.BoletoInfo.Quantidade">
+            <summary>
+            Informação que será exibida no campo quantidade
+            (veja Valor)
+            ATENÇÂO, este 'Valor' não é o valor do documento.
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.BoletoInfo.ValorUnitario">
+            <summary>
+            Valor que será exibido no campo Valor
+            (veja quantidade)
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.BoletoInfo.ValorDocumento">
+            <summary>
+            É o valor efetivo do boleto, este valor irá compor o código de barras, e o IPTE
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.BoletoInfo.ValorDesconto">
+            <summary>
+            É um valor que será apenas exibido no campo 'Valor do Desconto'
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.BoletoInfo.DataLimiteDesconto2">
+            <summary>
+            Data limite para o Desconto 2
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.BoletoInfo.DataLimiteDesconto3">
+            <summary>
+            Data limite para o Desconto 3
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.BoletoInfo.ValorDesconto2">
+            <summary>
+            Valor do desconto 2
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.BoletoInfo.ValorDesconto3">
+            <summary>
+            Valor do desconto 3
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.BoletoInfo.ValorAcrescimo">
+            <summary>
+            É um valor que será apenas exibido no campo 'Valor do Acrescimo'
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.BoletoInfo.ValorCobrado">
+            <summary>
+            Se zero, será usado o valor do documento, caso seja diferente será usado este valor
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.BoletoInfo.DataVencimento">
+            <summary>
+            Conforme determinado pelo Banco Central do Brasil, por meio das circulares 3.598 e 3.656, em vigor a partir de 28/06/2013,  fica proibido boletos sem valor  e  sem vencimento,  ou com  as informações “Vencimento à vista” e “Contra apresentação”.
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.BoletoInfo.LinhaOrigem">
+            <summary>
+            Quando os dados do boleto originarem de um ou mais linhas de um arquivo de retorno
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.BoletoInfo.Aceite">
+            <summary>
+            Indicando que o sacado 'aceitou' ('A') o título, ou ('N') por padrão.
+            Quando o pagamento apos o vencimento deve ser feito no banco, vem com o campo "aceite" com o valor "N" (ou seja é o valor padrão).
+            Um boleto sem aceite NÃO PODE SER PROTESTADO, e se não pagar eles são cancelados automaticamente sem prejuizo para nenhuma das partes.
+            Já um boleto com ACEITE é cobrado independentemente de ser pago ou não, pois a taxa para gerar o mesmo será debitada da conta do credor.
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.BoletoInfo.Ocorrencia">
+            <summary>
+            Código da Ocorrencia
+            </summary>
+        </member>
+        <member name="M:Impactro.Cobranca.BoletoInfo.Clone">
+            <summary>
+            Clona os valores e propriedades das informações de um boleto. 
+            Fundamental para obter também as informações de registro complementares
+            </summary>
+        </member>
+        <member name="M:Impactro.Cobranca.BoletoInfo.SetRegEnumValue(System.Enum,System.Object)">
+            <summary>
+            Devine o valor de um registro e seu valor
+            </summary>
+        </member>
+        <member name="M:Impactro.Cobranca.BoletoInfo.SetRegKeyValue(System.String,System.Object)">
+            <summary>
+            Define o valor de um campo de registro caso este campo exista e seja suportado pelo layout
+            </summary>
+        </member>
+        <member name="M:Impactro.Cobranca.BoletoInfo.GeraInstrucoes">
+            <summary>
+            Cria o Texto de Instruções Baseado nos parametros
+            </summary>
+        </member>
+        <member name="T:Impactro.Cobranca.Especies">
+            <summary>
+            Especie do titulo
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Especies.DM">
+            <summary>
+            Duplicata Mercantil
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Especies.NP">
+            <summary>
+            Nota Promissória
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Especies.NS">
+            <summary>
+            Nota de Seguro
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Especies.ME">
+            <summary>
+            Mensalidade Escolar
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Especies.RC">
+            <summary>
+            Recibo
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Especies.CT">
+            <summary>
+            Contrato
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Especies.CS">
+            <summary>
+            Consessionaria de Seguro
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Especies.DS">
+            <summary>
+            Duplicata de Serviço
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Especies.LC">
+            <summary>
+            Letra de Cambio
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Especies.ND">
+            <summary>
+            Nota de Debitos
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Especies.DD">
+            <summary>
+            Documeto de Dívida
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Especies.EC">
+            <summary>
+            Encargo Condominiais
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Especies.CPS">
+            <summary>
+            Conta de Prestação de Serviços
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Especies.DV">
+            <summary>
+            Diversos
+            </summary>
+        </member>
+        <member name="T:Impactro.Cobranca.Ocorrencias">
+            <summary>
+            Tipos de ocorrencia para remessa
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Ocorrencias.Remessa">
+            <summary>
+            REMESSA => TODOS OS CAMPOS
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Ocorrencias.Baixa">
+            <summary>
+            PEDIDO DE BAIXA
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Ocorrencias.Abatimento">
+            <summary>
+            CONCESSÃO DE ABATIMENTO (INDICADOR 12.5) => VALOR DO ABATIMENTO
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Ocorrencias.CancelamentoAbatimento">
+            <summary>
+            CANCELAMENTO DE ABATIMENTO => VALOR DO ABATIMENTO
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Ocorrencias.AlterarVencimento">
+            <summary>
+            ALTERAÇÃO DO VENCIMENTO => VENCIMENTO
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Ocorrencias.AlterarUsoEmpresa">
+            <summary>
+            ALTERAÇÃO DO USO DA EMPRESA => USO DA EMPRESA
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Ocorrencias.AlterarSeuNumero">
+            <summary>
+            ALTERAÇÃO DO SEU NÚMERO => SEU NÚMERO
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Ocorrencias.Protestar">
+             <summary>
+            PROTESTAR (emite aviso ao sacado após xx dias do vencimento, e envia ao cartório após 5 dias úteis)
+             </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Ocorrencias.NaoProtestar">
+            <summary>
+            NÃO PROTESTAR (inibe protesto automático, quando houver instrução permanente na conta corrente)
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Ocorrencias.ProtestoFalimentar">
+             <summary>
+            PROTESTO PARA FINS FALIMENTARES (falencia) 
+             </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Ocorrencias.SustarProtesto">
+            <summary>
+            SUSTAR O PROTESTO
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Ocorrencias.AlterarDados">
+            <summary>
+            ALTERAÇÃO DE OUTROS DADOS => CAMPOS A ALTERAR
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Ocorrencias.BaixaPago">
+            <summary>
+            BAIXA POR TER SIDO PAGO DIRETAMENTE AO CEDENTE
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Ocorrencias.Cancelamento">
+            <summary>
+            CANCELAMENTO DE INSTRUÇÃO => CÓDIGO DA INSTRUÇÃO
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Ocorrencias.ProtestoUrgente">
+            <summary>
+            PROTESTO URGENTE (envia a cartório após XX dias úteis do vencimento)
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Ocorrencias.AlterarVencimentoSustarProtesto">
+            <summary>
+            ALTERAÇÃO DO VENCIMENTO E SUSTAR PROTESTO => VENCIMENTO
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Ocorrencias.NaoConcorda">
+            <summary>
+            CEDENTE NÃO CONCORDA COM ALEGAÇÃO DO SACADO => CÓDIGO DA ALEGAÇÃO
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.Ocorrencias.DispensaJuros">
+            <summary>
+            CEDENTE SOLICITA DISPENSA DE JUROS
+            </summary>
+        </member>
+        <member name="T:Impactro.Cobranca.CobUtil">
+            <summary>
+            Utilitários para funções de cobrança
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.CobUtil.DefaultEncoding">
+            <summary>
+            Encoding Default: // https://en.wikipedia.org/wiki/Windows-1252
+            </summary>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.Clone(System.Object)">
+            <summary>
+            Clona um objeto e suas propriedades
+            </summary>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.ToBase64String(System.Drawing.Bitmap,System.Drawing.Imaging.ImageFormat)">
+            <summary>
+            Gera a string do boleto em base64
+            </summary>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.ToBase64ImageTag(System.Drawing.Bitmap,System.Drawing.Imaging.ImageFormat)">
+            <summary>
+            Gera uma imagen HTML codigicada em base64
+            </summary>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.CodigoBarrasFormatado(System.String,System.Int32[])">
+            <summary>
+            Retorna o Código de barras com os campos separados por ponto e espeço
+            </summary>
+            <param name="cCodBarras">Código de barras a ser formatado</param>
+            <param name="TamanhosCampoLivre">Tamanho dos pedaçoes do campo livre</param>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.CampoLivreFormatado(System.String,System.Int32[])">
+            <summary>
+            Retorna o Código de barras com os campos separados por ponto e espeço
+            </summary>
+            <param name="cCampoLivre">Código de barras a ser formatado</param>
+            <param name="TamanhosCampoLivre">Tamanho dos pedaçoes do campo livre</param>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.Modulo11Total(System.String,System.Int32)">
+            <summary>
+            Calcula apenas a SOMA dos digitos retornados pela multiplicação dos pesos de acordo com a base selecionada
+            Esta rotina é utilizada pelas rotinas Modulo11Padrao, Modulo11Especial para obter o valor total dos pessos.
+            </summary>
+            <param name="Sequencia">Sequencia Numerica a ser calculada</param>
+            <param name="NumBase">É o Valor do Peso Máximo do multiplicador, 7, se de 7 a 2 (765432), ou 9, se for de 9 a 2 (98765432)</param>
+            <returns>Valor Total da soma dos pesos</returns>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.SoNumeros(System.String)">
+            <summary>
+            Retorna só os numeros de uma string, ou nulo se a string de entrada também for nula
+            </summary>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.Modulo11Padrao(System.String,System.Int32)">
+            <summary>
+            O Modulo 11 Padrão, é utilizado utilizado para o calculo do digito verificador do código de barras, e tambem por alguns bancos para calculo de digitos no Nosso Numero, Conteoles, e verificações.
+            É reconhecido por não retornar Zero
+            </summary>
+            <param name="Sequencia">Sequencia Numerica a ser calculada</param>
+            <param name="NumBase">É o Valor do Peso Máximo do multiplicador, 7, se de 7 a 2 (765432), ou 9, se for de 9 a 2 (98765432)</param>
+            <returns>O Digito Verificador</returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.Modulo11Especial(System.String,System.Int32)">
+            <summary>
+            O Modulo 11 Especial, é utilizado por alguns bancos que utilizam o digito 0 quando o reto é 10
+            </summary>
+            <param name="Sequencia">Sequencia Numerica a ser calculada</param>
+            <param name="NumBase">É o Valor do Peso Máximo do multiplicador, 7, se de 7 a 2 (765432), ou 9, se for de 9 a 2 (98765432)</param>
+            <returns>O Digito Verificador</returns>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.Modulo11Negativo(System.String)">
+            <summary>
+            Logica especial para modulo 11, que retorna -1 quando o resto é 1
+            </summary>
+            <param name="sequencia">Sequencia a ser calculada</param>
+            <returns>Retorna o digito, ou -1 quando nescessário</returns>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.Soma(System.String,System.String)">
+            <summary>
+            soma 2 numeros grandes em forma de string
+            </summary>
+            <param name="A">Numero grande: 34523987459287634587639845769</param>
+            <param name="B">Numero grande: 99283498453874657862384628376</param>
+            <returns>O resuldado da Soma</returns>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.CalcFatVenc(System.DateTime)">
+            <summary>
+            Calcula o Fator de vencimento, que representa o numero de dias corridos desde a datab base 7/10/1997
+            </summary>
+            <param name="DataVencimento">Data de Vendimento, a ser calculada!
+            Conforme determinado pelo Banco Central do Brasil, por meio das circulares 3.598 e 3.656, em vigor a partir de 28/06/2013,  fica proibido boletos sem valor  e  sem vencimento,  ou com  as informações “Vencimento à vista” e “Contra apresentação”.</param>
+            <returns>Retorna o numero de dias desde 7/10/1997, ou 0(Zero) se DataVencimento=DateTime.MinValue</returns>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.CalcLinDigitavel(System.String)">
+            <summary>
+            Calcula a Linha Digitável do Código de Barras
+            </summary>
+            <param name="CodBarras">Código de barras com 44 numeros, sem espaços ou pontos, SOMENTE NUMEROS</param>
+            <returns></returns>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.Modulo10(System.String)">
+            <summary>
+            O Modulo 10 representa é um digito baseado mo modulo da soma dos pesos de cada digito multiplicados por 2 ou 1
+            </summary>
+            <param name="Cadeia">Sequencia Numerica a ser calculada</param>
+            <returns>O Digito Verificador</returns>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.BarCode(System.String)">
+            <summary>
+            Gera uma string que representa um código de barras de um numero especifico
+            </summary>
+            <param name="NumTexto">digitos a serem codificados</param>
+            <returns>retona uma sequancia das ssequencias "bf","bl","pf","pl"</returns>
+            <remarks>
+            bf -> Branco Fino
+            bl -> Branco Largo
+            pf -> Preto Fino
+            pl -> Preto Largo
+            </remarks>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.BarCodeImage(System.String)">
+            <summary>
+            Gera um BitMap baseado em uma string 'bfpfbl' para geração de código de barras com escala padrão
+            </summary>
+            <param name="NumTexto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.BarCodeImage(System.String,System.Int32,System.Single)">
+            <summary>
+            Gera um BitMap baseado em uma string 'bfpfbl' para geração de código de barras ( Alterado por Alexandre Savelli Bencz _
+            </summary>
+            <param name="NumTexto">String no formarto 'bfplblpl'</param>
+            <param name="nScale">Quanto é a escala do codigo de barras</param>
+            <param name="resolucao">Resolucao do código de barras</param>
+            <returns>Bitmap</returns>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.Right(System.String,System.Int32)">
+            <summary>
+            Alinha uma string contendo digitos a direita, preenchendo a parte esquerda com zeros, forçando ser uma string com um numero exato de digitos
+            </summary>
+            <param name="cValor">Valor a ser completado, ex: "123"</param>
+            <param name="nSize">Tamanho desejado ex: 5</param>
+            <returns>Nova string completada com zeros ex: "00123"</returns>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.GetInt(System.Object)">
+            <summary>
+            Tenta obter um numero Int32 de um objeto qualquer, se der erro retorna 0
+            </summary>
+            <param name="oInt">Valor a ser obtido</param>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.ResLoadImage(System.String)">
+            <summary>
+            Le uma imagem especifica dentro dos Resources da Impactro.Cobranca
+            </summary>
+            <param name="cImg">ome da Imagem</param>
+            <returns>Objeto BITMAP da Imagem solicitada ou null se não for encontrada</returns>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.WebPostRequest(System.String,System.String)">
+            <summary>
+            Retorna o resultado de um requerimento WebPost passando dados de formularios codificados
+            </summary>
+            <param name="cURL">URL do requerimento</param>
+            <param name="cPost">Dados a serem enviados</param>
+            <returns>Conteudo (string) resultante</returns>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.WebGetRequest(System.String,System.String)">
+            <summary>
+            Efetua um download de uma string usando um objeto do tipo HttpWebRequest
+            </summary>
+            <param name="cURL">URL</param>
+            <param name="cGet">GET - QueryString</param>
+            <returns></returns>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.WebClientRequest(System.String,System.String)">
+            <summary>
+            Efetua um download de um conteudo usando objetod do tipo WebClient
+            </summary>
+            <param name="cURL">URL</param>
+            <param name="cGet">GET - QueryString</param>
+            <returns>Conteudo em UTF-8</returns>
+        </member>
+        <member name="F:Impactro.Cobranca.CobUtil.UserAgent">
+            <summary>
+            UserAgent padrão para as chamadas de GetResponseHtml
+            </summary>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.WebGetRequest(System.String)">
+            <summary>
+            Obtem o conteudo HTML de uma página (URL)
+            </summary>
+            <param name="cURL">URL da página a ser obtida</param>
+            <returns>Conteudo HTML da URL informada</returns>
+        </member>
+        <member name="T:Impactro.WindowsControls.BoletoForm">
+            <summary>
+            Componente de Boleto para Windows Form.
+            </summary>
+        </member>
+        <member name="F:Impactro.WindowsControls.BoletoForm.PrintType">
+            <summary>
+            Informa o Tipo de impressão, para ajuste de resolução
+            </summary>
+        </member>
+        <member name="M:Impactro.WindowsControls.BoletoForm.#ctor">
+            <summary>
+            Componente de Renderização do Boleto para Windows Control
+            </summary>
+        </member>
+        <member name="M:Impactro.WindowsControls.BoletoForm.#ctor(Impactro.Cobranca.Boleto)">
+            <summary>
+            Construtor já com a instancia do boleto
+            </summary>
+        </member>
+        <member name="P:Impactro.WindowsControls.BoletoForm.Boleto">
+            <summary>
+            Retorna a instancia da classe Boleto
+            </summary>
+        </member>
+        <member name="M:Impactro.WindowsControls.BoletoForm.MakeBoleto(Impactro.Cobranca.CedenteInfo,Impactro.Cobranca.SacadoInfo,Impactro.Cobranca.BoletoInfo)">
+            <summary>
+            Configura o boleto, passando os 3 objetos que contem os dados para a geração do boleto para variáveis internas, mas não calcula: veja: Calculaboleto()
+            </summary>
+            <param name="oCedente">Dados do Cedente</param>
+            <param name="oSacado">Dados do Sacado</param>
+            <param name="oBoleto">Dados do Boleto</param>
+        </member>
+        <member name="M:Impactro.WindowsControls.BoletoForm.CalculaBoleto">
+            <summary>
+            Calcula os dados do boleto previamente foncigurado
+            </summary>
+        </member>
+        <member name="M:Impactro.WindowsControls.BoletoForm.Dispose(System.Boolean)">
+            <summary>
+            Elimina o objeto da memória
+            </summary>
+            <param name="disposing">Informa se sera eliminado da memória os componentes internos</param>
+        </member>
+        <member name="M:Impactro.WindowsControls.BoletoForm.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Metodo de Renderização padrão
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Impactro.WindowsControls.BoletoForm.Print(System.Drawing.Graphics)">
+            <summary>
+            Imprime o boleto em uma dispositivo grafico (imagem ou impressora)
+            </summary>
+        </member>
+        <member name="T:Impactro.WebControls.BoletoWeb">
+            <summary>
+            Compronente de Boleto para ASP.Net.
+            </summary>
+        </member>
+        <member name="E:Impactro.WebControls.BoletoWeb.MontaCampoLivre">
+            <summary>
+            Use este vento quando desejar customizar a geração do campo livre
+            </summary>
+        </member>
+        <member name="E:Impactro.WebControls.BoletoWeb.ConfigureTable">
+            <summary>
+            Define o metodo para a configuração da Table HTML onde serão inserido as celulas(campos)
+            </summary>
+        </member>
+        <member name="F:Impactro.WebControls.BoletoWeb.blt">
+            <summary>
+            Define se deve aparecer a área de recibo do Sacado
+            (por padrão é VERDADEIRO), mude para "False" para criar um "Topo" customizado
+            </summary>
+        </member>
+        <member name="M:Impactro.WebControls.BoletoWeb.#ctor">
+            <summary>
+            Cria uma nova instancia do WebControl do Boleto
+            </summary>
+        </member>
+        <member name="M:Impactro.WebControls.BoletoWeb.SetBoletoMontaCampoLivre(Impactro.Cobranca.BoletoMontaCampoLivre)">
+            <summary>
+            Permite configurar uma função para o evento de geração de código de barras personalizado.
+            Util para a geração de boletos para bancos ou carteiras originalmente não implementados.
+            </summary>
+            <param name="func"></param>
+        </member>
+        <member name="M:Impactro.WebControls.BoletoWeb.MakeBoleto(Impactro.Cobranca.CedenteInfo,Impactro.Cobranca.SacadoInfo,Impactro.Cobranca.BoletoInfo)">
+            <summary>
+            Configura o boleto e calcula o código de barras e linha digitavel com base nas informações passadas
+            </summary>
+            <param name="Cedente">São as dados de que Emite o Boleto (Quem irá receber)</param>
+            <param name="Sacado">São os dados do pagador do Boleto (Quem irá pagar)</param>
+            <param name="Boleto">São os dados da caobrança em si: Valores, Datas, Descrições e Informações</param>
+        </member>
+        <member name="P:Impactro.WebControls.BoletoWeb.ImagePath">
+            <summary>
+            Contem o caminho do diretório de imagens
+            </summary>
+        </member>
+        <member name="P:Impactro.WebControls.BoletoWeb.ImageType">
+            <summary>
+            Define o tipo de imagem a ser usado
+            </summary>
+        </member>
+        <member name="P:Impactro.WebControls.BoletoWeb.EspecialColor">
+            <summary>
+            configura a cor ara as celulas especiais (Especie, Vencimento e Vvalor)
+            </summary>
+        </member>
+        <member name="P:Impactro.WebControls.BoletoWeb.TextoDataProcessamento">
+            <summary>
+            configura o texto do campo data de processamento, pois em algumas casos o texto padrão não cabe
+            </summary>
+        </member>
+        <member name="P:Impactro.WebControls.BoletoWeb.ImageCorte">
+            <summary>
+            Define o caminho da imagem que será usada para separar as vias do boletos
+            </summary>
+        </member>
+        <member name="P:Impactro.WebControls.BoletoWeb.CssCell">
+            <summary>
+            Define a classe CSS 'class' dos titulos dos campos do boleto
+            </summary>
+        </member>
+        <member name="P:Impactro.WebControls.BoletoWeb.CssField">
+            <summary>
+            Define a classe CSS 'class' dos valores dos campos do boleto
+            </summary>
+        </member>
+        <member name="P:Impactro.WebControls.BoletoWeb.RenderCountImage">
+            <summary>
+            Define se o boleto deve ser renderizado como imagem em vez de HTML
+            </summary>
+        </member>
+        <member name="P:Impactro.WebControls.BoletoWeb.Boleto">
+            <summary>
+            Instancia da classe BOLETO que processa as informações
+            A classe BoletoWeb apenas deseha o boleto previamente processado em HTML
+            </summary>
+        </member>
+        <member name="T:Impactro.WebControls.BoletoImageType">
+            <summary>
+            Tipo de obtenção da imagem do Boleto
+            </summary>
+        </member>
+        <member name="F:Impactro.WebControls.BoletoImageType.embebed">
+            <summary>
+            Obtem as imagens dos Logo de Bancos, Código de barras e corte de dentro da DLL (Padrão)
+            </summary>
+        </member>
+        <member name="F:Impactro.WebControls.BoletoImageType.gif">
+            <summary>
+            Arquivos .GIF externos
+            </summary>
+        </member>
+        <member name="F:Impactro.WebControls.BoletoImageType.jpg">
+            <summary>
+            Arquivos .JPG externos
+            </summary>
+        </member>
+        <member name="F:Impactro.WebControls.BoletoImageType.png">
+            <summary>
+            Arquivos .PNG externos
+            </summary>
+        </member>
         <member name="T:Impactro.Layout.BoletoItens">
             <summary>
             Lista de Boletos
@@ -1523,6 +2104,11 @@
         <member name="M:Impactro.Layout.BoletoItens.#ctor">
             <summary>
             Lista e gerencia um grupo de itens de Boletos
+            </summary>
+        </member>
+        <member name="P:Impactro.Layout.BoletoItens.ErroLinhas">
+            <summary>
+            Retorna as linhas que deram erro
             </summary>
         </member>
         <member name="M:Impactro.Layout.BoletoItens.AddErroLine(System.String)">
@@ -1548,21 +2134,16 @@
             Lista de boletos duplicados quando AddErroType = BoletoDuplicado.Lista
             </summary>
         </member>
+        <member name="P:Impactro.Layout.BoletoItens.Item(System.String)">
+            <summary>
+            Retorna um Boleto definida pelo seu numero
+            </summary>
+        </member>
         <member name="M:Impactro.Layout.BoletoItens.Remove(System.String)">
             <summary>
             Remove um Boleto da lista
             </summary>
             <param name="cNossoNumero">Numero do Boleto</param>
-        </member>
-        <member name="P:Impactro.Layout.BoletoItens.ErroLinhas">
-            <summary>
-            Retorna as linhas que deram erro
-            </summary>
-        </member>
-        <member name="P:Impactro.Layout.BoletoItens.Item(System.String)">
-            <summary>
-            Retorna um Boleto definida pelo seu numero
-            </summary>
         </member>
         <member name="P:Impactro.Layout.BoletoItens.Count">
             <summary>
@@ -1603,261 +2184,6 @@
             <summary>
             Layout no padrão CNAB240
             </summary>
-        </member>
-        <member name="T:Impactro.Layout.CNAB240`6">
-            <summary>
-            Classe generica para processamento de arquivos CNAB240
-            </summary>
-        </member>
-        <member name="T:Impactro.Layout.CNAB">
-            <summary>
-            Classe base para os geradores de arquivos CNAB240 / CNAB400
-            Cada banco tem seu algoritomo e personalizações de geração
-            Essa classe é apenas um facilitador de comum reuso para base de cada banco
-            </summary>
-        </member>
-        <member name="T:Impactro.Layout.Layout">
-            <summary>
-            Gerador de layouts
-            </summary>
-        </member>
-        <member name="F:Impactro.Layout.Layout.Data">
-            <summary>
-            Para armazenar valores de variáveis de trabalho
-            </summary>
-        </member>
-        <member name="F:Impactro.Layout.Layout.ShowDumpLine">
-            <summary>
-            Exibe as informações de DUMP de uma linha gerada no arquivo de saida
-            </summary>
-        </member>
-        <member name="F:Impactro.Layout.Layout.TesteTntegridade">
-            <summary>
-            Testa a integridade de conversão e desconversão dos dados
-            </summary>
-        </member>
-        <member name="F:Impactro.Layout.Layout.Ower">
-            <summary>
-            Armazena um o objeto qualquer como sendo o criado 'proprietário'
-            </summary>
-        </member>
-        <member name="F:Impactro.Layout.Layout.itens">
-            <summary>
-            Lista dos itens
-            </summary>
-        </member>
-        <member name="M:Impactro.Layout.Layout.ContaisIReg(System.Type[]@,System.Type)">
-            <summary>
-            Procura pelo tipo do iReg no array de typos ( Adicionado por Alexandre Savelli Bencz )
-            </summary>
-            <param name="tp">Array de tipos</param>
-            <param name="t">Tipo para ser procurado no array</param>
-            <returns>True caso exista e False caso nao encontre</returns>
-        </member>
-        <member name="M:Impactro.Layout.Layout.ForEach``1(System.Action{Impactro.Layout.Reg{``0}})">
-            <summary>
-            Efetua uma ação para um tipo de objeto
-            </summary>
-        </member>
-        <member name="M:Impactro.Layout.Layout.FindReg(Impactro.Layout.IReg@,System.String)">
-            <summary>
-            Achar o tipo de registro de acordo com o tipo de linha
-            </summary>
-        </member>
-        <member name="M:Impactro.Layout.Layout.Add(Impactro.Layout.IReg)">
-            <summary>
-            Adiciona um item
-            </summary>
-            <param name="oReg">Objeto Reg[T]</param>
-        </member>
-        <member name="M:Impactro.Layout.Layout.MoveNext">
-            <summary>
-            Aponta o proxima valor
-            </summary>
-            <returns>Retorna Verdadeiro sempre que houver um proximo valor</returns>
-        </member>
-        <member name="M:Impactro.Layout.Layout.Reset">
-            <summary>
-            Reinicia para o elemento 'Zero'
-            </summary>
-        </member>
-        <member name="M:Impactro.Layout.Layout.GetEnumerator">
-            <summary>
-            Obtem a instancia de enumerado para controle de foreach()
-            </summary>
-        </member>
-        <member name="M:Impactro.Layout.Layout.#ctor(System.Type[])">
-            <summary>
-            Define um modelo de layout
-            </summary>
-            <param name="eTypes">Tipos de enumeradores de estruturra</param>
-        </member>
-        <member name="M:Impactro.Layout.Layout.AddTypes(System.Type[])">
-            <summary>
-            Adiciona outros tipos no array de reconhecimento
-            </summary>
-        </member>
-        <member name="M:Impactro.Layout.Layout.Clear">
-            <summary>
-            Remove todos os itens
-            </summary>
-        </member>
-        <member name="M:Impactro.Layout.Layout.GetLayoutType(System.Int32)">
-            <summary>
-            Retorna o tipo de layout
-            </summary>
-        </member>
-        <member name="M:Impactro.Layout.Layout.Table(System.Type)">
-            <summary>
-            Transforma os dados em uma tabela (DataTable)
-            </summary>
-            <param name="tp">Tipo de dados a ser obtido (filtrado)</param>
-            <returns>DataBable co mos dados de um determinado tipo</returns>
-        </member>
-        <member name="E:Impactro.Layout.Layout.onBeforeAppendLine">
-            <summary>
-            Evento a ser invocado ante de gerar uma linha no arquivo
-            </summary>
-        </member>
-        <member name="E:Impactro.Layout.Layout.onAfterReadLine">
-            <summary>
-            Evento a ser invocado apos ler uma linha do arquivo
-            </summary>
-        </member>
-        <member name="E:Impactro.Layout.Layout.onAfterAppendLine">
-            <summary>
-            Evento a ser invocado para gerar a linha quando necessário.
-            É possível assim customizar a linha gerada.
-            </summary>
-        </member>
-        <member name="E:Impactro.Layout.Layout.onInvalidLine">
-            <summary>
-            Evento a ser chamado quando houver erro em uma linha
-            </summary>
-        </member>
-        <member name="P:Impactro.Layout.Layout.Item(System.Int32)">
-            <summary>
-            obtem um item da lista
-            </summary>
-            <param name="n">posição absoluta</param>
-            <returns>Objeto Reg[T]</returns>
-        </member>
-        <member name="P:Impactro.Layout.Layout.Count">
-            <summary>
-            Obtem o numero de itens na lista
-            </summary>
-        </member>
-        <member name="P:Impactro.Layout.Layout.Current">
-            <summary>
-            Obtem o valor atual
-            </summary>
-        </member>
-        <member name="P:Impactro.Layout.Layout.Conteudo">
-            <summary>
-            Conteudo (E/S) do arquivo
-            </summary>
-        </member>
-        <member name="F:Impactro.Layout.CNAB.DataHoje">
-            <summary>
-            DataHora de geração do arquivos
-            </summary>
-        </member>
-        <member name="F:Impactro.Layout.CNAB.NumeroLote">
-            <summary>
-            Lê ou define o número do lote da remessa
-            </summary>
-        </member>
-        <member name="F:Impactro.Layout.CNAB.SequencialLote">
-            <summary>
-            Numero sequencial no lote (sub-lote) para CNAB240
-            </summary>
-        </member>
-        <member name="F:Impactro.Layout.CNAB.SequencialRegistro">
-            <summary>
-            Sequencial de geração do registro
-            </summary>
-        </member>
-        <member name="M:Impactro.Layout.CNAB.Remove(System.String)">
-            <summary>
-            Remove um Boleto da lista
-            </summary>
-            <param name="cNossoNumero">Numero do Boleto</param>
-        </member>
-        <member name="M:Impactro.Layout.CNAB.#ctor(System.Type[])">
-            <summary>
-            Gera o arquivos de remessa
-            </summary>
-            <param name="eTypes">Array de tipos usados para a classe base Layout</param>
-        </member>
-        <member name="M:Impactro.Layout.CNAB.Remessa">
-            <summary>
-            Rotina a ser desenvolvida para gerar a remessa
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Impactro.Layout.CNAB.Retorno(System.String)">
-            <summary>
-            Retorno a ser processado
-            </summary>
-            <param name="cData">Dado a ser interpretado</param>
-        </member>
-        <member name="M:Impactro.Layout.CNAB.RetornoFrom(System.String)">
-            <summary>
-            Lê um arquivo de retorno já processando um arquivo específico
-            </summary>
-            <param name="cFile">Nome do arquivo a Lêr e Processar</param>
-        </member>
-        <member name="M:Impactro.Layout.CNAB.RemessaTo(System.String)">
-            <summary>
-            Gera o arquivo de remessa em um arquivo
-            </summary>
-            <param name="cFile">Nome do Arquivo</param>
-        </member>
-        <member name="M:Impactro.Layout.CNAB.Retorno_onInvalidLine(Impactro.Layout.Layout,System.String,System.Int32)">
-            <summary>
-            Quando ocorrer qualquer erro ao ler linhas de retorno
-            </summary>
-        </member>
-        <member name="P:Impactro.Layout.CNAB.Cedente">
-            <summary>
-            Dados do Cedente
-            </summary>
-        </member>
-        <member name="P:Impactro.Layout.CNAB.Boletos">
-            <summary>
-            Retorna uma coleção de Boletos / Sacados para a geração do lote de remessa
-            </summary>
-        </member>
-        <member name="E:Impactro.Layout.CNAB.onRegBoleto">
-            <summary>
-            Evento a ser chamado antes de inserir boletos
-            </summary>
-        </member>
-        <member name="F:Impactro.Layout.CNAB240`6.Producao">
-            <summary>
-            Define se é para gerar aqruivos como teste ou produção
-            </summary>
-        </member>
-        <member name="F:Impactro.Layout.CNAB240`6.regHeaderArquivo">
-            Registro Header de Arquivo (Tipo = 0)
-        </member>
-        <member name="F:Impactro.Layout.CNAB240`6.regHeaderLote">
-            Registro Header de Lote (Tipo = 1)
-        </member>
-        <member name="F:Impactro.Layout.CNAB240`6.regTrailerLote">
-            Registros Inciciais do lote (opcional) (Tipo = 2)
-            Registros de detalhe Segmentos (Tipo = 3)
-            Registros finais do lote (opcional) (Tipo = 4)
-            Registro trailer de lote (Tipo = 5)
-        </member>
-        <member name="F:Impactro.Layout.CNAB240`6.regTrailerArquivo">
-            Registro trailer de arquivo (Tipo = 9)
-        </member>
-        <member name="M:Impactro.Layout.CNAB240`6.#ctor(System.Type[])">
-            <summary>
-            Gera o arquivos de remessa
-            </summary>
-            <param name="eReg">Tipo de registro a ser usado</param>
         </member>
         <member name="M:Impactro.Layout.CNAB240Caixa.#ctor">
             <summary>
@@ -3118,9 +3444,9 @@
             <summary>
             Cód. Juros Mora Código do Juros de Mora *C018 
             Código adotado pela FEBRABAN para identificação do tipo de pagamento de juros de mora.
-            1 = Valor por Dia
-            2 = Taxa Mensal
-            3 = Isento
+            0 =  Isento
+            1 =  Valor por Dia
+            2 =  Taxa Mensal
             </summary>
         </member>
         <member name="F:Impactro.Layout.CNAB240SegmentoPSicoob.JurosData">
@@ -3544,28 +3870,6 @@
             <summary>
             Gera o CNAB400 de Remessa de acordo com os padrões do Bradesco
             Para facilitar o suporte e padronizar recursos e funcionalidades cada banco tera sua proprie classe e rotinas de geração
-            </summary>
-        </member>
-        <member name="T:Impactro.Layout.CNAB400`3">
-            <summary>
-            Classe base para os geradores de arquivos CNAB400
-            Cada banco tem seu algoritomo e personalizações de geração
-            Essa classe é apenas um facilitador de comum reuso para base de cada banco
-            </summary>
-        </member>
-        <member name="F:Impactro.Layout.CNAB400`3.regArqHeader">
-            <summary>
-            Informações do Header do arquivo
-            </summary>
-        </member>
-        <member name="F:Impactro.Layout.CNAB400`3.regArqTrailer">
-            <summary>
-            Informações do Trailer(rodape/linha final) do arquivo
-            </summary>
-        </member>
-        <member name="M:Impactro.Layout.CNAB400`3.#ctor">
-            <summary>
-            Gera o arquivos de remessa
             </summary>
         </member>
         <member name="M:Impactro.Layout.CNAB400Banestes.Remessa">
@@ -6112,49 +6416,19 @@
             Santander CNAB400
             </summary>
         </member>
-        <member name="M:Impactro.Layout.LayoutBancos.Init(Impactro.Cobranca.CedenteInfo)">
+        <member name="P:Impactro.Layout.LayoutBancos.cnab">
             <summary>
-            Inicializa o gerador de layouts de acordo com o cedente, usando a instancia apropriada para cada banco
+            instancia do layout criado
             </summary>
         </member>
-        <member name="M:Impactro.Layout.LayoutBancos.Table(System.Type)">
+        <member name="P:Impactro.Layout.LayoutBancos.onRegBoleto">
             <summary>
-            Obtem um layout estruturado em tabela de acordo com o tipo informado
+            Define um evento para customizar os registros
             </summary>
         </member>
-        <member name="M:Impactro.Layout.LayoutBancos.Add(Impactro.Cobranca.BoletoInfo,Impactro.Cobranca.SacadoInfo)">
+        <member name="P:Impactro.Layout.LayoutBancos.onRegOpcional">
             <summary>
-            Adiciona um boleto e seu respectivo sacado (será armazenado uma cópia (cole) destas instancias
-            </summary>
-        </member>
-        <member name="M:Impactro.Layout.LayoutBancos.Remove(System.String)">
-            <summary>
-            Remove um boleto pelo nossonumero
-            </summary>
-        </member>
-        <member name="M:Impactro.Layout.LayoutBancos.Remessa">
-            <summary>
-            Gera o arquivo de remessa retornando o conteudo em uma string
-            </summary>
-        </member>
-        <member name="M:Impactro.Layout.LayoutBancos.RemessaTo(System.String)">
-            <summary>
-            Gera o arquivo de remessa no local especificado
-            </summary>
-        </member>
-        <member name="M:Impactro.Layout.LayoutBancos.Retorno(System.String)">
-            <summary>
-            Processa o conteudo arquivo de retorno contido na string de entrada
-            </summary>
-        </member>
-        <member name="M:Impactro.Layout.LayoutBancos.RetornoFrom(System.String)">
-            <summary>
-            Le o arquivo de retorno de um arquivo
-            </summary>
-        </member>
-        <member name="E:Impactro.Layout.LayoutBancos.onRegBoleto">
-            <summary>
-            Define um evento para tratar erros de duplicidade
+            Define um evento para criar registros opcionais
             </summary>
         </member>
         <member name="P:Impactro.Layout.LayoutBancos.ErroType">
@@ -6173,6 +6447,16 @@
             Retorna as linhas onde houve qualquer erro de processamento
             </summary>
         </member>
+        <member name="M:Impactro.Layout.LayoutBancos.Table(System.Type)">
+            <summary>
+            Obtem um layout estruturado em tabela de acordo com o tipo informado
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.LayoutBancos.Table(System.Int32)">
+            <summary>
+            Obtem os dados estruturados na posição N
+            </summary>
+        </member>
         <member name="P:Impactro.Layout.LayoutBancos.Lote">
             <summary>
             Obtem um numero de lote, se for 0 (zero) no inicio da remessa será gerado automaticamente
@@ -6183,10 +6467,81 @@
             Sequencial do Lote
             </summary>
         </member>
+        <member name="P:Impactro.Layout.LayoutBancos.Boletos">
+            <summary>
+            Coleção de boletos
+            </summary>
+        </member>
         <member name="P:Impactro.Layout.LayoutBancos.ShowDumpLine">
             <summary>
             Exibe informações de dump das linhas
             </summary>
+        </member>
+        <member name="M:Impactro.Layout.LayoutBancos.Remove(System.String)">
+            <summary>
+            Remove um boleto pelo nossonumero
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.LayoutBancos.Retorno(System.String)">
+            <summary>
+            Processa o conteudo arquivo de retorno contido na string de entrada
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.LayoutBancos.RetornoFrom(System.String)">
+            <summary>
+            Le o arquivo de retorno de um arquivo
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.LayoutBancos.Init(Impactro.Cobranca.CedenteInfo)">
+            <summary>
+            Inicializa o gerador de layouts de acordo com o cedente, usando a instancia apropriada para cada banco
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.LayoutBancos.Add(Impactro.Cobranca.BoletoInfo,Impactro.Cobranca.SacadoInfo)">
+            <summary>
+            Adiciona um boleto e seu respectivo sacado (será armazenado uma cópia (cole) destas instancias
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.LayoutBancos.Remessa">
+            <summary>
+            Gera o arquivo de remessa retornando o conteudo em uma string
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.LayoutBancos.RemessaTo(System.String)">
+            <summary>
+            Gera o arquivo de remessa no local especificado
+            </summary>
+        </member>
+        <member name="T:Impactro.Layout.CNAB240`6">
+            <summary>
+            Classe generica para processamento de arquivos CNAB240
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240`6.Producao">
+            <summary>
+            Define se é para gerar aqruivos como teste ou produção
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240`6.regHeaderArquivo">
+            Registro Header de Arquivo (Tipo = 0)
+        </member>
+        <member name="F:Impactro.Layout.CNAB240`6.regHeaderLote">
+            Registro Header de Lote (Tipo = 1)
+        </member>
+        <member name="F:Impactro.Layout.CNAB240`6.regTrailerLote">
+            Registros Inciciais do lote (opcional) (Tipo = 2)
+            Registros de detalhe Segmentos (Tipo = 3)
+            Registros finais do lote (opcional) (Tipo = 4)
+            Registro trailer de lote (Tipo = 5)
+        </member>
+        <member name="F:Impactro.Layout.CNAB240`6.regTrailerArquivo">
+            Registro trailer de arquivo (Tipo = 9)
+        </member>
+        <member name="M:Impactro.Layout.CNAB240`6.#ctor(System.Type[])">
+            <summary>
+            Gera o arquivos de remessa
+            </summary>
+            <param name="eReg">Tipo de registro a ser usado</param>
         </member>
         <member name="T:Impactro.Layout.CNAB240CobrancaRetorno">
             <summary>
@@ -6196,6 +6551,12 @@
         <member name="T:Impactro.Layout.LayoutBoletoReg">
             <summary>
             A cada novo boleto processado esse evento será cahado ao final da definições padrão
+            </summary>
+        </member>
+        <member name="T:Impactro.Layout.LayoutBoletoReg2">
+            <summary>
+            Apos a geração dos registro basicos (obrigatórios) é possivel adicionar registros opcionais
+            Deve retornar o numero de registros incluidos
             </summary>
         </member>
         <member name="T:Impactro.Layout.LayoutTipo">
@@ -6216,6 +6577,135 @@
         <member name="F:Impactro.Layout.LayoutTipo.Auto">
             <summary>
             Para os banco que só tem um unico modelo de layout, este será usado
+            </summary>
+        </member>
+        <member name="T:Impactro.Layout.CNAB">
+            <summary>
+            Classe base para os geradores de arquivos CNAB240 / CNAB400
+            Cada banco tem seu algoritomo e personalizações de geração
+            Essa classe é apenas um facilitador de comum reuso para base de cada banco
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB.DataHoje">
+            <summary>
+            DataHora de geração do arquivos
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB.NumeroLote">
+            <summary>
+            Lê ou define o número do lote da remessa
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB.SequencialLote">
+            <summary>
+            Numero sequencial no lote (sub-lote) para CNAB240
+            </summary>
+        </member>
+        <member name="P:Impactro.Layout.CNAB.SequencialRegistro">
+            <summary>
+            Sequencial de geração do registro
+            </summary>
+        </member>
+        <member name="P:Impactro.Layout.CNAB.Cedente">
+            <summary>
+            Dados do Cedente
+            </summary>
+        </member>
+        <member name="P:Impactro.Layout.CNAB.Boletos">
+            <summary>
+            Retorna uma coleção de Boletos / Sacados para a geração do lote de remessa
+            </summary>
+        </member>
+        <member name="E:Impactro.Layout.CNAB.onRegBoleto">
+            <summary>
+            Evento a ser chamado antes de inserir boletos
+            </summary>
+        </member>
+        <member name="E:Impactro.Layout.CNAB.onRegOpcional">
+            <summary>
+            Evento a ser chamado para criação de registros opcionais
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.CNAB.Remove(System.String)">
+            <summary>
+            Remove um Boleto da lista
+            </summary>
+            <param name="cNossoNumero">Numero do Boleto</param>
+        </member>
+        <member name="M:Impactro.Layout.CNAB.#ctor(System.Type[])">
+            <summary>
+            Gera o arquivos de remessa
+            </summary>
+            <param name="eTypes">Array de tipos usados para a classe base Layout</param>
+        </member>
+        <member name="M:Impactro.Layout.CNAB.AddBoleto(Impactro.Layout.IReg,Impactro.Cobranca.BoletoInfo)">
+            <summary>
+            Renderiza a linha de um boleto, mas antes chama um evento proprio de customização
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.CNAB.AddOpcionalType(System.Type[])">
+            <summary>
+            Adiciona referencia dos tipos opcionais
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.CNAB.AddOpcionais(Impactro.Cobranca.BoletoInfo)">
+            <summary>
+            Chama o evento para adicions os registros opcionais
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.CNAB.Add(Impactro.Layout.IReg)">
+            <summary>
+            chama o evento de pré renderização antes de adicionar a linha
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.CNAB.Remessa">
+            <summary>
+            Rotina a ser desenvolvida para gerar a remessa
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.CNAB.Retorno(System.String)">
+            <summary>
+            Retorno a ser processado
+            </summary>
+            <param name="cData">Dado a ser interpretado</param>
+        </member>
+        <member name="M:Impactro.Layout.CNAB.RetornoFrom(System.String)">
+            <summary>
+            Lê um arquivo de retorno já processando um arquivo específico
+            </summary>
+            <param name="cFile">Nome do arquivo a Lêr e Processar</param>
+        </member>
+        <member name="M:Impactro.Layout.CNAB.RemessaTo(System.String)">
+            <summary>
+            Gera o arquivo de remessa em um arquivo
+            </summary>
+            <param name="cFile">Nome do Arquivo</param>
+        </member>
+        <member name="M:Impactro.Layout.CNAB.Retorno_onInvalidLine(Impactro.Layout.Layout,System.String,System.Int32)">
+            <summary>
+            Quando ocorrer qualquer erro ao ler linhas de retorno
+            </summary>
+        </member>
+        <member name="T:Impactro.Layout.CNAB400`3">
+            <summary>
+            Classe base para os geradores de arquivos CNAB400
+            Cada banco tem seu algoritomo e personalizações de geração
+            Essa classe é apenas um facilitador de comum reuso para base de cada banco
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400`3.regArqHeader">
+            <summary>
+            Informações do Header do arquivo
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB400`3.regArqTrailer">
+            <summary>
+            Informações do Trailer(rodape/linha final) do arquivo
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.CNAB400`3.#ctor">
+            <summary>
+            Gera o arquivos de remessa
             </summary>
         </member>
         <member name="T:Impactro.Layout.CNAB400ArquivoTrailer">
@@ -7525,6 +8015,11 @@
             Tipo de Registro
             </summary>
         </member>
+        <member name="F:Impactro.Layout.CNAB400SantanderTrailer.Quantidade">
+            <summary>
+            Quantidade total de linhas no arquivo
+            </summary>
+        </member>
         <member name="F:Impactro.Layout.CNAB400SantanderTrailer.Zeros">
             <summary>
             Espaços em branco
@@ -7534,200 +8029,6 @@
             <summary>
             Número seqüencial do registro no arquivo
             </summary>
-        </member>
-        <member name="T:Impactro.Cobranca.CobUtil">
-            <summary>
-            Utilitários para funções de cobrança
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.CobUtil.DefaultEncoding">
-            <summary>
-            Encoding Default: // https://en.wikipedia.org/wiki/Windows-1252
-            </summary>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.Clone(System.Object)">
-            <summary>
-            Clona um objeto e suas propriedades
-            </summary>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.ToBase64String(System.Drawing.Bitmap,System.Drawing.Imaging.ImageFormat)">
-            <summary>
-            Gera a string do boleto em base64
-            </summary>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.ToBase64ImageTag(System.Drawing.Bitmap,System.Drawing.Imaging.ImageFormat)">
-            <summary>
-            Gera uma imagen HTML codigicada em base64
-            </summary>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.CodigoBarrasFormatado(System.String,System.Int32[])">
-            <summary>
-            Retorna o Código de barras com os campos separados por ponto e espeço
-            </summary>
-            <param name="cCodBarras">Código de barras a ser formatado</param>
-            <param name="TamanhosCampoLivre">Tamanho dos pedaçoes do campo livre</param>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.CampoLivreFormatado(System.String,System.Int32[])">
-            <summary>
-            Retorna o Código de barras com os campos separados por ponto e espeço
-            </summary>
-            <param name="cCampoLivre">Código de barras a ser formatado</param>
-            <param name="TamanhosCampoLivre">Tamanho dos pedaçoes do campo livre</param>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.Modulo11Total(System.String,System.Int32)">
-            <summary>
-            Calcula apenas a SOMA dos digitos retornados pela multiplicação dos pesos de acordo com a base selecionada
-            Esta rotina é utilizada pelas rotinas Modulo11Padrao, Modulo11Especial para obter o valor total dos pessos.
-            </summary>
-            <param name="Sequencia">Sequencia Numerica a ser calculada</param>
-            <param name="NumBase">É o Valor do Peso Máximo do multiplicador, 7, se de 7 a 2 (765432), ou 9, se for de 9 a 2 (98765432)</param>
-            <returns>Valor Total da soma dos pesos</returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.SoNumeros(System.String)">
-            <summary>
-            Retorna só os numeros de uma string, ou nulo se a string de entrada também for nula
-            </summary>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.Modulo11Padrao(System.String,System.Int32)">
-            <summary>
-            O Modulo 11 Padrão, é utilizado utilizado para o calculo do digito verificador do código de barras, e tambem por alguns bancos para calculo de digitos no Nosso Numero, Conteoles, e verificações.
-            É reconhecido por não retornar Zero
-            </summary>
-            <param name="Sequencia">Sequencia Numerica a ser calculada</param>
-            <param name="NumBase">É o Valor do Peso Máximo do multiplicador, 7, se de 7 a 2 (765432), ou 9, se for de 9 a 2 (98765432)</param>
-            <returns>O Digito Verificador</returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.Modulo11Especial(System.String,System.Int32)">
-            <summary>
-            O Modulo 11 Especial, é utilizado por alguns bancos que utilizam o digito 0 quando o reto é 10
-            </summary>
-            <param name="Sequencia">Sequencia Numerica a ser calculada</param>
-            <param name="NumBase">É o Valor do Peso Máximo do multiplicador, 7, se de 7 a 2 (765432), ou 9, se for de 9 a 2 (98765432)</param>
-            <returns>O Digito Verificador</returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.Modulo11Negativo(System.String)">
-            <summary>
-            Logica especial para modulo 11, que retorna -1 quando o resto é 1
-            </summary>
-            <param name="sequencia">Sequencia a ser calculada</param>
-            <returns>Retorna o digito, ou -1 quando nescessário</returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.Soma(System.String,System.String)">
-            <summary>
-            soma 2 numeros grandes em forma de string
-            </summary>
-            <param name="A">Numero grande: 34523987459287634587639845769</param>
-            <param name="B">Numero grande: 99283498453874657862384628376</param>
-            <returns>O resuldado da Soma</returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.CalcFatVenc(System.DateTime)">
-            <summary>
-            Calcula o Fator de vencimento, que representa o numero de dias corridos desde a datab base 7/10/1997
-            </summary>
-            <param name="DataVencimento">Data de Vendimento, a ser calculada!
-            Conforme determinado pelo Banco Central do Brasil, por meio das circulares 3.598 e 3.656, em vigor a partir de 28/06/2013,  fica proibido boletos sem valor  e  sem vencimento,  ou com  as informações “Vencimento à vista” e “Contra apresentação”.</param>
-            <returns>Retorna o numero de dias desde 7/10/1997, ou 0(Zero) se DataVencimento=DateTime.MinValue</returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.CalcLinDigitavel(System.String)">
-            <summary>
-            Calcula a Linha Digitável do Código de Barras
-            </summary>
-            <param name="CodBarras">Código de barras com 44 numeros, sem espaços ou pontos, SOMENTE NUMEROS</param>
-            <returns></returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.Modulo10(System.String)">
-            <summary>
-            O Modulo 10 representa é um digito baseado mo modulo da soma dos pesos de cada digito multiplicados por 2 ou 1
-            </summary>
-            <param name="Cadeia">Sequencia Numerica a ser calculada</param>
-            <returns>O Digito Verificador</returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.BarCode(System.String)">
-            <summary>
-            Gera uma string que representa um código de barras de um numero especifico
-            </summary>
-            <param name="NumTexto">digitos a serem codificados</param>
-            <returns>retona uma sequancia das ssequencias "bf","bl","pf","pl"</returns>
-            <remarks>
-            bf -> Branco Fino
-            bl -> Branco Largo
-            pf -> Preto Fino
-            pl -> Preto Largo
-            </remarks>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.BarCodeImage(System.String)">
-            <summary>
-            Gera um BitMap baseado em uma string 'bfpfbl' para geração de código de barras com escala padrão
-            </summary>
-            <param name="NumTexto"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.BarCodeImage(System.String,System.Int32,System.Single)">
-            <summary>
-            Gera um BitMap baseado em uma string 'bfpfbl' para geração de código de barras ( Alterado por Alexandre Savelli Bencz _
-            </summary>
-            <param name="NumTexto">String no formarto 'bfplblpl'</param>
-            <param name="nScale">Quanto é a escala do codigo de barras</param>
-            <param name="resolucao">Resolucao do código de barras</param>
-            <returns>Bitmap</returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.Right(System.String,System.Int32)">
-            <summary>
-            Alinha uma string contendo digitos a direita, preenchendo a parte esquerda com zeros, forçando ser uma string com um numero exato de digitos
-            </summary>
-            <param name="cValor">Valor a ser completado, ex: "123"</param>
-            <param name="nSize">Tamanho desejado ex: 5</param>
-            <returns>Nova string completada com zeros ex: "00123"</returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.GetInt(System.Object)">
-            <summary>
-            Tenta obter um numero Int32 de um objeto qualquer, se der erro retorna 0
-            </summary>
-            <param name="oInt">Valor a ser obtido</param>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.ResLoadImage(System.String)">
-            <summary>
-            Le uma imagem especifica dentro dos Resources da Impactro.Cobranca
-            </summary>
-            <param name="cImg">ome da Imagem</param>
-            <returns>Objeto BITMAP da Imagem solicitada ou null se não for encontrada</returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.WebPostRequest(System.String,System.String)">
-            <summary>
-            Retorna o resultado de um requerimento WebPost passando dados de formularios codificados
-            </summary>
-            <param name="cURL">URL do requerimento</param>
-            <param name="cPost">Dados a serem enviados</param>
-            <returns>Conteudo (string) resultante</returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.WebGetRequest(System.String,System.String)">
-            <summary>
-            Efetua um download de uma string usando um objeto do tipo HttpWebRequest
-            </summary>
-            <param name="cURL">URL</param>
-            <param name="cGet">GET - QueryString</param>
-            <returns></returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.WebClientRequest(System.String,System.String)">
-            <summary>
-            Efetua um download de um conteudo usando objetod do tipo WebClient
-            </summary>
-            <param name="cURL">URL</param>
-            <param name="cGet">GET - QueryString</param>
-            <returns>Conteudo em UTF-8</returns>
-        </member>
-        <member name="F:Impactro.Cobranca.CobUtil.UserAgent">
-            <summary>
-            UserAgent padrão para as chamadas de GetResponseHtml
-            </summary>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.WebGetRequest(System.String)">
-            <summary>
-            Obtem o conteudo HTML de uma página (URL)
-            </summary>
-            <param name="cURL">URL da página a ser obtida</param>
-            <returns>Conteudo HTML da URL informada</returns>
         </member>
         <member name="T:Impactro.Layout.LayoutDelegate">
             <summary>
@@ -7742,9 +8043,165 @@
             </summary>
             <returns>Retorna a nova linha.</returns>
         </member>
+        <member name="T:Impactro.Layout.Layout">
+            <summary>
+            Gerador de layouts
+            </summary>
+        </member>
+        <member name="E:Impactro.Layout.Layout.onBeforeAppendLine">
+            <summary>
+            Evento a ser invocado ante de gerar uma linha no arquivo
+            </summary>
+        </member>
+        <member name="E:Impactro.Layout.Layout.onAfterReadLine">
+            <summary>
+            Evento a ser invocado apos ler uma linha do arquivo
+            </summary>
+        </member>
+        <member name="E:Impactro.Layout.Layout.onAfterAppendLine">
+            <summary>
+            Evento a ser invocado para gerar a linha quando necessário.
+            É possível assim customizar a linha gerada.
+            </summary>
+        </member>
+        <member name="E:Impactro.Layout.Layout.onInvalidLine">
+            <summary>
+            Evento a ser chamado quando houver erro em uma linha
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.Layout.Data">
+            <summary>
+            Para armazenar valores de variáveis de trabalho
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.Layout.ShowDumpLine">
+            <summary>
+            Exibe as informações de DUMP de uma linha gerada no arquivo de saida
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.Layout.TesteTntegridade">
+            <summary>
+            Testa a integridade de conversão e desconversão dos dados
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.Layout.Ower">
+            <summary>
+            Armazena um o objeto qualquer como sendo o criado 'proprietário'
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.Layout.itens">
+            <summary>
+            Lista dos itens
+            </summary>
+        </member>
+        <member name="P:Impactro.Layout.Layout.Item(System.Int32)">
+            <summary>
+            obtem um item da lista
+            </summary>
+            <param name="n">posição absoluta</param>
+            <returns>Objeto Reg[T]</returns>
+        </member>
+        <member name="M:Impactro.Layout.Layout.ContaisIReg(System.Type[]@,System.Type)">
+            <summary>
+            Procura pelo tipo do iReg no array de typos ( Adicionado por Alexandre Savelli Bencz )
+            </summary>
+            <param name="tp">Array de tipos</param>
+            <param name="t">Tipo para ser procurado no array</param>
+            <returns>True caso exista e False caso nao encontre</returns>
+        </member>
+        <member name="M:Impactro.Layout.Layout.ForEach``1(System.Action{Impactro.Layout.Reg{``0}})">
+            <summary>
+            Efetua uma ação para um tipo de objeto
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.Layout.FindReg(Impactro.Layout.IReg@,System.String)">
+            <summary>
+            Achar o tipo de registro de acordo com o tipo de linha
+            </summary>
+        </member>
+        <member name="P:Impactro.Layout.Layout.Count">
+            <summary>
+            Obtem o numero de itens na lista
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.Layout.Add(Impactro.Layout.IReg)">
+            <summary>
+            Adiciona um item
+            </summary>
+            <param name="oReg">Objeto Reg[T]</param>
+        </member>
+        <member name="P:Impactro.Layout.Layout.Current">
+            <summary>
+            Obtem o valor atual
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.Layout.MoveNext">
+            <summary>
+            Aponta o proxima valor
+            </summary>
+            <returns>Retorna Verdadeiro sempre que houver um proximo valor</returns>
+        </member>
+        <member name="M:Impactro.Layout.Layout.Reset">
+            <summary>
+            Reinicia para o elemento 'Zero'
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.Layout.GetEnumerator">
+            <summary>
+            Obtem a instancia de enumerado para controle de foreach()
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.Layout.#ctor(System.Type[])">
+            <summary>
+            Define um modelo de layout
+            </summary>
+            <param name="eTypes">Tipos de enumeradores de estruturra</param>
+        </member>
+        <member name="M:Impactro.Layout.Layout.AddTypes(System.Type[])">
+            <summary>
+            Adiciona outros tipos no array de reconhecimento
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.Layout.Clear">
+            <summary>
+            Remove todos os itens
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.Layout.GetLayoutType(System.Int32)">
+            <summary>
+            Retorna o tipo de layout
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.Layout.Table(System.Type)">
+            <summary>
+            Transforma os dados em uma tabela (DataTable)
+            </summary>
+            <param name="tp">Tipo de dados a ser obtido (filtrado)</param>
+            <returns>DataBable co mos dados de um determinado tipo</returns>
+        </member>
+        <member name="P:Impactro.Layout.Layout.Conteudo">
+            <summary>
+            Conteudo (E/S) do arquivo
+            </summary>
+        </member>
         <member name="T:Impactro.Layout.RegFormat">
             <summary>
             Atributo de propriedades de formatação
+            </summary>
+        </member>
+        <member name="P:Impactro.Layout.RegFormat.Type">
+            <summary>
+            Obtem a descrição do tipo de registro
+            </summary>
+        </member>
+        <member name="P:Impactro.Layout.RegFormat.Length">
+            <summary>
+            Obtem a tamanho do campo do registro
+            </summary>
+        </member>
+        <member name="P:Impactro.Layout.RegFormat.nDecimal">
+            <summary>
+            Numero de casas decimal para campos com valores [PV] (padrão 2)
             </summary>
         </member>
         <member name="F:Impactro.Layout.RegFormat.Default">
@@ -7773,21 +8230,6 @@
         <member name="M:Impactro.Layout.RegFormat.Get(System.Reflection.FieldInfo)">
             <summary>
             Limpa o valor da variável
-            </summary>
-        </member>
-        <member name="P:Impactro.Layout.RegFormat.Type">
-            <summary>
-            Obtem a descrição do tipo de registro
-            </summary>
-        </member>
-        <member name="P:Impactro.Layout.RegFormat.Length">
-            <summary>
-            Obtem a tamanho do campo do registro
-            </summary>
-        </member>
-        <member name="P:Impactro.Layout.RegFormat.nDecimal">
-            <summary>
-            Numero de casas decimal para campos com valores [PV] (padrão 2)
             </summary>
         </member>
         <member name="T:Impactro.Layout.RegLayout">
@@ -7876,6 +8318,11 @@
             Construtora
             </summary>
         </member>
+        <member name="P:Impactro.Layout.Reg`1.NameType">
+            <summary>
+            Obtem o tipo 'T' do Regitro
+            </summary>
+        </member>
         <member name="M:Impactro.Layout.Reg`1.Set(System.String,System.Object)">
             <summary>
             Define um valor de campo, se este for permitido
@@ -7884,11 +8331,6 @@
         <member name="M:Impactro.Layout.Reg`1.Get(System.String)">
             <summary>
             Obtem um valor baseado no nome, ou nulo se não existir
-            </summary>
-        </member>
-        <member name="P:Impactro.Layout.Reg`1.NameType">
-            <summary>
-            Obtem o tipo 'T' do Regitro
             </summary>
         </member>
         <member name="P:Impactro.Layout.Reg`1.Item(`0)">
@@ -7909,405 +8351,6 @@
             (É preciso usar a propriedade Line primeiro)
             </summary>
         </member>
-        <member name="T:Impactro.Cobranca.SacadoInfo">
-            <summary>
-            Classe responsável pelas informações do Sacado de um Boleto
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.SacadoInfo.SacadoCodigo">
-            <summary>
-            Código do Interno do Sacado, caso exista, em geral é um código de cliente existente.
-            Só é usado em alguns arquivos de remessa
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.SacadoInfo.Sacado">
-            <summary>
-            Nome do Sacado, pessoa Física ou Juridica que será cobrada pelo boleto.
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.SacadoInfo.Documento">
-            <summary>
-            Um Número de documento, que identifique o Sacado, ex: CPF, CNPJ, RG, IE, Numero de Contrato, Codigo de Cliente.
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.SacadoInfo.Endereco">
-            <summary>
-            Endereço do Sacado (Rua/Avenida, Numero, Complemento)
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.SacadoInfo.Bairro">
-            <summary>
-            Bairro do Sacado
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.SacadoInfo.Cidade">
-            <summary>
-            Cidade do Sacado
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.SacadoInfo.Cep">
-            <summary>
-            CEP do Sacado
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.SacadoInfo.UF">
-            <summary>
-            Estado do Sacado
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.SacadoInfo.Avalista">
-            <summary>
-            Campo para informar o nome do Avalista da Operação
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.SacadoInfo.AvalistaDocumento">
-            <summary>
-            Numero do CPF/CNPJ do avalista
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.SacadoInfo.Email">
-            <summary>
-            e-mail para envio (opcional)
-            </summary>
-        </member>
-        <member name="M:Impactro.Cobranca.SacadoInfo.#ctor">
-            <summary>
-            Cria uma instancia da Classe de informações do sacado, com todas as variáveis e, branco
-            </summary>
-        </member>
-        <member name="P:Impactro.Cobranca.SacadoInfo.CepNumeros">
-            <summary>
-            Retorna somente os digitos do numero do CNPJ
-            </summary>
-        </member>
-        <member name="P:Impactro.Cobranca.SacadoInfo.DocumentoNumeros">
-            <summary>
-            retorna somente os digitos numericos do documento do sacado
-            </summary>
-        </member>
-        <member name="P:Impactro.Cobranca.SacadoInfo.AvalistaNumeros">
-            <summary>
-            extrai apenas os digitos numericos da avalista
-            </summary>
-        </member>
-        <member name="P:Impactro.Cobranca.SacadoInfo.Tipo">
-            <summary>
-            Tipo de documento do sacado (1-CPF, 2-CNPJ)
-            </summary>
-        </member>
-        <member name="P:Impactro.Cobranca.SacadoInfo.AvalistaTipo">
-            <summary>
-            Tipo de documento do avalista (1-CPF, 2-CNPJ)
-            </summary>
-        </member>
-        <member name="T:Impactro.Cobranca.BoletoInfo">
-            <summary>
-            Classe que contem os parametros de um boleto, exceto: Sacado e Cedente
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.BoletoInfo.BoletoID">
-            <summary>
-            Código interno do boleto, dentro de um banco de dados, por exemplo um autonumerador.
-            Esta informação não será usada apenas para geraçào de remessa no campo: USO DA EMPRESA - IDENTIFICAÇÃO DO TÍTULO NA EMPRESA
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.BoletoInfo.NumeroDocumento">
-            <summary>
-            Numero do documento é um numero qualquer apenas de exibição, no boleto para identificação visual
-            Este numero pode ou não ser o mesmo do NossoNumero, ou BoletoID
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.BoletoInfo.NossoNumero">
-            <summary>
-            É uma das principais informações do Boleto, este numero não deve se repetir, pois é o controle numerico que referencia o boleto junto ao banco.
-            Este valor, irá compor o Código de Barras e o IPTE, também é este numero que será exibido no extrato de titulos (Boletos) pagos.
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.BoletoInfo.Quantidade">
-            <summary>
-            Informação que será exibida no campo quantidade
-            (veja Valor)
-            ATENÇÂO, este 'Valor' não é o valor do documento.
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.BoletoInfo.ValorUnitario">
-            <summary>
-            Valor que será exibido no campo Valor
-            (veja quantidade)
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.BoletoInfo.ValorDocumento">
-            <summary>
-            É o valor efetivo do boleto, este valor irá compor o código de barras, e o IPTE
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.BoletoInfo.ValorDesconto">
-            <summary>
-            É um valor que será apenas exibido no campo 'Valor do Desconto'
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.BoletoInfo.DataLimiteDesconto2">
-            <summary>
-            Data limite para o Desconto 2
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.BoletoInfo.DataLimiteDesconto3">
-            <summary>
-            Data limite para o Desconto 3
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.BoletoInfo.ValorDesconto2">
-            <summary>
-            Valor do desconto 2
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.BoletoInfo.ValorDesconto3">
-            <summary>
-            Valor do desconto 3
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.BoletoInfo.ValorAcrescimo">
-            <summary>
-            É um valor que será apenas exibido no campo 'Valor do Acrescimo'
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.BoletoInfo.ValorCobrado">
-            <summary>
-            Se zero, será usado o valor do documento, caso seja diferente será usado este valor
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.BoletoInfo.DataVencimento">
-            <summary>
-            Conforme determinado pelo Banco Central do Brasil, por meio das circulares 3.598 e 3.656, em vigor a partir de 28/06/2013,  fica proibido boletos sem valor  e  sem vencimento,  ou com  as informações “Vencimento à vista” e “Contra apresentação”.
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.BoletoInfo.LinhaOrigem">
-            <summary>
-            Quando os dados do boleto originarem de um ou mais linhas de um arquivo de retorno
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.BoletoInfo.Aceite">
-            <summary>
-            Indicando que o sacado 'aceitou' ('A') o título, ou ('N') por padrão.
-            Quando o pagamento apos o vencimento deve ser feito no banco, vem com o campo "aceite" com o valor "N" (ou seja é o valor padrão).
-            Um boleto sem aceite NÃO PODE SER PROTESTADO, e se não pagar eles são cancelados automaticamente sem prejuizo para nenhuma das partes.
-            Já um boleto com ACEITE é cobrado independentemente de ser pago ou não, pois a taxa para gerar o mesmo será debitada da conta do credor.
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.BoletoInfo.Ocorrencia">
-            <summary>
-            Código da Ocorrencia
-            </summary>
-        </member>
-        <member name="M:Impactro.Cobranca.BoletoInfo.Clone">
-            <summary>
-            Clona os valores e propriedades das informações de um boleto. 
-            Fundamental para obter também as informações de registro complementares
-            </summary>
-        </member>
-        <member name="M:Impactro.Cobranca.BoletoInfo.SetRegEnumValue(System.Enum,System.Object)">
-            <summary>
-            Devine o valor de um registro e seu valor
-            </summary>
-        </member>
-        <member name="M:Impactro.Cobranca.BoletoInfo.SetRegKeyValue(System.String,System.Object)">
-            <summary>
-            Define o valor de um campo de registro caso este campo exista e seja suportado pelo layout
-            </summary>
-        </member>
-        <member name="M:Impactro.Cobranca.BoletoInfo.GeraInstrucoes">
-            <summary>
-            Cria o Texto de Instruções Baseado nos parametros
-            </summary>
-        </member>
-        <member name="P:Impactro.Cobranca.BoletoInfo.Sacado">
-            <summary>
-            Código do Sacado (o mesmo que em SacadoInfo) para relacionar o sacado
-            Esta informação não será utilizada em nenhum momento pelo componente.
-            </summary>
-        </member>
-        <member name="T:Impactro.Cobranca.Especies">
-            <summary>
-            Especie do titulo
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Especies.DM">
-            <summary>
-            Duplicata Mercantil
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Especies.NP">
-            <summary>
-            Nota Promissória
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Especies.NS">
-            <summary>
-            Nota de Seguro
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Especies.ME">
-            <summary>
-            Mensalidade Escolar
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Especies.RC">
-            <summary>
-            Recibo
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Especies.CT">
-            <summary>
-            Contrato
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Especies.CS">
-            <summary>
-            Consessionaria de Seguro
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Especies.DS">
-            <summary>
-            Duplicata de Serviço
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Especies.LC">
-            <summary>
-            Letra de Cambio
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Especies.ND">
-            <summary>
-            Nota de Debitos
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Especies.DD">
-            <summary>
-            Documeto de Dívida
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Especies.EC">
-            <summary>
-            Encargo Condominiais
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Especies.CPS">
-            <summary>
-            Conta de Prestação de Serviços
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Especies.DV">
-            <summary>
-            Diversos
-            </summary>
-        </member>
-        <member name="T:Impactro.Cobranca.Ocorrencias">
-            <summary>
-            Tipos de ocorrencia para remessa
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Ocorrencias.Remessa">
-            <summary>
-            REMESSA => TODOS OS CAMPOS
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Ocorrencias.Baixa">
-            <summary>
-            PEDIDO DE BAIXA
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Ocorrencias.Abatimento">
-            <summary>
-            CONCESSÃO DE ABATIMENTO (INDICADOR 12.5) => VALOR DO ABATIMENTO
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Ocorrencias.CancelamentoAbatimento">
-            <summary>
-            CANCELAMENTO DE ABATIMENTO => VALOR DO ABATIMENTO
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Ocorrencias.AlterarVencimento">
-            <summary>
-            ALTERAÇÃO DO VENCIMENTO => VENCIMENTO
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Ocorrencias.AlterarUsoEmpresa">
-            <summary>
-            ALTERAÇÃO DO USO DA EMPRESA => USO DA EMPRESA
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Ocorrencias.AlterarSeuNumero">
-            <summary>
-            ALTERAÇÃO DO SEU NÚMERO => SEU NÚMERO
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Ocorrencias.Protestar">
-             <summary>
-            PROTESTAR (emite aviso ao sacado após xx dias do vencimento, e envia ao cartório após 5 dias úteis)
-             </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Ocorrencias.NaoProtestar">
-            <summary>
-            NÃO PROTESTAR (inibe protesto automático, quando houver instrução permanente na conta corrente)
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Ocorrencias.ProtestoFalimentar">
-             <summary>
-            PROTESTO PARA FINS FALIMENTARES (falencia) 
-             </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Ocorrencias.SustarProtesto">
-            <summary>
-            SUSTAR O PROTESTO
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Ocorrencias.AlterarDados">
-            <summary>
-            ALTERAÇÃO DE OUTROS DADOS => CAMPOS A ALTERAR
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Ocorrencias.BaixaPago">
-            <summary>
-            BAIXA POR TER SIDO PAGO DIRETAMENTE AO CEDENTE
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Ocorrencias.Cancelamento">
-            <summary>
-            CANCELAMENTO DE INSTRUÇÃO => CÓDIGO DA INSTRUÇÃO
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Ocorrencias.ProtestoUrgente">
-            <summary>
-            PROTESTO URGENTE (envia a cartório após XX dias úteis do vencimento)
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Ocorrencias.AlterarVencimentoSustarProtesto">
-            <summary>
-            ALTERAÇÃO DO VENCIMENTO E SUSTAR PROTESTO => VENCIMENTO
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Ocorrencias.NaoConcorda">
-            <summary>
-            CEDENTE NÃO CONCORDA COM ALEGAÇÃO DO SACADO => CÓDIGO DA ALEGAÇÃO
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.Ocorrencias.DispensaJuros">
-            <summary>
-            CEDENTE SOLICITA DISPENSA DE JUROS
-            </summary>
-        </member>
-        <member name="M:Impactro.Layout.RPSLote.ToString">
-            <summary>
-            Retorna o texto de saida do lote
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Impactro.Layout.RPSLote.Write(System.String)">
-            <summary>
-            Gera o arquivo de Lote RPS, já no formato correto, gravado em texto "ISO-8859-1"
-            </summary>
-            <param name="cFile">Arquivo a ser gerado</param>
-        </member>
         <member name="P:Impactro.Layout.RPSLote.Cabecalho">
             <summary>
             Define o cabeçalho, ou obtem calculando o perido baseado nos itens
@@ -8322,6 +8365,18 @@
             <summary>
             Retorna a estrutura do rodapé
             </summary>
+        </member>
+        <member name="M:Impactro.Layout.RPSLote.ToString">
+            <summary>
+            Retorna o texto de saida do lote
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Impactro.Layout.RPSLote.Write(System.String)">
+            <summary>
+            Gera o arquivo de Lote RPS, já no formato correto, gravado em texto "ISO-8859-1"
+            </summary>
+            <param name="cFile">Arquivo a ser gerado</param>
         </member>
         <member name="T:Impactro.Layout.RPSLoteItens">
             <summary>
@@ -8338,6 +8393,13 @@
             Adiciona um item completo já predefinido
             </summary>
             <param name="rItem"></param>
+        </member>
+        <member name="P:Impactro.Layout.RPSLoteItens.Item(System.Int32)">
+            <summary>
+            Retorna uma RPS definida pelo seu numero
+            </summary>
+            <param name="nNumero"></param>
+            <returns></returns>
         </member>
         <member name="M:Impactro.Layout.RPSLoteItens.Add(System.Int32,System.String,System.String,System.Int32,System.Double,System.String,System.Double,System.Double,System.Boolean,System.DateTime)">
             <summary>
@@ -8368,13 +8430,6 @@
             Remove uma RPS da lista
             </summary>
             <param name="nItem">Numero da RPS</param>
-        </member>
-        <member name="P:Impactro.Layout.RPSLoteItens.Item(System.Int32)">
-            <summary>
-            Retorna uma RPS definida pelo seu numero
-            </summary>
-            <param name="nNumero"></param>
-            <returns></returns>
         </member>
         <member name="P:Impactro.Layout.RPSLoteItens.Count">
             <summary>

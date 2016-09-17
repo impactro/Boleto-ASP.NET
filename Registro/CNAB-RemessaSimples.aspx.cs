@@ -85,7 +85,7 @@ public partial class CNAB_RemessaSimples : System.Web.UI.Page
         r.Lote = 1234; // Define o numero do lote!
 
         // É quase que obrigatporio para o sicredi
-        r.onRegBoleto += r_onRegBoleto; // Para personalizar as linhas com os campos adicionais a todos registros
+        r.onRegBoleto = r_onRegBoleto; // Para personalizar as linhas com os campos adicionais a todos registros
         // Mas há outra forma usando o 'SetRegKeyValue(key, valor);' em cada boleto info
 
         // É possível configurar o lote, por padrão é gerado AADDDHH (Ano, Dia do ano, Hora) obrigatório para bradesco
