@@ -2180,6 +2180,765 @@
             Adiciona em uma lista a parte os duplicados
             </summary>
         </member>
+        <member name="T:Impactro.Layout.CNAB240Santander">
+            <summary>
+            Layout Sanrander CNAB240
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.CNAB240Santander.#ctor">
+            <summary>
+            Layout Santander
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.CNAB240Santander.Remessa">
+            <summary>
+            Retorna no layout CNAB240
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.CNAB240Santander.Retorno(System.String)">
+            <summary>
+            Processa o Retorno
+            </summary>
+            <param name="cData">TXT de entrada</param>
+        </member>
+        <member name="T:Impactro.Layout.CNAB240HeaderArquivoSantander">
+            <summary>
+            REGISTRO HEADER DO ARQUIVO REMESSA SANTANDER
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSantander.Banco">
+            <summary>
+            Código do Banco na Compensação
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSantander.Lote">
+            <summary>
+            Lote de Serviço:
+            Identifica um Lote de Serviço.Criado e controlado pelo responsável pela geração magnética dos dados contidos no arquivo.
+            Preencher com "0001" para o primeiro lote do arquivo, mantendo seqüencial crescente para os demais 
+            (número do lote anterior acrescido de 1). O número não poderá ser repetido dentro do arquivo.
+            Se registro for Header do Arquivo preencher com "0000"
+            Se registro for Trailer do Arquivo preencher com "9999"
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSantander.Registro">
+            <summary>
+            Tipo de Registro:
+            0 Hearder do arquivo
+            1 Hearder do lote
+            3 Detalhe
+            5 Trailer do lote
+            9 Trailer do arquivo
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSantander.CNAB1">
+            <summary>
+            Reservado (uso Banco)
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSantander.InscricaoTipo">
+            <summary>
+            Tipo de inscrição da empresa
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSantander.InscricaoNumero">
+            <summary>
+            Número de Inscrição da Empresa 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSantander.CodigoTransmissao">
+            <summary>
+            Código de Transmissão:
+            Informação cedida pelo banco que identifica o arquivo remessa do cliente.
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSantander.CNAB2">
+            <summary>
+            Reservado (uso Banco)
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSantander.EmpresaNome">
+            <summary>
+            Nome da Empresa 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSantander.BancoNome">
+            <summary>
+            Nome do Banco 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSantander.CNAB3">
+            <summary>
+            Reservado (uso Banco) 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSantander.ArquivoCodigo">
+            <summary>
+            Código Código Remessa
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSantander.Data">
+            <summary>
+            Data de geração do arquivo
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSantander.CNAB4">
+            <summary>
+            Reservado (uso Banco) 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSantander.Sequencial">
+            <summary>
+            Nº seqüencial do arquivo 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSantander.VersaoAplicativo">
+            <summary>
+            Nº da versão do layout do arquivo
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderArquivoSantander.CNAB5">
+            <summary>
+            Reservado (uso Banco) 
+            </summary>
+        </member>
+        <member name="T:Impactro.Layout.CNAB240HeaderLoteSantander">
+            <summary>
+            REGISTRO HEADER DO LOTE REMESSA
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSantander.Banco">
+            <summary>
+            Código do Banco na Compensação
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSantander.Lote">
+            <summary>
+            Lote de Serviço
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSantander.Registro">
+            <summary>
+            Tipo de Registro
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSantander.ServicoOperacao">
+            <summary>
+            Tipo de Operação 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSantander.ServicoTipo">
+            <summary>
+            Tipo de Serviço 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSantander.CNAB1">
+            <summary>
+            Reservado (uso Banco)
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSantander.Layout">
+            <summary>
+            Nº da versão do layout do lote
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSantander.CNAB2">
+            <summary>
+            Uso Exclusivo FEBRABAN/CNAB G004 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSantander.InscricaoTipo">
+            <summary>
+            Tipo de Inscrição da Empresa 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSantander.InscricaoNumero">
+            <summary>
+            Número Nº de Inscrição da Empresa 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSantander.CNAB3">
+            <summary>
+            Reservado (uso Banco) 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSantander.CodigoTransmissao">
+            <summary>
+            Código de Transmissão
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSantander.CNAB4">
+            <summary>
+            Reservado uso Banco 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSantander.Beneficiario">
+            <summary>
+            Nome do Beneficiário 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSantander.Informacao1">
+            <summary>
+            Mensagem 1 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSantander.Informacao2">
+            <summary>
+            Mensagem 2
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSantander.NumeroRemessaRetorno">
+            <summary>
+            Número remessa/retorno 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSantander.Data">
+            <summary>
+            Gravação Data de Gravação Remessa/Retorno 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240HeaderLoteSantander.CNAB5">
+            <summary>
+            Reservado (uso Banco) 
+            </summary>
+        </member>
+        <member name="T:Impactro.Layout.CNAB240SegmentoPSantander">
+            <summary>
+            REGISTRO DETALHE - SEGMENTO P REMESSA
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.Banco">
+            <summary>
+            Código do Banco na Compensação
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.Lote">
+            <summary>
+            Lote de Serviço
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.Registro">
+            <summary>
+            Tipo de Registro
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.Nregistro">
+            <summary>
+            Nº Sequencial do Registro no Lote
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.Segmento">
+            <summary>
+            Cód. Segmento do Registro Detalhe
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.CodMov">
+            <summary>
+            Código de Movimento Remessa
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.Agencia">
+            <summary>
+            Código Agência Mantenedora da Conta
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.AgenciaDAC">
+            <summary>
+            Dígito Verificador da Agência
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.Conta">
+            <summary>
+            Número da conta corrente 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.ContaDAC">
+            <summary>
+            Dígito verificador da conta
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.ContaCobranca">
+            <summary>
+            Conta cobrança 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.ContaCobrancaDAC">
+            <summary>
+            Dígito da conta cobrança 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.NossoNumero">
+            <summary>
+            Identificação do título no Banco
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.TipoCobranca">
+            <summary>
+            Tipo de cobrança
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.FormaCadastro">
+            <summary>
+            9 Forma de Cadastramento
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.TipoDocumento">
+            <summary>
+            Tipo de Documento 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.NumeroDocumento">
+            <summary>
+            (Seu Nº) Número do Documento de Cobrança 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.Vencimento">
+            <summary>
+            Data de Vencimento do Título
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.ValorDocumento">
+            <summary>
+            Valor Nominal do Título
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.AgenciaCobradora">
+            <summary>
+            Agência Encarregada da Cobrança *C014 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.AgenciaCobradoraDV">
+            <summary>
+            Verificador da Agência *C014 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.Especie">
+            <summary>
+            Espécie do Título
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.Aceite">
+            <summary>
+            Identific. de Título Aceito/Não Aceito
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.Emissao">
+            <summary>
+            Emissão do Título Data da Emissão do Título
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.JurosCodigo">
+            <summary>
+            Cód. Juros Mora Código do Juros de Mora
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.JurosData">
+            <summary>
+            Juros Mora Data do Juros de Mora *C019 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.JurosMora">
+            <summary>
+            Valor da mora/dia ou Taxa mensal
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.DescontoCodigo1">
+            <summary>
+            Código do Desconto 1
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.DescontoData1">
+            <summary>
+            Data do Desconto 1
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.DescontoValor1">
+            <summary>
+            Valor/Percentual a ser Concedido
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.ValorIOF">
+            <summary>
+            Valor do IOF a ser Recolhido 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.ValorAbatimento">
+            <summary>
+            Valor do Abatimento
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.UsoEmpresaCedente">
+            <summary>
+            Identificação do Título na Empresa
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.ProtestoCodigo">
+            <summary>
+            Código para Protesto 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.ProtestoPrazo">
+            <summary>
+            Número de Dias para Protesto 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.BaixaDevolucaoCodigo">
+            <summary>
+            Código para Baixa/Devolução *C028 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.BaixaDevolucaoPrazo">
+            <summary>
+            Número de Dias para Baixa/Devolução 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoPSantander.Moeda">
+            <summary>
+            Código da Moeda
+            Código adotado pela FEBRABAN para identificar a moeda referenciada no Título. 
+            Informar fixo: ‘09’ = REAL
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSantander.Banco">
+            <summary>
+            Código do Banco na Compensação
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSantander.Lote">
+            <summary>
+            Lote de Serviço
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSantander.Registro">
+            <summary>
+            Tipo de Registro
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSantander.Nregistro">
+            <summary>
+            Nº Sequencial do Registro no Lote
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSantander.Segmento">
+            <summary>
+            Cód. Segmento do Registro Detalhe
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSantander.CNAB1">
+            <summary>
+            Uso Exclusivo FEBRABAN/CNAB
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSantander.CodMov">
+            <summary>
+            Código de Movimento Remessa
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSantander.Sacado_Tipo">
+            <summary>
+            Tipo de inscrição
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSantander.Sacado_Numero">
+            <summary>
+            CPF/CNPJ
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSantander.Nome">
+            <summary>
+            Nome
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSantander.Endereco">
+            <summary>
+            Endereço
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSantander.Bairro">
+            <summary>
+            Bairro
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSantander.CEP">
+            <summary>
+            CEP
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSantander.Cidade">
+            <summary>
+            Cidade
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSantander.UF">
+            <summary>
+            Unidade Federal (estado)
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSantander.Avalista_Tipo">
+            <summary>
+            Tipo de Avalista
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSantander.Avalista_Numero">
+            <summary>-
+            Numero CPF/CNPJ do avalista
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSantander.Avalista_Nome">
+            <summary>
+            Nome do sacador
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSantander.CarneIdentificador">
+            <summary>
+            Identificador de carne
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoQSantander.NumeroPlano">
+            <summary>
+            Número do plano
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240TrailerLoteSantander.Banco">
+            <summary>
+            Código do Banco na Compensação
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240TrailerLoteSantander.Lote">
+            <summary>
+            Lote de Serviço
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240TrailerLoteSantander.Registro">
+            <summary>
+            Tipo de Registro
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240TrailerArquivoSantander.Banco">
+            <summary>
+            Código do Banco na Compensação
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240TrailerArquivoSantander.Lote">
+            <summary>
+            Lote de Serviço
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240TrailerArquivoSantander.Registro">
+            <summary>
+            Tipo de Registro
+            </summary>
+        </member>
+        <member name="T:Impactro.Layout.CNAB240SegmentoTSantander">
+            <summary>
+            Registro Detalhe - Segmento T (Obrigatório - Retorno)
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.Banco">
+            <summary>
+            Código do Banco na Compensação
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.Lote">
+            <summary>
+            Lote de Serviço
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.Registro">
+            <summary>
+            Tipo de Registro
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.Nregistro">
+            <summary>
+            Nº Sequencial do Registro no Lote
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.Segmento">
+            <summary>
+            Cód. Segmento do Registro Detalhe
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.CNAB">
+            <summary>
+            Uso Exclusivo FEBRABAN/CNAB
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.CodMov">
+            <summary>
+            Código de Movimento Remessa
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.AgenciaSantander">
+            <summary>
+            08.3T Código Identif. Agência Código Uso Exclusivo Santander 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.AgenciaDVSantander">
+            <summary>
+            09.3T DV Uso Exclusivo Santander 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.CodigoCedente">
+            <summary>
+            10.3T- Código Cedente Código do Convênio no Banco - G007 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.Zero1">
+            <summary>
+            11.3T Uso Exclusivo Uso Exclusivo da Santander 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.NumeroBanco">
+            <summary>
+            11.3T Número do Banco Número do Banco de Sacados - C079 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.Brancos1">
+            <summary>
+            12.3T Uso Exclusivo Uso Exclusivo da Santander 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.Modalidade">
+            <summary>
+            13.3T Nosso Número Modalidade 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.NossoNumero">
+            <summary>
+            13.3T Identificação do Título no Banco 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.Zeros1">
+            <summary>
+            13.3T Uso Exclusivo Uso Exclusivo Santander 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.Carteira">
+            <summary>
+            14.3T Carteira Código da Carteira 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.NumeroDocumento">
+            <summary>
+            15.3T Número Documento (Seu Nº) Número do Documento de Cobrança 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.Brancos2">
+            <summary>
+            15.3T Uso Exclusivo Uso Exclusivo Santander 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.DataVencimento">
+            <summary>
+            16.3T Vencimento Data de Vencimento do Título  - *C012 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.ValorDocumento">
+            <summary>
+            17.3T Valor do Título Valor Nominal do Título - G070 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.BancoRecebedor">
+            <summary>
+            18.3T Banco Cobrador/Recebedor Código do Banco -C045 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.AgenciaCobradora">
+            <summary>
+            19.3T Agência Cobradora/Recebedora Código da Agência Cobr/Receb - C086 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.AgenciaDVCobradora">
+            <summary>
+            20.3T DV Agência Cobr/Receb Dígito Verificador da Agência Cobr/Rec - G009 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.UsoEmpresaCedente">
+            <summary>
+            21.3T Uso da Empresa Identificação do Título na Empresa - C011 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.Moeda">
+            <summary>
+            22.3T Código da Moeda Código da Moeda - G065 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.Sacador_Tipo">
+            <summary>
+            23.3T Sacado Tipo de Inscrição - G005 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.Sacador_Numero">
+            <summary>
+            24.3T Número Número de Inscrição - G006 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.Sacador_Nome">
+            <summary>
+            25.3T Nome 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.CNAB1">
+            <summary>
+            26.3T CNAB Uso Exclusivo FEBRABAN/CNAB 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.Tarifa">
+            <summary>
+            27.3T Valor da Tar./Custas Valor da Tarifa / Custas - G076 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.Ocorrencia">
+            <summary>
+            28.3T Motivo da Ocorrência Identificação para Rejeições, Tarifas, Custas, Liquidação e Baixas - C047 
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoTSantander.CNAB2">
+            <summary>
+            29.3T CNAB Uso Exclusivo FEBRABAN/CNAB - G004 
+            </summary>
+        </member>
+        <member name="T:Impactro.Layout.CNAB240SegmentoUSantander">
+            <summary>
+            Registro Detalhe - Segmento U (Obrigatório - Retorno)
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoUSantander.Banco">
+            <summary>
+            Código do Banco na Compensação
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoUSantander.Lote">
+            <summary>
+            Lote de Serviço
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoUSantander.Registro">
+            <summary>
+            Tipo de Registro
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoUSantander.Nregistro">
+            <summary>
+            Nº Sequencial do Registro no Lote
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoUSantander.Segmento">
+            <summary>
+            Cód. Segmento do Registro Detalhe
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoUSantander.CNAB">
+            <summary>
+            Uso Exclusivo FEBRABAN/CNAB
+            </summary>
+        </member>
+        <member name="F:Impactro.Layout.CNAB240SegmentoUSantander.CodMov">
+            <summary>
+            Código de Movimento Remessa
+            </summary>
+        </member>
         <member name="T:Impactro.Layout.CNAB240Caixa">
             <summary>
             Layout no padrão CNAB240

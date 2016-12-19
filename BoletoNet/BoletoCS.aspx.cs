@@ -66,7 +66,7 @@ public partial class BoletoCS : System.Web.UI.Page
         // Obrigatório para o UNIBANCO
         Boleto.LocalPagamento = "Pagável em qualquer agência bancária";
         Boleto.Especie = Especies.RC;
-        Boleto.DataDocumento = DateTime.Now.AddDays(-2);     // Por padrão é  a data atual, geralmente é a data em que foi feita a compra/pedido, antes de ser gerado o boleto para pagamento
+        Boleto.DataDocumento = DateTime.Now.AddDays(-2);     // Por padrão é a data atual, geralmente é a data em que foi feita a compra/pedido, antes de ser gerado o boleto para pagamento
         Boleto.DataProcessamento = DateTime.Now.AddDays(-1); // Por padrão é a data atual, pode ser usado como a data em que foi impresso o boleto
         
         Boleto.Instrucoes = "Todas as as informações deste bloqueto são de exclusiva responsabilidade do cedente";

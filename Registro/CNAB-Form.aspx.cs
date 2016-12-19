@@ -22,7 +22,7 @@ public partial class CNAB_Form : System.Web.UI.Page
         // Definição dos dados do cedente - QUEM RECEBE / EMITE
         CedenteInfo Cedente = new CedenteInfo();
         Cedente.Cedente = "Exemplo de empresa cedente";
-        Cedente.Banco = "237";
+        Cedente.Banco = Request["banco"] ?? "341";
         Cedente.Agencia = "1510";
         Cedente.Conta = "001466-4";
         Cedente.Carteira = "09";
