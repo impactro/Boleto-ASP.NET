@@ -503,11 +503,6 @@
             Modulo10, Modulo11, IPTE, CodBarras, Campo Livre para Bancos
             </summary>
         </member>
-        <member name="M:Impactro.Cobranca.Boleto.#ctor">
-            <summary>
-            Versão de demonstração
-            </summary>
-        </member>
         <member name="F:Impactro.Cobranca.Boleto.defaultEscala">
             <summary>
             Proporção padrão de conversão (640/170)
