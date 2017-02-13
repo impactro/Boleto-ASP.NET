@@ -503,6 +503,11 @@
             Modulo10, Modulo11, IPTE, CodBarras, Campo Livre para Bancos
             </summary>
         </member>
+        <member name="M:Impactro.Cobranca.Boleto.#ctor">
+            <summary>
+            Versão de demonstração
+            </summary>
+        </member>
         <member name="F:Impactro.Cobranca.Boleto.defaultEscala">
             <summary>
             Proporção padrão de conversão (640/170)
@@ -1318,6 +1323,203 @@
             obtem a estrutura XML de do retorno
             </summary>
         </member>
+        <member name="T:Impactro.Cobranca.CobUtil">
+            <summary>
+            Utilitários para funções de cobrança
+            </summary>
+            <summary>
+            Utilitários para funções de cobrança
+            </summary>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.CodigoBarrasFormatado(System.String,System.Int32[])">
+            <summary>
+            Retorna o Código de barras com os campos separados por ponto e espeço
+            </summary>
+            <param name="cCodBarras">Código de barras a ser formatado</param>
+            <param name="TamanhosCampoLivre">Tamanho dos pedaçoes do campo livre</param>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.CampoLivreFormatado(System.String,System.Int32[])">
+            <summary>
+            Retorna o Código de barras com os campos separados por ponto e espeço
+            </summary>
+            <param name="cCampoLivre">Código de barras a ser formatado</param>
+            <param name="TamanhosCampoLivre">Tamanho dos pedaçoes do campo livre</param>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.Modulo11Total(System.String,System.Int32)">
+            <summary>
+            Calcula apenas a SOMA dos digitos retornados pela multiplicação dos pesos de acordo com a base selecionada
+            Esta rotina é utilizada pelas rotinas Modulo11Padrao, Modulo11Especial para obter o valor total dos pessos.
+            </summary>
+            <param name="Sequencia">Sequencia Numerica a ser calculada</param>
+            <param name="NumBase">É o Valor do Peso Máximo do multiplicador, 7, se de 7 a 2 (765432), ou 9, se for de 9 a 2 (98765432)</param>
+            <returns>Valor Total da soma dos pesos</returns>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.Modulo11Padrao(System.String,System.Int32)">
+            <summary>
+            O Modulo 11 Padrão, é utilizado utilizado para o calculo do digito verificador do código de barras, e tambem por alguns bancos para calculo de digitos no Nosso Numero, Conteoles, e verificações.
+            É reconhecido por não retornar Zero
+            </summary>
+            <param name="Sequencia">Sequencia Numerica a ser calculada</param>
+            <param name="NumBase">É o Valor do Peso Máximo do multiplicador, 7, se de 7 a 2 (765432), ou 9, se for de 9 a 2 (98765432)</param>
+            <returns>O Digito Verificador</returns>
+            <remarks></remarks>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.Modulo11Especial(System.String,System.Int32)">
+            <summary>
+            O Modulo 11 Especial, é utilizado por alguns bancos que utilizam o digito 0 quando o reto é 10
+            </summary>
+            <param name="Sequencia">Sequencia Numerica a ser calculada</param>
+            <param name="NumBase">É o Valor do Peso Máximo do multiplicador, 7, se de 7 a 2 (765432), ou 9, se for de 9 a 2 (98765432)</param>
+            <returns>O Digito Verificador</returns>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.Modulo11Negativo(System.String)">
+            <summary>
+            Logica especial para modulo 11, que retorna -1 quando o resto é 1
+            </summary>
+            <param name="sequencia">Sequencia a ser calculada</param>
+            <returns>Retorna o digito, ou -1 quando nescessário</returns>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.Soma(System.String,System.String)">
+            <summary>
+            soma 2 numeros grandes em forma de string
+            </summary>
+            <param name="A">Numero grande: 34523987459287634587639845769</param>
+            <param name="B">Numero grande: 99283498453874657862384628376</param>
+            <returns>O resuldado da Soma</returns>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.CalcFatVenc(System.DateTime)">
+            <summary>
+            Calcula o Fator de vencimento, que representa o numero de dias corridos desde a datab base 7/10/1997
+            </summary>
+            <param name="DataVencimento">Data de Vendimento, a ser calculada!
+            Conforme determinado pelo Banco Central do Brasil, por meio das circulares 3.598 e 3.656, em vigor a partir de 28/06/2013,  fica proibido boletos sem valor  e  sem vencimento,  ou com  as informações “Vencimento à vista” e “Contra apresentação”.</param>
+            <returns>Retorna o numero de dias desde 7/10/1997, ou 0(Zero) se DataVencimento=DateTime.MinValue</returns>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.CalcLinDigitavel(System.String)">
+            <summary>
+            Calcula a Linha Digitável do Código de Barras
+            </summary>
+            <param name="CodBarras">Código de barras com 44 numeros, sem espaços ou pontos, SOMENTE NUMEROS</param>
+            <returns></returns>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.Modulo10(System.String)">
+            <summary>
+            O Modulo 10 representa é um digito baseado mo modulo da soma dos pesos de cada digito multiplicados por 2 ou 1
+            </summary>
+            <param name="Cadeia">Sequencia Numerica a ser calculada</param>
+            <returns>O Digito Verificador</returns>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.BarCode(System.String)">
+            <summary>
+            Gera uma string que representa um código de barras de um numero especifico
+            </summary>
+            <param name="NumTexto">digitos a serem codificados</param>
+            <returns>retona uma sequancia das ssequencias "bf","bl","pf","pl"</returns>
+            <remarks>
+            bf -> Branco Fino
+            bl -> Branco Largo
+            pf -> Preto Fino
+            pl -> Preto Largo
+            </remarks>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.Right(System.String,System.Int32)">
+            <summary>
+            Alinha uma string contendo digitos a direita, preenchendo a parte esquerda com zeros, forçando ser uma string com um numero exato de digitos
+            </summary>
+            <param name="cValor">Valor a ser completado, ex: "123"</param>
+            <param name="nSize">Tamanho desejado ex: 5</param>
+            <returns>Nova string completada com zeros ex: "00123"</returns>
+        </member>
+        <member name="F:Impactro.Cobranca.CobUtil.DefaultEncoding">
+            <summary>
+            Encoding Default: // https://en.wikipedia.org/wiki/Windows-1252
+            </summary>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.Clone(System.Object)">
+            <summary>
+            Clona um objeto e suas propriedades
+            </summary>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.ToBase64String(System.Drawing.Bitmap,System.Drawing.Imaging.ImageFormat)">
+            <summary>
+            Gera a string do boleto em base64
+            </summary>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.ToBase64ImageTag(System.Drawing.Bitmap,System.Drawing.Imaging.ImageFormat)">
+            <summary>
+            Gera uma imagen HTML codigicada em base64
+            </summary>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.SoNumeros(System.String)">
+            <summary>
+            Retorna só os numeros de uma string, ou nulo se a string de entrada também for nula
+            </summary>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.BarCodeImage(System.String)">
+            <summary>
+            Gera um BitMap baseado em uma string 'bfpfbl' para geração de código de barras com escala padrão
+            </summary>
+            <param name="NumTexto"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.BarCodeImage(System.String,System.Int32,System.Single)">
+            <summary>
+            Gera um BitMap baseado em uma string 'bfpfbl' para geração de código de barras ( Alterado por Alexandre Savelli Bencz _
+            </summary>
+            <param name="NumTexto">String no formarto 'bfplblpl'</param>
+            <param name="nScale">Quanto é a escala do codigo de barras</param>
+            <param name="resolucao">Resolucao do código de barras</param>
+            <returns>Bitmap</returns>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.GetInt(System.Object)">
+            <summary>
+            Tenta obter um numero Int32 de um objeto qualquer, se der erro retorna 0
+            </summary>
+            <param name="oInt">Valor a ser obtido</param>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.ResLoadImage(System.String)">
+            <summary>
+            Le uma imagem especifica dentro dos Resources da Impactro.Cobranca
+            </summary>
+            <param name="cImg">ome da Imagem</param>
+            <returns>Objeto BITMAP da Imagem solicitada ou null se não for encontrada</returns>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.WebPostRequest(System.String,System.String)">
+            <summary>
+            Retorna o resultado de um requerimento WebPost passando dados de formularios codificados
+            </summary>
+            <param name="cURL">URL do requerimento</param>
+            <param name="cPost">Dados a serem enviados</param>
+            <returns>Conteudo (string) resultante</returns>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.WebGetRequest(System.String,System.String)">
+            <summary>
+            Efetua um download de uma string usando um objeto do tipo HttpWebRequest
+            </summary>
+            <param name="cURL">URL</param>
+            <param name="cGet">GET - QueryString</param>
+            <returns></returns>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.WebClientRequest(System.String,System.String)">
+            <summary>
+            Efetua um download de um conteudo usando objetod do tipo WebClient
+            </summary>
+            <param name="cURL">URL</param>
+            <param name="cGet">GET - QueryString</param>
+            <returns>Conteudo em UTF-8</returns>
+        </member>
+        <member name="F:Impactro.Cobranca.CobUtil.UserAgent">
+            <summary>
+            UserAgent padrão para as chamadas de GetResponseHtml
+            </summary>
+        </member>
+        <member name="M:Impactro.Cobranca.CobUtil.WebGetRequest(System.String)">
+            <summary>
+            Obtem o conteudo HTML de uma página (URL)
+            </summary>
+            <param name="cURL">URL da página a ser obtida</param>
+            <returns>Conteudo HTML da URL informada</returns>
+        </member>
         <member name="M:Impactro.Cobranca.CSV.SepararCampos(System.String,System.Char)">
             <summary>
             Transforma linha em colunas
@@ -1729,200 +1931,6 @@
             <summary>
             CEDENTE SOLICITA DISPENSA DE JUROS
             </summary>
-        </member>
-        <member name="T:Impactro.Cobranca.CobUtil">
-            <summary>
-            Utilitários para funções de cobrança
-            </summary>
-        </member>
-        <member name="F:Impactro.Cobranca.CobUtil.DefaultEncoding">
-            <summary>
-            Encoding Default: // https://en.wikipedia.org/wiki/Windows-1252
-            </summary>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.Clone(System.Object)">
-            <summary>
-            Clona um objeto e suas propriedades
-            </summary>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.ToBase64String(System.Drawing.Bitmap,System.Drawing.Imaging.ImageFormat)">
-            <summary>
-            Gera a string do boleto em base64
-            </summary>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.ToBase64ImageTag(System.Drawing.Bitmap,System.Drawing.Imaging.ImageFormat)">
-            <summary>
-            Gera uma imagen HTML codigicada em base64
-            </summary>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.CodigoBarrasFormatado(System.String,System.Int32[])">
-            <summary>
-            Retorna o Código de barras com os campos separados por ponto e espeço
-            </summary>
-            <param name="cCodBarras">Código de barras a ser formatado</param>
-            <param name="TamanhosCampoLivre">Tamanho dos pedaçoes do campo livre</param>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.CampoLivreFormatado(System.String,System.Int32[])">
-            <summary>
-            Retorna o Código de barras com os campos separados por ponto e espeço
-            </summary>
-            <param name="cCampoLivre">Código de barras a ser formatado</param>
-            <param name="TamanhosCampoLivre">Tamanho dos pedaçoes do campo livre</param>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.Modulo11Total(System.String,System.Int32)">
-            <summary>
-            Calcula apenas a SOMA dos digitos retornados pela multiplicação dos pesos de acordo com a base selecionada
-            Esta rotina é utilizada pelas rotinas Modulo11Padrao, Modulo11Especial para obter o valor total dos pessos.
-            </summary>
-            <param name="Sequencia">Sequencia Numerica a ser calculada</param>
-            <param name="NumBase">É o Valor do Peso Máximo do multiplicador, 7, se de 7 a 2 (765432), ou 9, se for de 9 a 2 (98765432)</param>
-            <returns>Valor Total da soma dos pesos</returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.SoNumeros(System.String)">
-            <summary>
-            Retorna só os numeros de uma string, ou nulo se a string de entrada também for nula
-            </summary>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.Modulo11Padrao(System.String,System.Int32)">
-            <summary>
-            O Modulo 11 Padrão, é utilizado utilizado para o calculo do digito verificador do código de barras, e tambem por alguns bancos para calculo de digitos no Nosso Numero, Conteoles, e verificações.
-            É reconhecido por não retornar Zero
-            </summary>
-            <param name="Sequencia">Sequencia Numerica a ser calculada</param>
-            <param name="NumBase">É o Valor do Peso Máximo do multiplicador, 7, se de 7 a 2 (765432), ou 9, se for de 9 a 2 (98765432)</param>
-            <returns>O Digito Verificador</returns>
-            <remarks></remarks>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.Modulo11Especial(System.String,System.Int32)">
-            <summary>
-            O Modulo 11 Especial, é utilizado por alguns bancos que utilizam o digito 0 quando o reto é 10
-            </summary>
-            <param name="Sequencia">Sequencia Numerica a ser calculada</param>
-            <param name="NumBase">É o Valor do Peso Máximo do multiplicador, 7, se de 7 a 2 (765432), ou 9, se for de 9 a 2 (98765432)</param>
-            <returns>O Digito Verificador</returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.Modulo11Negativo(System.String)">
-            <summary>
-            Logica especial para modulo 11, que retorna -1 quando o resto é 1
-            </summary>
-            <param name="sequencia">Sequencia a ser calculada</param>
-            <returns>Retorna o digito, ou -1 quando nescessário</returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.Soma(System.String,System.String)">
-            <summary>
-            soma 2 numeros grandes em forma de string
-            </summary>
-            <param name="A">Numero grande: 34523987459287634587639845769</param>
-            <param name="B">Numero grande: 99283498453874657862384628376</param>
-            <returns>O resuldado da Soma</returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.CalcFatVenc(System.DateTime)">
-            <summary>
-            Calcula o Fator de vencimento, que representa o numero de dias corridos desde a datab base 7/10/1997
-            </summary>
-            <param name="DataVencimento">Data de Vendimento, a ser calculada!
-            Conforme determinado pelo Banco Central do Brasil, por meio das circulares 3.598 e 3.656, em vigor a partir de 28/06/2013,  fica proibido boletos sem valor  e  sem vencimento,  ou com  as informações “Vencimento à vista” e “Contra apresentação”.</param>
-            <returns>Retorna o numero de dias desde 7/10/1997, ou 0(Zero) se DataVencimento=DateTime.MinValue</returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.CalcLinDigitavel(System.String)">
-            <summary>
-            Calcula a Linha Digitável do Código de Barras
-            </summary>
-            <param name="CodBarras">Código de barras com 44 numeros, sem espaços ou pontos, SOMENTE NUMEROS</param>
-            <returns></returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.Modulo10(System.String)">
-            <summary>
-            O Modulo 10 representa é um digito baseado mo modulo da soma dos pesos de cada digito multiplicados por 2 ou 1
-            </summary>
-            <param name="Cadeia">Sequencia Numerica a ser calculada</param>
-            <returns>O Digito Verificador</returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.BarCode(System.String)">
-            <summary>
-            Gera uma string que representa um código de barras de um numero especifico
-            </summary>
-            <param name="NumTexto">digitos a serem codificados</param>
-            <returns>retona uma sequancia das ssequencias "bf","bl","pf","pl"</returns>
-            <remarks>
-            bf -> Branco Fino
-            bl -> Branco Largo
-            pf -> Preto Fino
-            pl -> Preto Largo
-            </remarks>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.BarCodeImage(System.String)">
-            <summary>
-            Gera um BitMap baseado em uma string 'bfpfbl' para geração de código de barras com escala padrão
-            </summary>
-            <param name="NumTexto"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.BarCodeImage(System.String,System.Int32,System.Single)">
-            <summary>
-            Gera um BitMap baseado em uma string 'bfpfbl' para geração de código de barras ( Alterado por Alexandre Savelli Bencz _
-            </summary>
-            <param name="NumTexto">String no formarto 'bfplblpl'</param>
-            <param name="nScale">Quanto é a escala do codigo de barras</param>
-            <param name="resolucao">Resolucao do código de barras</param>
-            <returns>Bitmap</returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.Right(System.String,System.Int32)">
-            <summary>
-            Alinha uma string contendo digitos a direita, preenchendo a parte esquerda com zeros, forçando ser uma string com um numero exato de digitos
-            </summary>
-            <param name="cValor">Valor a ser completado, ex: "123"</param>
-            <param name="nSize">Tamanho desejado ex: 5</param>
-            <returns>Nova string completada com zeros ex: "00123"</returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.GetInt(System.Object)">
-            <summary>
-            Tenta obter um numero Int32 de um objeto qualquer, se der erro retorna 0
-            </summary>
-            <param name="oInt">Valor a ser obtido</param>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.ResLoadImage(System.String)">
-            <summary>
-            Le uma imagem especifica dentro dos Resources da Impactro.Cobranca
-            </summary>
-            <param name="cImg">ome da Imagem</param>
-            <returns>Objeto BITMAP da Imagem solicitada ou null se não for encontrada</returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.WebPostRequest(System.String,System.String)">
-            <summary>
-            Retorna o resultado de um requerimento WebPost passando dados de formularios codificados
-            </summary>
-            <param name="cURL">URL do requerimento</param>
-            <param name="cPost">Dados a serem enviados</param>
-            <returns>Conteudo (string) resultante</returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.WebGetRequest(System.String,System.String)">
-            <summary>
-            Efetua um download de uma string usando um objeto do tipo HttpWebRequest
-            </summary>
-            <param name="cURL">URL</param>
-            <param name="cGet">GET - QueryString</param>
-            <returns></returns>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.WebClientRequest(System.String,System.String)">
-            <summary>
-            Efetua um download de um conteudo usando objetod do tipo WebClient
-            </summary>
-            <param name="cURL">URL</param>
-            <param name="cGet">GET - QueryString</param>
-            <returns>Conteudo em UTF-8</returns>
-        </member>
-        <member name="F:Impactro.Cobranca.CobUtil.UserAgent">
-            <summary>
-            UserAgent padrão para as chamadas de GetResponseHtml
-            </summary>
-        </member>
-        <member name="M:Impactro.Cobranca.CobUtil.WebGetRequest(System.String)">
-            <summary>
-            Obtem o conteudo HTML de uma página (URL)
-            </summary>
-            <param name="cURL">URL da página a ser obtida</param>
-            <returns>Conteudo HTML da URL informada</returns>
         </member>
         <member name="T:Impactro.WindowsControls.BoletoForm">
             <summary>
