@@ -1,23 +1,12 @@
-Boleto-ASP.NET
-==============
-Os exemplos de uso do componente são publicos para qualquer um baixar e consultar sempre a versão mais atualizada
-As DLL estão na pasta DLL para ser referenciada no projeto, para mais informações acesso o site [BoletoASP.com.br](http://www.boletoasp.com.br)
+A [Nova Plataforma de Boletos de Pagamento-Cobrança Registrada](https://portal.febraban.org.br/pagina/3150/1094/pt-br/servicos-novo-plataforma-boletos) definida pela Febraban (Federação Brasileira de Bancos) divulgou os prazos limites para obrigatoriedade dos boletos registrados, colocando como critério o valor do documento, a partir do segundo semestre de 2017:
 
-Conheça alguns dos Principais recursos:
-* Exibição de Boleto
-	* WebControl (HTML Render)
-	* Imagem (PNG,BMP)
-	* Formatos: Normal ou Carne
-	* Permite fator de zoom em imagem ou por CSS
+![Prazos Boleto Registrado](https://raw.githubusercontent.com/impactro/Boleto-Test/master/DOC/PrazoRegistro.JPG)
 
-* Geração de arquivos de Remessa (CNAB400/CNAB240) para com os principais bancos nacionais
-	* 001-Banco do Brasil
-    * 091-UniCred
-    * 104-Caixa Económica Federal
-    * 237-Bradesco
-    * 341-Itaú
-    * 353-Santander
-    * 748-Sicredi
-    * 756-SICOOB
+Acesse as páginas de documentção
 
-A lista completa e atualizada dos banco suportados estão descritas no [Projeto de Teste](https://github.com/impactro/Boleto-Test)
+* [Bancos Suportados](https://github.com/impactro/Boleto-Test/wiki/Bancos-Suportados)
+* [História e Continuidade](https://github.com/impactro/Boleto-Test/wiki/Continuidade)
+
+Eu comercializo apenas os fontes da DLL, da forma que estão, no meu site oficial [BoletoASP.com.br](www.boletoasp.com.br), mas todos os exemplos e formas de uso, assim como a DLL de demonstração é de uso livre.
+
+E muito importante a aquisição dos fontes para que cada cliente, programador, possa ter total controle do que é gerado alem de poder implementar se necessário novos recursos que antes opcionais de acordo com cada caso.
