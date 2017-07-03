@@ -4,11 +4,7 @@
         <name>Impactro.Cobranca</name>
     </assembly>
     <members>
-        <member name="T:Impactro.Cobranca.Banco_UniCred">
-            <summary>
-            Rotinas para o Banco UniCred
-            </summary>
-        </member>
+        <!-- Badly formed XML comment ignored for member "T:Impactro.Cobranca.Banco_UniCred" -->
         <member name="F:Impactro.Cobranca.Banco_UniCred.BancoDigito">
             <summary>
             Digito do Código do Banco
@@ -501,11 +497,6 @@
             <summary>
             Classe responsável por todos os calculos do boleto.
             Modulo10, Modulo11, IPTE, CodBarras, Campo Livre para Bancos
-            </summary>
-        </member>
-        <member name="M:Impactro.Cobranca.Boleto.#ctor">
-            <summary>
-            Versão de demonstração
             </summary>
         </member>
         <member name="F:Impactro.Cobranca.Boleto.defaultEscala">
@@ -1741,6 +1732,16 @@
             Código da Ocorrencia
             </summary>
         </member>
+        <member name="F:Impactro.Cobranca.BoletoInfo.OcorrenciaRetorno">
+            <summary>
+            Código de ororrencias do retorno
+            </summary>
+        </member>
+        <member name="P:Impactro.Cobranca.BoletoInfo.SetOcorrenciaRetorno">
+            <summary>
+            Tenta defini o código de retorno de uma ocorrencia conhecida
+            </summary>
+        </member>
         <member name="M:Impactro.Cobranca.BoletoInfo.Clone">
             <summary>
             Clona os valores e propriedades das informações de um boleto. 
@@ -1835,6 +1836,26 @@
         <member name="F:Impactro.Cobranca.Especies.DV">
             <summary>
             Diversos
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.OcorrenciaRetorno.Confirmada">
+            <summary>
+            ENTRADA CONFIRMADA
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.OcorrenciaRetorno.LiquidacaoNormal">
+            <summary>
+            LIQUIDAÇÃO NORMAL
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.OcorrenciaRetorno.BaixaSimples">
+            <summary>
+            BAIXA SIMPLES
+            </summary>
+        </member>
+        <member name="F:Impactro.Cobranca.OcorrenciaRetorno.BaixaLiquidado">
+            <summary>
+            BAIXA POR TER SIDO LIQUIDADO
             </summary>
         </member>
         <member name="T:Impactro.Cobranca.Ocorrencias">
@@ -2107,6 +2128,11 @@
         <member name="M:Impactro.Layout.BoletoItens.#ctor">
             <summary>
             Lista e gerencia um grupo de itens de Boletos
+            </summary>
+        </member>
+        <member name="M:Impactro.Layout.BoletoItens.Clear">
+            <summary>
+            Limpa a lista de boletos, erros e duplicados
             </summary>
         </member>
         <member name="P:Impactro.Layout.BoletoItens.ErroLinhas">
@@ -6909,7 +6935,7 @@
         </member>
         <member name="F:Impactro.Layout.CNAB400HeaderUniCred.Banco_Codigo">
             <summary>
-            Nº do banco na câmara de compensação
+            Nº do banco na câmara de compensação (antigo 091)
             </summary>
         </member>
         <member name="F:Impactro.Layout.CNAB400HeaderUniCred.Banco_Nome">
@@ -7312,7 +7338,7 @@
         </member>
         <member name="T:Impactro.Layout.LayoutBoletoReg">
             <summary>
-            A cada novo boleto processado esse evento será cahado ao final da definições padrão
+            A cada novo boleto processado esse evento será chamado ao final da definições padrão
             </summary>
         </member>
         <member name="T:Impactro.Layout.LayoutBoletoReg2">
