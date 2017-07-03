@@ -12,7 +12,7 @@ public partial class ExemploUniCred : System.Web.UI.Page
        
         CedenteInfo Cedente = new CedenteInfo();
         Cedente.Cedente = "TESTE";
-        Cedente.Banco = "091";
+        Cedente.Banco = "136";
         Cedente.Agencia = "123-4";
         Cedente.Conta = "12345678-9";
 

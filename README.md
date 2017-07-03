@@ -12,7 +12,7 @@ Conheça alguns dos Principais recursos:
 
 * Geração de arquivos de Remessa (CNAB400/CNAB240) para com os principais bancos nacionais
 	* 001-Banco do Brasil
-    * 091-UniCred
+    * 136-UniCred (Antigo 091)
     * 104-Caixa Económica Federal
     * 237-Bradesco
     * 341-Itaú
