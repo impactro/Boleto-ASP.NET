@@ -72,12 +72,13 @@ Partial Class Registro_CNAB_Remessa2
             'https://msdn.microsoft.com/pt-br/library/hktw939c(v=vs.80).aspx
             'http://www.dofactory.com/reference/connection-strings
 
+            'Crie o banco usando o script: Cliente_Cobranca.sql
             lblInfoSQL.Text = ""
             Dim dbfc = DbProviderFactories.GetFactory("MySql.Data.MySqlClient")
 
             'Cria a instancia da conexão
             Dim dbcn = dbfc.CreateConnection()
-            dbcn.ConnectionString = "Data Source=localhost;Initial Catalog=boletoteste;User ID=boletoteste;Password=userteste"
+            dbcn.ConnectionString = "Data Source=localhost;Initial Catalog=boletoteste;User ID=root;Password=123456"
             dbcn.Open()
 
             'Se chegou aqui é porque o driver o banco existe e está conectado, então cou criar o comando de execução e ler os dados

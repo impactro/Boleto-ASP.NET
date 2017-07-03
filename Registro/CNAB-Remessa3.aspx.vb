@@ -14,8 +14,10 @@ Partial Class Registro_CNAB_Remessa3
         If txtSenha.Text = "123" Then 'Altera a senha para bloquear o sistema, ou crie outra forma de login
             pnlLogin.Visible = False
             pnlFormulario.Visible = True
-            txtInicio.Text = New Date(2001, 1, 1) 'Valor fixo inicial, para funcionar sempre o exemplo
-            txtFim.Text = Now.ToShortDateString()
+            txtInicioData.Text = New Date(2001, 1, 1) 'Valor fixo inicial, para funcionar sempre o exemplo
+            txtFimData.Text = Now.ToShortDateString()
+            txtInicioID.Text = "1"
+            txtFimID.Text = "7"
         Else
             lblInfo.Text = "Senha inválida"
         End If
@@ -57,19 +59,42 @@ Partial Class Registro_CNAB_Remessa3
             'A sintaxe do SELECT pode mudar um pouco de acordo com o tipo de banco
             Dim dbcmd = dbfc.CreateCommand()
             dbcmd.Connection = dbcn 'conecão relacionada ao comando
-            dbcmd.CommandText = "SELECT boletoID as NossoNumero, Data as Vencimento, Valor, Nome as Pagador, '123' as Documento, 'Endereco' as Endereco FROM Boletos WHERE Data>=@inicio and Data<=@fim "
-            'dbcmd.CommandText = "select cob.id_Cobranca NossoNumero, cob.Emissao, cob.Documento NumeroDocumento, cob.Valor, cob.vencimento, cli.Nome Pagador, cli.Endereco, cli.Bairro, cli.Cidade, cli.UF from cobrancas cob inner join clientes cli using(id_cliente) WHERE cob.id_Cobranca>0 AND cob.vencimento BETWEEN @inicio AND @fim"
 
-            'Configuro os parametros prevendo SQLInject, e já fazendo os 'cast' corretos
-            Dim prm1 As DbParameter = dbcmd.CreateParameter()
-            prm1.ParameterName = "@inicio"
-            prm1.Value = DateTime.Parse(txtInicio.Text) 'Não estou tratando erros de conversão, pois o objetivo não é esse, mas tudo está dentro de um grande block de 'try...catch' para tratamento de qualquer erro
-            dbcmd.Parameters.Add(prm1)
+            Dim btn As Button = sender
+            If btn.ID = btnGerarData.ID Then
 
-            Dim prm2 As DbParameter = dbcmd.CreateParameter()
-            prm2.ParameterName = "@fim"
-            prm2.Value = DateTime.Parse(txtFim.Text)
-            dbcmd.Parameters.Add(prm2)
+                dbcmd.CommandText = "SELECT boletoID as NossoNumero, Data as Vencimento, Valor, Nome as Pagador, '123' as Documento, 'Endereco' as Endereco FROM Boletos WHERE Data>=@inicio and Data<=@fim "
+                'dbcmd.CommandText = "select cob.id_Cobranca NossoNumero, cob.Emissao, cob.Documento NumeroDocumento, cob.Valor, cob.vencimento, cli.Nome Pagador, cli.Endereco, cli.Bairro, cli.Cidade, cli.UF from cobrancas cob inner join clientes cli using(id_cliente) WHERE cob.id_Cobranca>0 AND cob.vencimento BETWEEN @inicio AND @fim"
+
+                'Configuro os parametros prevendo SQLInject, e já fazendo os 'cast' corretos
+                Dim prm1 As DbParameter = dbcmd.CreateParameter()
+                prm1.ParameterName = "@inicio"
+                prm1.Value = DateTime.Parse(txtInicioData.Text) 'Não estou tratando erros de conversão, pois o objetivo não é esse, mas tudo está dentro de um grande block de 'try...catch' para tratamento de qualquer erro
+                dbcmd.Parameters.Add(prm1)
+
+                Dim prm2 As DbParameter = dbcmd.CreateParameter()
+                prm2.ParameterName = "@fim"
+                prm2.Value = DateTime.Parse(txtFimData.Text)
+                dbcmd.Parameters.Add(prm2)
+
+            Else
+
+                dbcmd.CommandText = "SELECT boletoID as NossoNumero, Data as Vencimento, Valor, Nome as Pagador, '123' as Documento, 'Endereco' as Endereco FROM Boletos WHERE boletoID>=@inicio and boletoID<=@fim "
+                'dbcmd.CommandText = "select cob.id_Cobranca NossoNumero, cob.Emissao, cob.Documento NumeroDocumento, cob.Valor, cob.vencimento, cli.Nome Pagador, cli.Endereco, cli.Bairro, cli.Cidade, cli.UF from cobrancas cob inner join clientes cli using(id_cliente) WHERE cob.id_Cobranca>0 AND cob.id_Cobranca BETWEEN @inicio AND @fim"
+
+                'Configuro os parametros prevendo SQLInject, e já fazendo os 'cast' corretos
+                Dim prm1 As DbParameter = dbcmd.CreateParameter()
+                prm1.ParameterName = "@inicio"
+                prm1.Value = Int32.Parse(txtInicioID.Text) 'Não estou tratando erros de conversão, pois o objetivo não é esse, mas tudo está dentro de um grande block de 'try...catch' para tratamento de qualquer erro
+                dbcmd.Parameters.Add(prm1)
+
+                Dim prm2 As DbParameter = dbcmd.CreateParameter()
+                prm2.ParameterName = "@fim"
+                prm2.Value = Int32.Parse(txtFimID.Text)
+                dbcmd.Parameters.Add(prm2)
+
+            End If
+
 
             'No ADO.Net os dados são desconexo, ou seja, todos vem do banco, e em seguida, a conexão já pode ser fechado pois está tudo em memória dentro de um DataTable
             Dim tb As New DataTable

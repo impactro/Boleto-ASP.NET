@@ -1,5 +1,7 @@
 -- Script de criação de banco MySQL
+create schema boletoteste;
 
+use boletoteste;
 
 CREATE TABLE `clientes` (
   `id_Cliente` int(11) NOT NULL AUTO_INCREMENT,

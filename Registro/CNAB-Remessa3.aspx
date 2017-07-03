@@ -26,8 +26,10 @@
 
         <asp:Panel runat="server" ID="pnlFormulario" Visible="false">
             <h1>Geração de Arquivo de Remessa</h1>
-            <br/>Período de <asp:TextBox runat="server" ID="txtInicio" /> a <asp:TextBox runat="server" ID="txtFim" />
-            <asp:Button runat="server" id="btnGerar" OnClick="btnGerar_Click" Text="Filtrar" />
+            <br/>Período de <asp:TextBox runat="server" ID="txtInicioData" /> a <asp:TextBox runat="server" ID="txtFimData" />
+            <asp:Button runat="server" id="btnGerarData" OnClick="btnGerar_Click" Text="Filtrar por Data" />
+            <br/>ou Nº ID de <asp:TextBox runat="server" ID="txtInicioID" /> a <asp:TextBox runat="server" ID="txtFimID" />
+            <asp:Button runat="server" id="btnGerarID" OnClick="btnGerar_Click" Text="Filtrar por ID" />
             <blockquote>
                 <asp:CheckBox runat="server" ID="chkDados" Text="Exibir resultado do SQL" /><br/>
                 <asp:CheckBox runat="server" ID="chkRemessa" Text="Exibir conteudo do arquivo de remessa" Checked="true" /><br/>
