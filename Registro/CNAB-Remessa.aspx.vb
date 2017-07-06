@@ -73,6 +73,9 @@ Partial Class Registro_CNAB_Remessa
         cedente.CodCedente = txtCodCedente.Text
         cedente.Convenio = txtConvenio.Text
         cedente.CedenteCOD = txtCedenteCod.Text
+        cedente.CarteiraTipo = 1 'Específico para o Santander
+        cedente.Layout = LayoutTipo.CNAB240
+
         'Util apenas para Banespa gerar boletos no formato do Santander
         cedente.useSantander = True
         Return cedente
@@ -180,8 +183,6 @@ Partial Class Registro_CNAB_Remessa
 
             'Da mesma forma que no teste, obtenho os dados do formulário
             Dim cedente = GetCedente()
-            cedente.CarteiraTipo = 1 'Específico para o Santander
-            cedente.Layout = LayoutTipo.Auto
 
             'Tenta gerar a remessa baseado nos dado do cedente e lidos pelo banco de dados
             Dim arq As New LayoutBancos
