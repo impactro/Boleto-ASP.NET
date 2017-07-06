@@ -26,6 +26,8 @@ public partial class CNAB_Form : System.Web.UI.Page
         Cedente.Modalidade = Request["Modalidade"] ?? "05";
         Cedente.Convenio = Request["Convenio"] ?? "05";
         Cedente.CedenteCOD = Request["CedenteCOD"] ?? "00000000000004047726"; // 20 digitos (bradesco)
+
+        lblParametros.Text = "Banco=" + Cedente.Banco + "&Agencia=" + Cedente.Agencia + "&Conta=" + Cedente.Conta + "&Carteira=" + Cedente.Carteira;
     }
 
     protected void btnRemessa_Click(object sender, EventArgs e)
@@ -130,7 +132,6 @@ public partial class CNAB_Form : System.Web.UI.Page
         // r.ErroType = BoletoDuplicado.Ignore
         r.ErroType = BoletoDuplicado.Lista;
 
-
         int nLoops = 0;
         string cLinhas = txtRetorno.Text;
         do
@@ -141,7 +142,16 @@ public partial class CNAB_Form : System.Web.UI.Page
             lbl.Text = "<b>Loop: " + nLoops + "</b><br/>";
 
             r.Boletos.Clear();
-            r.Retorno(cLinhas);
+            var ret = r.Retorno(cLinhas);
+
+            try
+            {
+                dtg.DataSource = ret.Table(ret.GetLayoutType(0));
+                dtg.DataBind();
+            }
+            catch
+            {
+            }
 
             foreach (string nn in r.Boletos.NossoNumeros)
             {

@@ -10,6 +10,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
+        Parametros (QueryString): <asp:Label runat="server" ID="lblParametros"/><br/>
         <table width="100%">
         <tr>
         <td align="center" width="50%" valign="top">Gerar Remessa<br/>

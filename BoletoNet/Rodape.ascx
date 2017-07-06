@@ -50,11 +50,6 @@
     <div style="text-align: right;">
         Este exemplo vem com o código fonte ao adquirir o componente de geração de 
         boletos.<br/><br/>
-        <b>Donwload: <br/>
-        <a href="http://www.boletoasp.com.br/BoletoNet2-Demo.zip" title="VERSÃO DEMOSTRAÇÃO">Versão de Demostração</a><br/>
-        <a href="http://www.boletoasp.com.br/Impactro.Cobranca.xml" title="DOCUMENTAÇÃO XML - Impactro.Cobranca.DLL"><i>XML de Documentação</i></a><br/>
-        <a href="http://www.boletoasp.com.br/Impactro.Cobranca-HELP.zip" title="DOCUMENTAÇÃO HELP (.chm)"><i>Documentação em formato HELP do Windows</i></a><br/>
-        </b>
         <br/>
         Veja também: <br/>
         <a href="../Cielo/Cielo-Direto.aspx" title="Exemplo de Gateway em ASP.NET / C# de request para pagamentos usando os componentes do Cielo/VisaNet">Gateway Cielo</a> para pagamento com cartões de credito, via WebServices da Cielo<br/>
