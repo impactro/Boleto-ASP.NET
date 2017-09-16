@@ -17,7 +17,7 @@ public partial class BoletoNet_HomologaCaixaCS : System.Web.UI.Page
         Cedente.Banco = "104";
         Cedente.Agencia = "4353";
         Cedente.Conta = "00000939-9";
-        Cedente.Carteira = "2"; // 1-Registrada ou 2-Sem registro
+        Cedente.Carteira = "1"; // 1-Registrada ou 2-Sem registro
         Cedente.CodCedente = "658857";
         Cedente.Convenio = "1234"; // CNPJ do PV da conta do cliente = 00.360.305/4353-48 (usado em alguns casos)
         Cedente.Informacoes =
