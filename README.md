@@ -2,12 +2,9 @@ A [Nova Plataforma de Boletos de Pagamento-Cobrança Registrada](https://portal.
 
 ![Prazos Boleto Registrado](https://raw.githubusercontent.com/impactro/Boleto-Test/master/DOC/PrazoRegistro.JPG)
 
-Acesse as páginas de documentção
-    * 136-UniCred (Antigo 091)
-
+Este é um exemplo de uso do componente "Open Source" (FREE) *Impactro.Cobrança*
+* [Código Fonte](https://github.com/impactro/Impactro.Cobranca)
 * [Bancos Suportados](https://github.com/impactro/Boleto-Test/wiki/Bancos-Suportados)
 * [História e Continuidade](https://github.com/impactro/Boleto-Test/wiki/Continuidade)
 
-Eu comercializo apenas os fontes da DLL, da forma que estão, no meu site oficial [BoletoASP.com.br](www.boletoasp.com.br), mas todos os exemplos e formas de uso, assim como a DLL de demonstração é de uso livre.
-
-E muito importante a aquisição dos fontes para que cada cliente, programador, possa ter total controle do que é gerado alem de poder implementar se necessário novos recursos que antes opcionais de acordo com cada caso.
+Não comercializo mais o componente abertamente desde 2017, e o antigo site [BoletoASP.com.br](www.boletoasp.com.br) não está mais diponível, mas todos os exemplos e formas de uso, assim como a DLL e fontes agora são de uso livre.
